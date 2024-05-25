@@ -4,8 +4,8 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -53,7 +53,10 @@ class _WordPageState extends State<WordPage> {
     try {
       // Check if the JSON file exists locally
       // final directory = await getApplicationDocumentsDirectory();
-      final file = File('assets/words.json');
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/words.json');
+      // final file = File('assets/words.json');
+
       // print(file);
       if (await file.exists()) {
         // If the file exists locally, load data from it
@@ -65,30 +68,29 @@ class _WordPageState extends State<WordPage> {
           filteredWords = allWords;
           isLoading = false;
         });
+      } else {
+        // If the file doesn't exist, fetch data from the network and save it locally
+        final response = await http.get(
+          Uri.parse(
+              'https://raw.githubusercontent.com/rajibdpi/govdictionary/master/assets/words.json'),
+        );
+        if (response.statusCode == 200) {
+          final jsonString = response.body;
+          final List<dynamic> jsonData = jsonDecode(jsonString);
+          setState(() {
+            allWords =
+                jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+            filteredWords = allWords;
+            isLoading = false;
+          });
+          // Save JSON data locally with a custom file name
+          await File('${directory.path}/BengaliDictionary.json')
+              .writeAsString(jsonString);
+          // print(jsonString);
+        } else {
+          throw Exception('Failed to load words');
+        }
       }
-      // else {
-      //   // If the file doesn't exist, fetch data from the network and save it locally
-      //   final response = await http.get(
-      //     Uri.parse(
-      //         'https://raw.githubusercontent.com/rajibdpi/dictionary/master/assets/BengaliDictionary.json'),
-      //   );
-      //   if (response.statusCode == 200) {
-      //     final jsonString = response.body;
-      //     final List<dynamic> jsonData = jsonDecode(jsonString);
-      //     setState(() {
-      //       allWords =
-      //           jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
-      //       filteredWords = allWords;
-      //       isLoading = false;
-      //     });
-      //     // Save JSON data locally with a custom file name
-      //     await File('${directory.path}/BengaliDictionary.json')
-      //         .writeAsString(jsonString);
-      //     // print(jsonString);
-      //   } else {
-      //     throw Exception('Failed to load words');
-      //   }
-      // }
     } catch (e) {
       print('Error loading JSON: $e');
       // Handle error
