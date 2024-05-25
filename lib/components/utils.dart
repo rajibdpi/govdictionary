@@ -18,8 +18,8 @@ Future<String> lastUpdatedLocalFile() async {
 
 Future<String> lastUpdatedOnlineFile() async {
   const owner = 'rajibdpi';
-  const repo = 'dictionary';
-  const filePath = 'assets/BengaliDictionary.json';
+  const repo = 'govdictionary';
+  const filePath = 'assets/words.json';
 
   final response = await http.get(Uri.parse(
       'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
