@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 //lastUpdateLocalFile() // Get metadata of the local file
 
-String appDatabaseName = 'BengaliDictionary.json';
+String appDatabaseName = 'words.json';
 
 Future<String> lastUpdatedLocalFile() async {
   final directory = await getApplicationDocumentsDirectory();
