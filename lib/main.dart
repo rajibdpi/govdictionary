@@ -40,6 +40,7 @@ class _WordPageState extends State<WordPage> {
   late String updateAtDateTime;
   bool isLoading = true; // Track loading state
   bool isSearchBarOpen = false;
+  int selectedItemIndex = 0;
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -138,11 +139,25 @@ class _WordPageState extends State<WordPage> {
                   itemBuilder: (context, index) {
                     final word = filteredWords[index];
                     return ListTile(
-                      leading: Text(word.correct[0]),
+                      selectedTileColor: Colors.deepPurple.shade50,
+                      selected: index == selectedItemIndex,
                       title: Text(
                         '${word.correct} - ${word.incorrect}',
                         style: const TextStyle(fontWeight: FontWeight.normal),
                       ),
+                      leading: CircleAvatar(
+                        child: Text(word.correct[0]),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          selectedItemIndex = index;
+                        });
+                      },
+                      onLongPress: () {
+                        print(
+                          '${word.correct} - ${word.incorrect}',
+                        );
+                      },
                     );
                   },
                 ),
@@ -166,13 +181,25 @@ class _WordPageState extends State<WordPage> {
                   itemBuilder: (context, index) {
                     final word = filteredWords[index];
                     return ListTile(
-                      leading: CircleAvatar(
-                        child: Text(word.correct[0]),
-                      ),
+                      selectedTileColor: Colors.deepPurple.shade50,
+                      selected: index == selectedItemIndex,
                       title: Text(
                         '${word.correct} - ${word.incorrect}',
                         style: const TextStyle(fontWeight: FontWeight.normal),
                       ),
+                      leading: CircleAvatar(
+                        child: Text(word.correct[0]),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          selectedItemIndex = index;
+                        });
+                      },
+                      onLongPress: () {
+                        print(
+                          '${word.correct} - ${word.incorrect}',
+                        );
+                      },
                     );
                   },
                 ),
@@ -197,7 +224,7 @@ class _WordPageState extends State<WordPage> {
             icon: const Icon(Icons.search),
           )
         ],
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.deepPurple.shade50,
       ),
       drawer: Drawer(
         child: ListView(
@@ -205,7 +232,7 @@ class _WordPageState extends State<WordPage> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.teal,
+                color: Colors.deepPurple,
               ),
               child: Text(
                 'সরকারি কাজে ব্যবহৃত বাংলা',
