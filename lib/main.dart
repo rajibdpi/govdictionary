@@ -166,7 +166,9 @@ class _WordPageState extends State<WordPage> {
                   itemBuilder: (context, index) {
                     final word = filteredWords[index];
                     return ListTile(
-                      leading: Text(word.correct[0]),
+                      leading: CircleAvatar(
+                        child: Text(word.correct[0]),
+                      ),
                       title: Text(
                         '${word.correct} - ${word.incorrect}',
                         style: const TextStyle(fontWeight: FontWeight.normal),
