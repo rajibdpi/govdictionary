@@ -40,7 +40,7 @@ class _WordPageState extends State<WordPage> {
   late String updateAtDateTime;
   bool isLoading = true; // Track loading state
   bool isSearchBarOpen = false;
-  int selectedItemIndex = 0;
+  int? selectedItemIndex;
   TextEditingController searchController = TextEditingController();
 
   @override
