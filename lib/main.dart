@@ -112,6 +112,7 @@ class _WordPageState extends State<WordPage> {
         TextField(
           onChanged: searchWords,
           controller: searchController,
+          autofocus: true,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.search),
             suffixIcon: IconButton(
