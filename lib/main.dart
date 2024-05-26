@@ -110,21 +110,26 @@ class _WordPageState extends State<WordPage> {
   Widget withSearchBar() {
     return Column(
       children: [
-        TextField(
-          onChanged: searchWords,
-          controller: searchController,
-          autofocus: true,
-          decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.search),
-            suffixIcon: IconButton(
-              onPressed: () {
-                searchController.clear();
-                searchWords('');
-              },
-              icon: const Icon(Icons.clear),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            onChanged: searchWords,
+            controller: searchController,
+            autofocus: true,
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.search),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  searchController.clear();
+                  searchWords('');
+                },
+                icon: const Icon(Icons.clear),
+              ),
+              labelText: 'Search-খুঁজুন',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
             ),
-            labelText: 'Search-খুঁজুন',
-            border: const OutlineInputBorder(),
           ),
         ),
         Expanded(
@@ -148,6 +153,27 @@ class _WordPageState extends State<WordPage> {
                       leading: CircleAvatar(
                         child: Text(word.correct[0]),
                       ),
+                      // trailing: Row(
+                      //   mainAxisSize: MainAxisSize
+                      //       .min, // To restrict the width of the row
+                      //   children: [
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         print('copy');
+                      //       },
+                      //       icon: const Icon(Icons.copy),
+                      //     ),
+                      //     const SizedBox(
+                      //       width: 04,
+                      //     ),
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         print('share');
+                      //       },
+                      //       icon: const Icon(Icons.share),
+                      //     ),
+                      //   ],
+                      // ),
                       onTap: () {
                         setState(() {
                           selectedItemIndex = index;
@@ -190,6 +216,27 @@ class _WordPageState extends State<WordPage> {
                       leading: CircleAvatar(
                         child: Text(word.correct[0]),
                       ),
+                      // trailing: Row(
+                      //   mainAxisSize: MainAxisSize
+                      //       .min, // To restrict the width of the row
+                      //   children: [
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         print('copy');
+                      //       },
+                      //       icon: const Icon(Icons.copy),
+                      //     ),
+                      //     const SizedBox(
+                      //       width: 04,
+                      //     ),
+                      //     IconButton(
+                      //       onPressed: () {
+                      //         print('share');
+                      //       },
+                      //       icon: const Icon(Icons.share),
+                      //     ),
+                      //   ],
+                      // ),
                       onTap: () {
                         setState(() {
                           selectedItemIndex = index;
@@ -212,7 +259,10 @@ class _WordPageState extends State<WordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('সরকারি কাজে ব্যবহৃত বাংলা'),
+        title: const Text(
+          'সরকারি কাজে ব্যবহৃত বাংলা',
+          style: TextStyle(color: Colors.white),
+        ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
           IconButton(
@@ -221,10 +271,14 @@ class _WordPageState extends State<WordPage> {
                 isSearchBarOpen = !isSearchBarOpen;
               });
             },
-            icon: const Icon(Icons.search),
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
           )
         ],
-        backgroundColor: Colors.deepPurple.shade50,
+        backgroundColor: Colors.indigo,
+        // backgroundColor: Colors.deepPurple.shade50,
       ),
       drawer: Drawer(
         child: ListView(
@@ -232,7 +286,7 @@ class _WordPageState extends State<WordPage> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.indigo,
               ),
               child: Text(
                 'সরকারি কাজে ব্যবহৃত বাংলা',
