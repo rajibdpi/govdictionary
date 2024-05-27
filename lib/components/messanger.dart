@@ -16,35 +16,55 @@ showDialogMessage(BuildContext context, Word word) {
             // scrollable: true,
             // title: Text(title),
             titleTextStyle: const TextStyle(fontSize: 16, color: Colors.black),
-            content: Text('${word.correct}\n${word.incorrect}'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextButton.icon(
+                  onPressed: () {},
+                  label: SelectableText(word.correct),
+                  icon: const Icon(
+                    Icons.check_circle_outlined,
+                    color: Colors.green,
+                  ),
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  label: SelectableText(word.incorrect),
+                  icon: const Icon(
+                    Icons.highlight_off,
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
             // iconColor:  ,
-            icon: const Icon(Icons.notifications),
-            actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Flexible(
-                    child: IconButton(
-                      color: Colors.green,
-                      onPressed: () {
-                        showSnackBarMessage(
-                            context, "Success", "Record Deleted");
-                        Navigator.of(context).pop();
-                      },
-                      icon: const Icon(Icons.check_circle_outlined),
-                    ),
-                  ),
-                  Flexible(
-                    child: IconButton(
-                      color: Colors.red,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: const Icon(Icons.highlight_off),
-                    ),
-                  ),
-                ],
-              )
+            icon: const Icon(Icons.info_outline),
+            actions: const [
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Flexible(
+              //       child: IconButton(
+              //         color: Colors.green,
+              //         onPressed: () {
+              //           showSnackBarMessage(
+              //               context, "Success", "Record Deleted");
+              //           Navigator.of(context).pop();
+              //         },
+              //         icon: const Icon(Icons.check_circle_outlined),
+              //       ),
+              //     ),
+              //     Flexible(
+              //       child: IconButton(
+              //         color: Colors.red,
+              //         onPressed: () {
+              //           Navigator.of(context).pop();
+              //         },
+              //         icon: const Icon(Icons.highlight_off),
+              //       ),
+              //     ),
+              //   ],
+              // )
             ],
           );
         },
