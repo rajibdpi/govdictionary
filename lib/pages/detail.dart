@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:govdictionary/models/word.dart';
 
 class WordDetails extends StatefulWidget {
-  final String worden;
-  final String wordbn;
-  // final String wordbn;
-  const WordDetails({super.key, required this.worden, required this.wordbn});
+  final Word word;
+  // final String incorrect;
+  const WordDetails({super.key, required this.word});
 
   @override
   State<WordDetails> createState() => _WordDetailsState();
 }
 
 class _WordDetailsState extends State<WordDetails> {
-  // get word => null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,21 +31,22 @@ class _WordDetailsState extends State<WordDetails> {
             },
             icon: const Icon(Icons.copy),
           ),
-          IconButton(
-            onPressed: () {
-              print("Speaker Button Pressed");
-            },
-            icon: const Icon(Icons.volume_up),
-          ),
         ],
-        title: const Text('E2B Dictionary'),
+        title: const Text('সরকারি কাজে ব্যবহারিক বাংলা'),
       ),
       body: Center(
-        child: Center(
-          child: Text(
-            '${widget.worden}\n${widget.wordbn}',
-            style: const TextStyle(color: Colors.teal),
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'শুদ্ধ-${widget.word.correct}',
+              style: const TextStyle(color: Colors.green),
+            ),
+            Text(
+              'অশুদ্ধ/বর্জনীয়-${widget.word.incorrect}',
+              style: const TextStyle(color: Colors.red),
+            ),
+          ],
         ),
       ),
     );

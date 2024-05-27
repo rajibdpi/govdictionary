@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
+import 'package:govdictionary/pages/detail.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
@@ -238,9 +240,16 @@ class _WordPageState extends State<WordPage> {
                       //   ],
                       // ),
                       onTap: () {
-                        setState(() {
-                          selectedItemIndex = index;
-                        });
+                        showDialogMessage(
+                            context, word.correct, word.incorrect);
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => WordDetails(word: word),
+                        //   ),
+                        // );
+                        // setState(() {
+                        //   selectedItemIndex = index;
+                        // });
                       },
                       onLongPress: () {
                         print(
