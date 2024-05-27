@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:govdictionary/models/word.dart';
 
 // showDialogMessage()
@@ -20,16 +21,26 @@ showDialogMessage(BuildContext context, Word word) {
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextButton.icon(
-                  onPressed: () {},
-                  label: SelectableText(word.correct),
+                  onPressed: () async {
+                    await Clipboard.setData(ClipboardData(text: word.correct));
+                    showSnackBarMessage(
+                        context, 'Copied successfully', word.correct);
+                  },
+                  label: Text(word.correct),
                   icon: const Icon(
                     Icons.check_circle_outlined,
                     color: Colors.green,
                   ),
                 ),
                 TextButton.icon(
-                  onPressed: () {},
-                  label: SelectableText(word.incorrect),
+                  onPressed: () async {
+                    await Clipboard.setData(
+                        ClipboardData(text: word.incorrect));
+                    // copied successfully
+                    showSnackBarMessage(
+                        context, 'Copied successfully', word.incorrect);
+                  },
+                  label: Text(word.incorrect),
                   icon: const Icon(
                     Icons.highlight_off,
                     color: Colors.red,
@@ -95,7 +106,7 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           showCloseIcon: true,
           closeIconColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.indigo,
           // backgroundColor: Colors.black87,
           action: SnackBarAction(
             label: "Undo",
