@@ -19,7 +19,7 @@ class _WordDetailsState extends State<WordDetails> {
       appBar: AppBar(
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.indigo,
         actions: [
           IconButton(
             onPressed: () {

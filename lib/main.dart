@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'সরকারি কাজে ব্যবহৃত বাংলা',
+      title: 'সরকারি কাজে ব্যবহারিক বাংলা',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
@@ -260,7 +260,7 @@ class _WordPageState extends State<WordPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'সরকারি কাজে ব্যবহৃত বাংলা',
+          'সরকারি কাজে ব্যবহারিক বাংলা',
           style: TextStyle(color: Colors.white),
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
@@ -289,7 +289,7 @@ class _WordPageState extends State<WordPage> {
                 color: Colors.indigo,
               ),
               child: Text(
-                'সরকারি কাজে ব্যবহৃত বাংলা',
+                'সরকারি কাজে ব্যবহারিক বাংলা',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
