@@ -49,7 +49,11 @@ showDialogMessage(BuildContext context, Word word) {
               ],
             ),
             // iconColor:  ,
-            icon: const Icon(Icons.info_outline),
+            icon: TextButton.icon(
+              onPressed: () {},
+              label: const Text("Tap to Clipboard"),
+              icon: const Icon(Icons.info_outline),
+            ),
             actions: const [
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
