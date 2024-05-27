@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:govdictionary/models/word.dart';
 
 // showDialogMessage()
-showDialogMessage(BuildContext context, String title, String content) {
+showDialogMessage(BuildContext context, Word word) {
   Future.delayed(
     Duration.zero,
     () {
@@ -13,9 +14,9 @@ showDialogMessage(BuildContext context, String title, String content) {
               borderRadius: BorderRadius.circular(10),
             ),
             // scrollable: true,
-            title: Text(title),
+            // title: Text(title),
             titleTextStyle: const TextStyle(fontSize: 16, color: Colors.black),
-            content: Text(content),
+            content: Text('${word.correct}\n${word.incorrect}'),
             // iconColor:  ,
             icon: const Icon(Icons.notifications),
             actions: [

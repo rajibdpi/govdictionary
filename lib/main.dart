@@ -155,31 +155,8 @@ class _WordPageState extends State<WordPage> {
                       leading: CircleAvatar(
                         child: Text(word.correct[0]),
                       ),
-                      // trailing: Row(
-                      //   mainAxisSize: MainAxisSize
-                      //       .min, // To restrict the width of the row
-                      //   children: [
-                      //     IconButton(
-                      //       onPressed: () {
-                      //         print('copy');
-                      //       },
-                      //       icon: const Icon(Icons.copy),
-                      //     ),
-                      //     const SizedBox(
-                      //       width: 04,
-                      //     ),
-                      //     IconButton(
-                      //       onPressed: () {
-                      //         print('share');
-                      //       },
-                      //       icon: const Icon(Icons.share),
-                      //     ),
-                      //   ],
-                      // ),
                       onTap: () {
-                        setState(() {
-                          selectedItemIndex = index;
-                        });
+                        showDialogMessage(context, word);
                       },
                       onLongPress: () {
                         print(
@@ -218,38 +195,8 @@ class _WordPageState extends State<WordPage> {
                       leading: CircleAvatar(
                         child: Text(word.correct[0]),
                       ),
-                      // trailing: Row(
-                      //   mainAxisSize: MainAxisSize
-                      //       .min, // To restrict the width of the row
-                      //   children: [
-                      //     IconButton(
-                      //       onPressed: () {
-                      //         print('copy');
-                      //       },
-                      //       icon: const Icon(Icons.copy),
-                      //     ),
-                      //     const SizedBox(
-                      //       width: 04,
-                      //     ),
-                      //     IconButton(
-                      //       onPressed: () {
-                      //         print('share');
-                      //       },
-                      //       icon: const Icon(Icons.share),
-                      //     ),
-                      //   ],
-                      // ),
                       onTap: () {
-                        showDialogMessage(
-                            context, word.correct, word.incorrect);
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (context) => WordDetails(word: word),
-                        //   ),
-                        // );
-                        // setState(() {
-                        //   selectedItemIndex = index;
-                        // });
+                        showDialogMessage(context, word);
                       },
                       onLongPress: () {
                         print(
