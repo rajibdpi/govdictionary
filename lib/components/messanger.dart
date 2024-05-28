@@ -112,14 +112,15 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           showCloseIcon: true,
           closeIconColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+
           backgroundColor: Colors.indigo,
           // backgroundColor: Colors.black87,
-          action: SnackBarAction(
-            label: "Undo",
-            onPressed: () {
-              print("Pressed Undo");
-            },
-          ),
+          // action: SnackBarAction(
+          //   label: "Undo",
+          //   onPressed: () {
+          //     print("Pressed Undo");
+          //   },
+          // ),
         ),
       );
     },
