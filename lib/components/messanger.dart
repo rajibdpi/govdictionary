@@ -111,8 +111,9 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           ),
           showCloseIcon: true,
           closeIconColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
-
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(2),
+          ),
           backgroundColor: Colors.indigo,
           // backgroundColor: Colors.black87,
           // action: SnackBarAction(
