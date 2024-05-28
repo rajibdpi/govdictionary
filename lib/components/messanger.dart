@@ -22,6 +22,7 @@ showDialogMessage(BuildContext context, Word word) {
               children: [
                 TextButton.icon(
                   onPressed: () async {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     await Clipboard.setData(ClipboardData(text: word.correct));
                     showSnackBarMessage(
                         context, 'Copied successfully', word.correct);
@@ -34,6 +35,7 @@ showDialogMessage(BuildContext context, Word word) {
                 ),
                 TextButton.icon(
                   onPressed: () async {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     await Clipboard.setData(
                         ClipboardData(text: word.incorrect));
                     // copied successfully
@@ -50,8 +52,8 @@ showDialogMessage(BuildContext context, Word word) {
             ),
             // iconColor:  ,
             icon: TextButton.icon(
-              onPressed: () {},
-              label: const Text("Tap to Clipboard"),
+              onPressed: null,
+              label: const Text("Tap on Word to Copy"),
               icon: const Icon(Icons.info_outline),
             ),
             actions: const [
