@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 //lastUpdateLocalFile()
+
 String appDatabaseName = 'words.json';
 int localFileSize = 0;
 int onlinefileSize = 0;
@@ -16,7 +17,7 @@ Future<List<Map>> lastUpdatedLocalFile() async {
   final localFileStat = await file.stat();
   localFileSize = localFileStat.size;
   // print("localFileSize:$localFileSize");
-// lastUpdatedOnlineFile()
+  // lastUpdatedOnlineFile()
   const fileUrl =
       'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
   final response = await http.get(Uri.parse(fileUrl));
