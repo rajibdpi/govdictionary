@@ -10,7 +10,9 @@ String appDatabaseName = 'words.json';
 
 String? localFileS;
 String? onLineFileSize;
-
+int fileSize = 0;
+int numberOfEntries = 0;
+int numberOfKeys = 0;
 Future<String> lastUpdatedLocalFile() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/$appDatabaseName');
@@ -26,11 +28,20 @@ Future<String> lastUpdatedLocalFile() async {
   const owner = 'rajibdpi';
   const repo = 'govdictionary';
   const filePath = 'assets/words.json';
-  final response = await http.get(Uri.parse(
-      'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
-  final onlineData = jsonDecode(response.body);
-  onLineFileSize = (onlineData as Map)['size'].toString();
-  print("OnlineFileS:$onLineFileSize");
+  const fileUrl =
+      'https://cdn.jsdelivr.net/gh/rajibdpi/govdictionary@main/assets/words.json';
+  // const fileUrl ='https://api.github.com/repos/$owner/$repo/contents/$filePath';
+  final response = await http.get(Uri.parse(fileUrl));
+  final jsonData = jsonDecode(response.body);
+  fileSize = response.bodyBytes.length;
+  print('fileSize:$fileSize');
+  numberOfEntries = jsonData.length;
+  print('numberOfEntries:$numberOfEntries');
+
+  // numberOfKeys = jsonData.fold(0, (sum, item) => sum + item.keys.length);
+
+  // onLineFileSize = (onlineData as Map)['size'].toString();
+  // print("OnlineFileS:$onLineFileSize");
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
   return updatedAt;
