@@ -50,7 +50,6 @@ Future<void> saveUpdate() async {
   } else {
     throw Exception('Failed to load words');
   }
-
   // final List<dynamic> jsonData = jsonDecode(jsonString);
   // setState(() {
   //   allWords = jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
