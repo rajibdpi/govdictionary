@@ -55,12 +55,9 @@ class _WordPageState extends State<WordPage> {
   Future<void> loadWords() async {
     try {
       // Check if the JSON file exists locally
-      // final directory = await getApplicationDocumentsDirectory();
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/words.json');
       // final file = File('assets/words.json');
-
-      // print(file);
       if (await file.exists()) {
         // If the file exists locally, load data from it
         final jsonString = await file.readAsString();
@@ -73,25 +70,7 @@ class _WordPageState extends State<WordPage> {
         });
       } else {
         // If the file doesn't exist, fetch data from the network and save it locally
-        final response = await http.get(
-          Uri.parse(
-              'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json'),
-        );
-        if (response.statusCode == 200) {
-          final jsonString = response.body;
-          final List<dynamic> jsonData = jsonDecode(jsonString);
-          setState(() {
-            allWords =
-                jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
-            filteredWords = allWords;
-            isLoading = false;
-          });
-          // Save JSON data locally with a custom file name
-          await File('${directory.path}/words.json').writeAsString(jsonString);
-          // print(jsonString);
-        } else {
-          throw Exception('Failed to load words');
-        }
+        saveUpdate();
       }
     } catch (e) {
       print('Error loading JSON: $e');
@@ -256,6 +235,7 @@ class _WordPageState extends State<WordPage> {
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
+                print(updateAvailable());
                 Navigator.pop(context); // Close the drawer
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => const AboutPage()));

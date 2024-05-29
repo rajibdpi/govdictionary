@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
@@ -48,11 +49,32 @@ Future<List<Map>> lastUpdatedLocalFile() async {
   // print("OnlineFileS:$onLineFileSize");
 }
 
-Future<List<int>> checkUpdate() async {
-  localFileSize < onlinefileSize ? true : false;
-  print('localFileSize:$localFileSize-onlinefileSize:$onlinefileSize');
-  return [localFileSize, onlinefileSize];
-  // return 'localFileSize:$localFileSize-onlinefileSize:$onlinefileSize';
+// checkUpdate
+bool updateAvailable() {
+  return localFileSize < onlinefileSize ? true : false;
+}
+
+Future<void> saveUpdate() async {
+  final directory = await getApplicationDocumentsDirectory();
+
+  final response = await http.get(
+    Uri.parse(
+        'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json'),
+  );
+  if (response.statusCode == 200) {
+    final jsonString = response.body;
+    final List<dynamic> jsonData = jsonDecode(jsonString);
+    // setState(() {
+    //   allWords = jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+    //   filteredWords = allWords;
+    //   isLoading = false;
+    // });
+    // Save JSON data locally with a custom file name
+    await File('${directory.path}/words.json').writeAsString(jsonString);
+    // print(jsonString);
+  } else {
+    throw Exception('Failed to load words');
+  }
 }
 
 Future<String> lastUpdatedOnlineFile() async {

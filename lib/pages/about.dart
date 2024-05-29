@@ -1,3 +1,4 @@
+import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,19 @@ class _AboutPageState extends State<AboutPage> {
               return Text('Error: ${snapshot.error}');
             } else {
               // If the future completes successfully, display the last update time
-              return Text('UpdatedAt: ${snapshot.data.toString()}');
+              return Column(children: [
+                TextButton.icon(
+                  onPressed: updateAvailable() == true
+                      ? () {
+                          saveUpdate();
+                        }
+                      : null,
+                  label: updateAvailable() == true
+                      ? const Text('Update')
+                      : const Text('Already Updated'),
+                ),
+                Text('UpdatedAt: ${snapshot.data.toString()}')
+              ]);
             }
           },
         ),
