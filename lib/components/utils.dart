@@ -4,7 +4,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 //lastUpdateLocalFile()
-
 String appDatabaseName = 'words.json';
 int localFileSize = 0;
 int onlinefileSize = 0;
