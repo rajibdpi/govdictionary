@@ -61,22 +61,3 @@ Future<void> saveUpdate() async {
     throw Exception('Failed to load words');
   }
 }
-
-Future<String> lastUpdatedOnlineFile() async {
-  const owner = 'rajibdpi';
-  const repo = 'govdictionary';
-  const filePath = 'assets/words.json';
-  final response = await http.get(Uri.parse(
-      'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
-  if (response.statusCode == 200 &&
-      response.headers.containsKey('last_modified')) {
-    if (response.headers.containsKey('last-modified')) {
-      final hDateTime = response.headers['last-modified'];
-      return hDateTime.toString();
-    } else {
-      return 'Error: Missing or invalid file information: ${response.statusCode}';
-    }
-  } else {
-    return 'Failed to fetch file information: ${response.statusCode}';
-  }
-}
