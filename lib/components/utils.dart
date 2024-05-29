@@ -16,13 +16,12 @@ Future<List<Map>> lastUpdatedLocalFile() async {
   final file = File('${directory.path}/$appDatabaseName');
   final localFileStat = await file.stat();
   localFileSize = localFileStat.size;
-  // print("localFileSize:$localFileSize");
+
   // lastUpdatedOnlineFile()
   const fileUrl =
       'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
   final response = await http.get(Uri.parse(fileUrl));
   onlinefileSize = response.bodyBytes.length;
-  // print('OnlineFileSize:$onlinefileSize');
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
   return [
