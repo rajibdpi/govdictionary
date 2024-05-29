@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
@@ -7,10 +8,29 @@ import 'package:http/http.dart' as http;
 
 String appDatabaseName = 'words.json';
 
+String? localFileS;
+String? onLineFileSize;
+
 Future<String> lastUpdatedLocalFile() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/$appDatabaseName');
   final localFileStat = await file.stat();
+  localFileS = localFileStat.size.toString();
+  // final datafile = await http.get(Uri.parse(
+  //     'https://api.github.com/repos/rajibdpi/govdictionary/contents/assets/words.json'));
+  // onLineFileSize = datafile.headers['size'];
+  // print("onLineFileSize:$onLineFileSize");
+  print("localFileS:$localFileS");
+
+// lastUpdatedOnlineFile()
+  const owner = 'rajibdpi';
+  const repo = 'govdictionary';
+  const filePath = 'assets/words.json';
+  final response = await http.get(Uri.parse(
+      'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
+  final onlineData = jsonDecode(response.body);
+  onLineFileSize = (onlineData as Map)['size'].toString();
+  print("OnlineFileS:$onLineFileSize");
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
   return updatedAt;
@@ -20,15 +40,8 @@ Future<String> lastUpdatedOnlineFile() async {
   const owner = 'rajibdpi';
   const repo = 'govdictionary';
   const filePath = 'assets/words.json';
-
   final response = await http.get(Uri.parse(
       'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
-
-  print('API Response Headers: ${response.headers['last-modified']}');
-
-  print('API Response: ${response.statusCode}');
-  print('API Response Body: ${response.body}');
-
   if (response.statusCode == 200 &&
       response.headers.containsKey('last_modified')) {
     // final Map<String, dynamic>? fileInfo = jsonDecode(response.body);
