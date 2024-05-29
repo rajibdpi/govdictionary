@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 String appDatabaseName = 'words.json';
 
-String? localFileS;
+int localFileS = 0;
 String? onLineFileSize;
 int fileSize = 0;
 int numberOfEntries = 0;
@@ -17,7 +17,7 @@ Future<String> lastUpdatedLocalFile() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/$appDatabaseName');
   final localFileStat = await file.stat();
-  localFileS = localFileStat.size.toString();
+  localFileS = localFileStat.size;
   // final datafile = await http.get(Uri.parse(
   //     'https://api.github.com/repos/rajibdpi/govdictionary/contents/assets/words.json'));
   // onLineFileSize = datafile.headers['size'];
@@ -29,14 +29,16 @@ Future<String> lastUpdatedLocalFile() async {
   const repo = 'govdictionary';
   const filePath = 'assets/words.json';
   const fileUrl =
-      'https://cdn.jsdelivr.net/gh/rajibdpi/govdictionary@main/assets/words.json';
+      'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
+  // 'https://raw.githubusercontent.com/rajibdpi/govdictionary/main/assets/words.json';
+  // 'https://cdn.jsdelivr.net/gh/rajibdpi/govdictionary@main/assets/words.json';
   // const fileUrl ='https://api.github.com/repos/$owner/$repo/contents/$filePath';
   final response = await http.get(Uri.parse(fileUrl));
-  final jsonData = jsonDecode(response.body);
+  // final jsonData = jsonDecode(response.body);
   fileSize = response.bodyBytes.length;
-  print('fileSize:$fileSize');
-  numberOfEntries = jsonData.length;
-  print('numberOfEntries:$numberOfEntries');
+  print('OnlineFileSize:$fileSize');
+  // numberOfEntries = jsonData.length;
+  // print('numberOfEntries:$numberOfEntries');
 
   // numberOfKeys = jsonData.fold(0, (sum, item) => sum + item.keys.length);
 

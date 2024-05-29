@@ -5,7 +5,7 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
-import 'package:govdictionary/pages/detail.dart';
+// import 'package:govdictionary/pages/detail.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
@@ -75,7 +75,7 @@ class _WordPageState extends State<WordPage> {
         // If the file doesn't exist, fetch data from the network and save it locally
         final response = await http.get(
           Uri.parse(
-              'https://raw.githubusercontent.com/rajibdpi/govdictionary/master/assets/words.json'),
+              'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json'),
         );
         if (response.statusCode == 200) {
           final jsonString = response.body;
