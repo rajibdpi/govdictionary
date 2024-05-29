@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
-//lastUpdateLocalFile() // Get metadata of the local file
+//lastUpdateLocalFile()
 
 String appDatabaseName = 'words.json';
 int localFileSize = 0;
@@ -26,7 +25,6 @@ Future<List<Map>> lastUpdatedLocalFile() async {
   // print('OnlineFileSize:$onlinefileSize');
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
-  // return updatedAt;
   return [
     {
       'updatedAt': updatedAt,
@@ -72,19 +70,13 @@ Future<String> lastUpdatedOnlineFile() async {
       'https://api.github.com/repos/$owner/$repo/contents/$filePath'));
   if (response.statusCode == 200 &&
       response.headers.containsKey('last_modified')) {
-    // final Map<String, dynamic>? fileInfo = jsonDecode(response.body);
-    // final Map<String, dynamic>? headerInfo = jsonDecode(response.body);
     if (response.headers.containsKey('last-modified')) {
       final hDateTime = response.headers['last-modified'];
-      // Convert lastModifiedStr to DateTime
       return hDateTime.toString();
     } else {
-      // print('Error: Missing or invalid file information.');
       return 'Error: Missing or invalid file information: ${response.statusCode}';
     }
   } else {
-    // Handle HTTP error
-    // print('Failed to fetch file information: ${response.statusCode}');
     return 'Failed to fetch file information: ${response.statusCode}';
   }
 }
