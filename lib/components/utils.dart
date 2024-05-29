@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
@@ -7,46 +6,53 @@ import 'package:http/http.dart' as http;
 //lastUpdateLocalFile() // Get metadata of the local file
 
 String appDatabaseName = 'words.json';
-
-int localFileS = 0;
-String? onLineFileSize;
-int fileSize = 0;
+int localFileSize = 0;
+int onlinefileSize = 0;
 int numberOfEntries = 0;
 int numberOfKeys = 0;
-Future<String> lastUpdatedLocalFile() async {
+
+Future<List<Map>> lastUpdatedLocalFile() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/$appDatabaseName');
   final localFileStat = await file.stat();
-  localFileS = localFileStat.size;
-  // final datafile = await http.get(Uri.parse(
-  //     'https://api.github.com/repos/rajibdpi/govdictionary/contents/assets/words.json'));
-  // onLineFileSize = datafile.headers['size'];
-  // print("onLineFileSize:$onLineFileSize");
-  print("localFileS:$localFileS");
+  localFileSize = localFileStat.size;
+  print("localFileSize:$localFileSize");
 
 // lastUpdatedOnlineFile()
-  const owner = 'rajibdpi';
-  const repo = 'govdictionary';
-  const filePath = 'assets/words.json';
   const fileUrl =
       'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
+  final response = await http.get(Uri.parse(fileUrl));
+  onlinefileSize = response.bodyBytes.length;
+  print('OnlineFileSize:$onlinefileSize');
+  DateTime localUpdatedDateTime = localFileStat.modified;
+  String updatedAt = localUpdatedDateTime.toString();
+  // return updatedAt;
+  return [
+    {
+      'updatedAt': updatedAt,
+      'localFileSize': localFileSize,
+      'onlinefileSize': onlinefileSize
+    }
+  ];
+
+  // const owner = 'rajibdpi';
+  // const repo = 'govdictionary';
+  // const filePath = 'assets/words.json';
   // 'https://raw.githubusercontent.com/rajibdpi/govdictionary/main/assets/words.json';
   // 'https://cdn.jsdelivr.net/gh/rajibdpi/govdictionary@main/assets/words.json';
   // const fileUrl ='https://api.github.com/repos/$owner/$repo/contents/$filePath';
-  final response = await http.get(Uri.parse(fileUrl));
-  // final jsonData = jsonDecode(response.body);
-  fileSize = response.bodyBytes.length;
-  print('OnlineFileSize:$fileSize');
   // numberOfEntries = jsonData.length;
   // print('numberOfEntries:$numberOfEntries');
-
   // numberOfKeys = jsonData.fold(0, (sum, item) => sum + item.keys.length);
-
   // onLineFileSize = (onlineData as Map)['size'].toString();
   // print("OnlineFileS:$onLineFileSize");
-  DateTime localUpdatedDateTime = localFileStat.modified;
-  String updatedAt = localUpdatedDateTime.toString();
-  return updatedAt;
+}
+
+Future<List<int>> checkUpdate() async {
+  localFileSize < onlinefileSize ? true : false;
+  print('localFileSize:$localFileSize-onlinefileSize:$onlinefileSize');
+  return [localFileSize, onlinefileSize];
+  // return 'localFileSize:$localFileSize-onlinefileSize:$onlinefileSize';
 }
 
 Future<String> lastUpdatedOnlineFile() async {

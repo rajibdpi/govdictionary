@@ -18,8 +18,8 @@ class _AboutPageState extends State<AboutPage> {
         title: const Text("About"),
       ),
       body: Center(
-        child: FutureBuilder<String>(
-          future: lastUpdatedOnlineFile(),
+        child: FutureBuilder<List<Map>>(
+          future: lastUpdatedLocalFile(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // While waiting for the future to complete, you can display a loading indicator or placeholder text
@@ -29,7 +29,7 @@ class _AboutPageState extends State<AboutPage> {
               return Text('Error: ${snapshot.error}');
             } else {
               // If the future completes successfully, display the last update time
-              return Text('UpdatedAt: ${snapshot.data}');
+              return Text('UpdatedAt: ${snapshot.data.toString()}');
             }
           },
         ),
