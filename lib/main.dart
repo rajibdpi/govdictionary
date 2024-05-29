@@ -5,8 +5,6 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
-// import 'package:govdictionary/pages/detail.dart';
-import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
@@ -235,7 +233,6 @@ class _WordPageState extends State<WordPage> {
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                print(updateAvailable());
                 Navigator.pop(context); // Close the drawer
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => const AboutPage()));

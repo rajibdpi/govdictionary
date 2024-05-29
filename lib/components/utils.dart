@@ -45,7 +45,7 @@ Future<void> saveUpdate() async {
   );
   if (response.statusCode == 200) {
     final jsonString = response.body;
-    await File('${directory.path}/words.json').writeAsString(jsonString);
+    await File('${directory.path}/$appDatabaseName').writeAsString(jsonString);
     // print(jsonString);
   } else {
     throw Exception('Failed to load words');
