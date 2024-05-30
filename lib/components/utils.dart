@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:govdictionary/components/messanger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,7 +11,7 @@ int remotefileSize = 0;
 int numberOfEntries = 0;
 int numberOfKeys = 0;
 String url =
-    'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
+    'https://raw.githubusercontent.com/rajibdpi/govdictionary/main/assets/words.json';
 final remoteFile = http.get(Uri.parse(url));
 
 // fileStats()
