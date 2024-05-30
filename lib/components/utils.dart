@@ -43,16 +43,16 @@ Future<void> saveUpdate() async {
   final directory = await getApplicationDocumentsDirectory();
   final remoteFileResponse = await remoteFile;
   if (remoteFileResponse.statusCode == 200) {
-    final remoteFileJsonString = remoteFileResponse.body;
+    final remoteJsonString = remoteFileResponse.body;
     final remoteFileSaved = await File('${directory.path}/$appDatabaseName')
-        .writeAsString(remoteFileJsonString);
+        .writeAsString(remoteJsonString);
     AlertDialog(
       content: Text('$remoteFileSaved'),
     );
   } else {
     throw Exception('Failed to load words');
   }
-  // final List<dynamic> jsonData = jsonDecode(remoteFileJsonString);
+  // final List<dynamic> jsonData = jsonDecode(remoteJsonString);
   // setState(() {
   //   allWords = jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
   //   filteredWords = allWords;

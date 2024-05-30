@@ -6,6 +6,7 @@ import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -47,35 +48,36 @@ class _WordPageState extends State<WordPage> {
   void initState() {
     super.initState();
     loadWords();
+    saveUpdate();
     // isSearchBarOpen = !isSearchBarOpen;
   }
 
   Future<void> loadWords() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/words.json');
-    final jsonString = await file.readAsString();
-    final List<dynamic> jsonData = jsonDecode(jsonString);
     try {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/words.json');
+      final localJsonString = await file.readAsString();
+      final List<dynamic> localJsonData = jsonDecode(localJsonString);
       // Check if the JSON file exists locally
       // final directory = await getApplicationDocumentsDirectory();
       // final file = File('${directory.path}/words.json');
       // final file = File('assets/words.json');
       if (await file.exists()) {
         // If the file exists locally, load data from it
-        // final jsonString = await file.readAsString();
-        // final List<dynamic> jsonData = jsonDecode(jsonString);
+        // final localJsonString = await file.readAsString();
+        // final List<dynamic> localJsonData = jsonDecode(localJsonString);
         setState(() {
           allWords =
-              jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+              localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
           filteredWords = allWords;
           isLoading = false;
         });
       } else {
         // If the file doesn't exist, fetch data from the network and save it locally
-        saveUpdate();
+        // saveUpdate();
         setState(() {
           allWords =
-              jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+              localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
           filteredWords = allWords;
           isLoading = false;
         });
