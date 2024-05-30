@@ -189,11 +189,9 @@ class _WordPageState extends State<WordPage> {
                       onTap: () {
                         showDialogMessage(context, word);
                       },
-                      onLongPress: () {
-                        print(
-                          '${word.correct} - ${word.incorrect}',
-                        );
-                      },
+                      // onLongPress: () {
+                      //   showDialogMessage(context, word);
+                      // },
                     );
                   },
                 ),
