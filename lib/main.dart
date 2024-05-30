@@ -48,7 +48,6 @@ class _WordPageState extends State<WordPage> {
   void initState() {
     super.initState();
     loadWords();
-    saveUpdate();
     // isSearchBarOpen = !isSearchBarOpen;
   }
 
@@ -58,14 +57,9 @@ class _WordPageState extends State<WordPage> {
       final file = File('${directory.path}/words.json');
       final localJsonString = await file.readAsString();
       final List<dynamic> localJsonData = jsonDecode(localJsonString);
-      // Check if the JSON file exists locally
-      // final directory = await getApplicationDocumentsDirectory();
-      // final file = File('${directory.path}/words.json');
-      // final file = File('assets/words.json');
+
       if (await file.exists()) {
         // If the file exists locally, load data from it
-        // final localJsonString = await file.readAsString();
-        // final List<dynamic> localJsonData = jsonDecode(localJsonString);
         setState(() {
           allWords =
               localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
@@ -74,13 +68,22 @@ class _WordPageState extends State<WordPage> {
         });
       } else {
         // If the file doesn't exist, fetch data from the network and save it locally
-        // saveUpdate();
-        setState(() {
-          allWords =
-              localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
-          filteredWords = allWords;
-          isLoading = false;
-        });
+        final remoteFileResponse = await remoteFile;
+        if (remoteFileResponse.statusCode == 200) {
+          final remoteJsonString = remoteFileResponse.body;
+          // final List<dynamic> remoteJsonData = jsonDecode(remoteJsonString);
+          await File('${directory.path}/$appDatabaseName')
+              .writeAsString(remoteJsonString);
+          setState(() {
+            allWords = localJsonData
+                .map((wordJson) => Word.fromJson(wordJson))
+                .toList();
+            filteredWords = allWords;
+            isLoading = false;
+          });
+        } else {
+          throw Exception('Failed to load words');
+        }
       }
     } catch (e) {
       print('Error loading JSON: $e');
