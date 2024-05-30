@@ -207,7 +207,7 @@ class _WordPageState extends State<WordPage> {
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           appName,
-          style: const TextStyle(color: Colors.white, fontSize: 14),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [

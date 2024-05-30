@@ -18,7 +18,7 @@ class _AboutPageState extends State<AboutPage> {
         // actions: [],
         title: const Text(
           "About",
-          style: TextStyle(color: Colors.white, fontSize: 15),
+          style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
       body: Padding(
