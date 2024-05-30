@@ -20,7 +20,7 @@ class _AboutPageState extends State<AboutPage> {
       ),
       body: Center(
         child: FutureBuilder<List<Map>>(
-          future: lastUpdatedLocalFile(),
+          future: fileStats(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // While waiting for the future to complete, you can display a loading indicator or placeholder text

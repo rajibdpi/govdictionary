@@ -1,0 +1,82 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:govdictionary/models/word.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
+
+class FileServices extends StatefulWidget {
+  const FileServices({super.key});
+  @override
+  State<FileServices> createState() => _FileServicesState();
+}
+
+class _FileServicesState extends State<FileServices> {
+  late List<Word> allWords;
+  late List<Word> filteredWords = [];
+  late String updateAtDateTime;
+  bool isLoading = true; // Track loading state
+  bool isSearchBarOpen = false;
+  int? selectedItemIndex;
+  TextEditingController searchController = TextEditingController();
+
+  String appDatabaseName = 'words.json';
+  int localFileSize = 0;
+  int onlinefileSize = 0;
+  int numberOfEntries = 0;
+  int numberOfKeys = 0;
+  String remoteFileUrl =
+      'https://raw.githubusercontent.com/rajibdpi/govdictionary/latest/assets/words.json';
+  //lastUpdateLocalFile()
+  Future<List<Map>> lastUpdatedLocalFile() async {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/$appDatabaseName');
+    final localFileStat = await file.stat();
+    localFileSize = localFileStat.size;
+
+    // lastUpdatedOnlineFile()
+    final response = await http.get(Uri.parse(remoteFileUrl));
+    onlinefileSize = response.bodyBytes.length;
+    DateTime localUpdatedDateTime = localFileStat.modified;
+    String updatedAt = localUpdatedDateTime.toString();
+    return [
+      {
+        'updatedAt': updatedAt,
+        'localFileSize': localFileSize,
+        'onlinefileSize': onlinefileSize
+      }
+    ];
+  }
+
+// checkUpdate
+  bool updateAvailable() {
+    return localFileSize < onlinefileSize ? true : false;
+  }
+
+// saveUpdate
+  Future<void> saveUpdate() async {
+    final directory = await getApplicationDocumentsDirectory();
+    final response = await http.get(
+      Uri.parse(remoteFileUrl),
+    );
+    final jsonString = response.body;
+    final List<dynamic> jsonData = jsonDecode(jsonString);
+    if (response.statusCode == 200) {
+      await File('${directory.path}/$appDatabaseName')
+          .writeAsString(jsonString);
+    } else {
+      throw Exception('Failed to load words');
+    }
+    setState(() {
+      allWords = jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+      filteredWords = allWords;
+      isLoading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

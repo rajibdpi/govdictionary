@@ -51,15 +51,19 @@ class _WordPageState extends State<WordPage> {
   }
 
   Future<void> loadWords() async {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/words.json');
+    final jsonString = await file.readAsString();
+    final List<dynamic> jsonData = jsonDecode(jsonString);
     try {
       // Check if the JSON file exists locally
-      final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/words.json');
+      // final directory = await getApplicationDocumentsDirectory();
+      // final file = File('${directory.path}/words.json');
       // final file = File('assets/words.json');
       if (await file.exists()) {
         // If the file exists locally, load data from it
-        final jsonString = await file.readAsString();
-        final List<dynamic> jsonData = jsonDecode(jsonString);
+        // final jsonString = await file.readAsString();
+        // final List<dynamic> jsonData = jsonDecode(jsonString);
         setState(() {
           allWords =
               jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
@@ -69,6 +73,12 @@ class _WordPageState extends State<WordPage> {
       } else {
         // If the file doesn't exist, fetch data from the network and save it locally
         saveUpdate();
+        setState(() {
+          allWords =
+              jsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
+          filteredWords = allWords;
+          isLoading = false;
+        });
       }
     } catch (e) {
       print('Error loading JSON: $e');
@@ -247,28 +257,36 @@ class _WordPageState extends State<WordPage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.update),
-              title: FutureBuilder<List<Map>>(
-                future: lastUpdatedLocalFile(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator(
-                      semanticsLabel: 'Loading..',
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    return Text(
-                      'Updated at: ${snapshot.data!}',
-                      style: const TextStyle(fontSize: 10),
-                    );
-                  }
-                },
-              ),
+              leading: const Icon(Icons.settings),
+              title: const Text('Updated At'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
+                // Navigate to settings page or perform settings related actions
               },
             ),
+            // ListTile(
+            //   leading: const Icon(Icons.update),
+            //   title: FutureBuilder<List<Map>>(
+            //     future: lastUpdatedLocalFile(),
+            //     builder: (context, snapshot) {
+            //       if (snapshot.connectionState == ConnectionState.waiting) {
+            //         return const CircularProgressIndicator(
+            //           semanticsLabel: 'Loading..',
+            //         );
+            //       } else if (snapshot.hasError) {
+            //         return Text('Error: ${snapshot.error}');
+            //       } else {
+            //         return Text(
+            //           'Updated at: ${snapshot.data!}',
+            //           style: const TextStyle(fontSize: 10),
+            //         );
+            //       }
+            //     },
+            //   ),
+            //   onTap: () {
+            //     Navigator.pop(context); // Close the drawer
+            //   },
+            // ),
           ],
         ),
       ),
