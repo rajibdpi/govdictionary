@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 //lastUpdateLocalFile()
+String appName = 'সরকারি কাজে ব্যবহারিক বাংলা';
 String appDatabaseName = 'words.json';
 int localFileSize = 0;
 int remotefileSize = 0;
