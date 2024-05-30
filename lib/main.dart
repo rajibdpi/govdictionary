@@ -262,7 +262,7 @@ class _WordPageState extends State<WordPage> {
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Updated At'),
+              title: const Text('Updated at'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
                 // Navigate to settings page or perform settings related actions
