@@ -53,7 +53,7 @@ class _WordPageState extends State<WordPage> {
   Future<void> loadWords() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/words.json');
+      final file = File('${directory.path}/$appDatabaseName');
       // print(file);
       if (await file.exists()) {
         // If the file exists locally, load data from it
