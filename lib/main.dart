@@ -55,11 +55,11 @@ class _WordPageState extends State<WordPage> {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/words.json');
-      final localJsonString = await file.readAsString();
-      final List<dynamic> localJsonData = jsonDecode(localJsonString);
-
+      // print(file);
       if (await file.exists()) {
         // If the file exists locally, load data from it
+        final localJsonString = await file.readAsString();
+        final List<dynamic> localJsonData = jsonDecode(localJsonString);
         setState(() {
           allWords =
               localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
@@ -71,11 +71,11 @@ class _WordPageState extends State<WordPage> {
         final remoteFileResponse = await remoteFile;
         if (remoteFileResponse.statusCode == 200) {
           final remoteJsonString = remoteFileResponse.body;
-          // final List<dynamic> remoteJsonData = jsonDecode(remoteJsonString);
+          final List<dynamic> remoteJsonData = jsonDecode(remoteJsonString);
           await File('${directory.path}/$appDatabaseName')
               .writeAsString(remoteJsonString);
           setState(() {
-            allWords = localJsonData
+            allWords = remoteJsonData
                 .map((wordJson) => Word.fromJson(wordJson))
                 .toList();
             filteredWords = allWords;
