@@ -47,7 +47,6 @@ class _WordPageState extends State<WordPage> {
   void initState() {
     super.initState();
     loadWords();
-    // isSearchBarOpen = !isSearchBarOpen;
   }
 
   Future<void> loadWords() async {
@@ -149,11 +148,11 @@ class _WordPageState extends State<WordPage> {
                       onTap: () {
                         showDialogMessage(context, word);
                       },
-                      onLongPress: () {
-                        print(
-                          '${word.correct} - ${word.incorrect}',
-                        );
-                      },
+                      // onLongPress: () {
+                      //   print(
+                      //     '${word.correct} - ${word.incorrect}',
+                      //   );
+                      // },
                     );
                   },
                 ),
