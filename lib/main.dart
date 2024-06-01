@@ -1,11 +1,14 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -43,17 +46,66 @@ class _WordPageState extends State<WordPage> {
   int? selectedItemIndex;
   TextEditingController searchController = TextEditingController();
 
+  // connectivity
+  List<ConnectivityResult> connectionStatus = [ConnectivityResult.none];
+  final Connectivity connectivity = Connectivity();
+  late StreamSubscription<List<ConnectivityResult>> connectivitySubscription;
+
   @override
   void initState() {
     super.initState();
     loadWords();
+    initConnectivity();
+    connectivitySubscription =
+        connectivity.onConnectivityChanged.listen(updateConnectionStatus);
   }
 
+  //dispose
+  @override
+  void dispose() {
+    connectivitySubscription.cancel();
+    super.dispose();
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initConnectivity() async {
+    late List<ConnectivityResult> result;
+    try {
+      result = await connectivity.checkConnectivity();
+    } on PlatformException catch (e) {
+      print('Couldn\'t check connectivity $e');
+      return;
+    }
+    if (!mounted) {
+      return Future.value(null);
+    }
+    return updateConnectionStatus(result);
+  }
+
+  //updateConnectionStatus connectionStatus
+  Future<void> updateConnectionStatus(List<ConnectivityResult> result) async {
+    setState(() {
+      connectionStatus = result;
+    });
+    // print('Connectivity changed: $connectionStatus');
+  }
+
+//checkConnectionStatus
+  checkConnectionStatus(List connectionStatusList) {
+    return connectionStatusList.map(
+      (connection) {
+        return connection.toString() == 'ConnectivityResult.none'
+            ? false
+            : true;
+      },
+    ).join(',');
+  }
+
+//loadWords
   Future<void> loadWords() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/$appDatabaseName');
-      // print(file);
       if (await file.exists()) {
         // If the file exists locally, load data from it
         final localJsonString = await file.readAsString();
@@ -65,7 +117,7 @@ class _WordPageState extends State<WordPage> {
           isLoading = false;
         });
       } else {
-        // If the file doesn't exist, fetch data from the network and save it locally
+        // load from remoteFile
         final remoteFileResponse = await remoteFile;
         if (remoteFileResponse.statusCode == 200) {
           final remoteJsonString = remoteFileResponse.body;
@@ -82,6 +134,7 @@ class _WordPageState extends State<WordPage> {
         } else {
           throw Exception('Failed to load words');
         }
+        // If the file doesn't exist, fetch data from the network and save it locally
       }
     } catch (e) {
       print('Error loading JSON: $e');
@@ -146,13 +199,9 @@ class _WordPageState extends State<WordPage> {
                         child: Text(word.correct[0]),
                       ),
                       onTap: () {
+                        // print(checkConnectionStatus(connectionStatus));
                         showDialogMessage(context, word);
                       },
-                      // onLongPress: () {
-                      //   print(
-                      //     '${word.correct} - ${word.incorrect}',
-                      //   );
-                      // },
                     );
                   },
                 ),
