@@ -58,6 +58,7 @@ class _WordPageState extends State<WordPage> {
     initConnectivity();
     connectivitySubscription =
         connectivity.onConnectivityChanged.listen(updateConnectionStatus);
+    checkConnectionStatus(connectionStatus);
   }
 
   //dispose
@@ -153,6 +154,7 @@ class _WordPageState extends State<WordPage> {
   }
 
   Widget withSearchBar() {
+    print(connectionStatus);
     return Column(
       children: [
         Padding(
