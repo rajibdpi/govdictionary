@@ -79,6 +79,7 @@ class _WordPageState extends State<WordPage> {
     if (!mounted) {
       return Future.value(null);
     }
+    // print(result);
     return updateConnectionStatus(result);
   }
 
@@ -91,7 +92,7 @@ class _WordPageState extends State<WordPage> {
   }
 
 //checkConnectionStatus
-  checkConnectionStatus(List connectionStatusList) {
+  checkConnectionStatus(List<dynamic> connectionStatusList) {
     return connectionStatusList.map(
       (connection) {
         return connection.toString() == 'ConnectivityResult.none'
