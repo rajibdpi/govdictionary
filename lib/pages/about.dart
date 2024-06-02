@@ -2,8 +2,8 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
-  final fileStats;
-  AboutPage({super.key, this.fileStats});
+  var networkConnectionStatus;
+  AboutPage({super.key, this.networkConnectionStatus});
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -42,7 +42,15 @@ class _AboutPageState extends State<AboutPage> {
                     TextButton.icon(
                       onPressed: updateAvailable() == true
                           ? () {
-                              saveUpdate();
+                              widget.networkConnectionStatus == true
+                                  ? saveUpdate()
+                                  : showDialog(
+                                      context: context,
+                                      builder: (context) => const AlertDialog(
+                                        content: Text(
+                                            'You are offline!\nPlease Check your network connection is turn ON.'),
+                                      ),
+                                    );
                             }
                           : null,
                       label: updateAvailable() == true
@@ -54,6 +62,7 @@ class _AboutPageState extends State<AboutPage> {
                           .map((entry) => '${entry.key}: ${entry.value}')
                           .join('\n'),
                     ),
+                    // Text('${widget.networkConnectionStatus}'),
                   ],
                 );
               }

@@ -293,8 +293,11 @@ class _WordPageState extends State<WordPage> {
               title: const Text('About'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => AboutPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AboutPage(
+                          networkConnectionStatus:
+                              checkConnectionStatus(connectionStatus),
+                        )));
               },
             ),
             ListTile(
