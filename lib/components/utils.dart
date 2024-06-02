@@ -15,7 +15,7 @@ String url =
 final remoteFile = http.get(Uri.parse(url));
 
 // fileStats()
-Future<List<Map>> fileStats() async {
+Future<Map> fileStats() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/$appDatabaseName');
   final localFileStat = await file.stat();
@@ -24,13 +24,11 @@ Future<List<Map>> fileStats() async {
   remotefileSize = remoteFileResponse.bodyBytes.length;
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
-  return [
-    {
-      'updatedAt': updatedAt,
-      'localFileSize': localFileSize,
-      'remotefileSize': remotefileSize
-    }
-  ];
+  return {
+    'UpdatedAt': updatedAt,
+    'LocalFileSize': localFileSize,
+    'RemotefileSize': remotefileSize
+  };
 }
 
 // checkUpdate

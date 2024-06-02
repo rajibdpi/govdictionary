@@ -2,7 +2,8 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
-  const AboutPage({super.key});
+  final fileStats;
+  AboutPage({super.key, this.fileStats});
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -24,7 +25,7 @@ class _AboutPageState extends State<AboutPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
-          child: FutureBuilder<List<Map>>(
+          child: FutureBuilder<Map>(
             future: fileStats(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -48,7 +49,11 @@ class _AboutPageState extends State<AboutPage> {
                           ? const Text('Update')
                           : const Text('Already Updated'),
                     ),
-                    Text('UpdatedAt: ${snapshot.data.toString()}')
+                    Text(
+                      snapshot.data!.entries
+                          .map((entry) => '${entry.key}: ${entry.value}')
+                          .join('\n'),
+                    ),
                   ],
                 );
               }
