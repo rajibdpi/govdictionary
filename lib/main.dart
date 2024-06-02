@@ -153,8 +153,6 @@ class _WordPageState extends State<WordPage> {
   }
 
   Widget withSearchBar() {
-    print(
-        'withSearchBar checkConnectionStatus: ${checkConnectionStatus(connectionStatus)}');
     return Column(
       children: [
         Padding(
@@ -201,7 +199,7 @@ class _WordPageState extends State<WordPage> {
                         child: Text(word.correct[0]),
                       ),
                       onTap: () {
-                        // print(checkConnectionStatus(connectionStatus));
+                        print(checkConnectionStatus(connectionStatus));
                         showDialogMessage(context, word);
                       },
                     );
@@ -213,8 +211,6 @@ class _WordPageState extends State<WordPage> {
   }
 
   Widget withOutSearchBar() {
-    print(
-        'withSearchBar checkConnectionStatus: ${checkConnectionStatus(connectionStatus)}');
     return Column(
       children: [
         Expanded(
@@ -239,11 +235,9 @@ class _WordPageState extends State<WordPage> {
                         child: Text(word.correct[0]),
                       ),
                       onTap: () {
+                        print(checkConnectionStatus(connectionStatus));
                         showDialogMessage(context, word);
                       },
-                      // onLongPress: () {
-                      //   showDialogMessage(context, word);
-                      // },
                     );
                   },
                 ),
@@ -276,7 +270,6 @@ class _WordPageState extends State<WordPage> {
           )
         ],
         backgroundColor: Colors.indigo,
-        // backgroundColor: Colors.deepPurple.shade50,
       ),
       drawer: Drawer(
         child: ListView(
@@ -308,7 +301,6 @@ class _WordPageState extends State<WordPage> {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to settings page or perform settings related actions
               },
             ),
             ListTile(
@@ -319,7 +311,22 @@ class _WordPageState extends State<WordPage> {
                 // Navigate to settings page or perform settings related actions
               },
             ),
-            // ListTile(
+          ],
+        ),
+      ),
+      body: isSearchBarOpen
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: withSearchBar(),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: withOutSearchBar(),
+            ),
+    );
+  }
+}
+// ListTile(
             //   leading: const Icon(Icons.update),
             //   title: FutureBuilder<List<Map>>(
             //     future: lastUpdatedLocalFile(),
@@ -342,18 +349,3 @@ class _WordPageState extends State<WordPage> {
             //     Navigator.pop(context); // Close the drawer
             //   },
             // ),
-          ],
-        ),
-      ),
-      body: isSearchBarOpen
-          ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: withSearchBar(),
-            )
-          : Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: withOutSearchBar(),
-            ),
-    );
-  }
-}
