@@ -1,178 +1,178 @@
 [
-  {
-        "connect": "অওরত",
+    {
+        "correct": "অওরত",
         "incorrect": "আওরাত"
     },
     {
-        "connect": "অংশ গ্রহণ (ভাগ নেওয়া)",
+        "correct": "অংশ গ্রহণ (ভাগ নেওয়া)",
         "incorrect": "অংশগ্রহণ"
     },
     {
-        "connect": "অংশগ্রহণ (যোগদান)",
+        "correct": "অংশগ্রহণ (যোগদান)",
         "incorrect": "অংশ গ্রহণ"
     },
     {
-        "connect": "অংশত",
+        "correct": "অংশত",
         "incorrect": "অংশতঃ"
     },
     {
-        "connect": "অংশীদার",
+        "correct": "অংশীদার",
         "incorrect": "অংশিদার"
     },
     {
-        "connect": "অংশীদারত্ব",
+        "correct": "অংশীদারত্ব",
         "incorrect": "অংশীদারিত্ব"
     },
     {
-        "connect": "অংশীদারি",
+        "correct": "অংশীদারি",
         "incorrect": "অংশীদারী"
     },
     {
-        "connect": "অকথিত",
+        "correct": "অকথিত",
         "incorrect": "অকথীত"
     },
     {
-        "connect": "অকথ্য",
+        "correct": "অকথ্য",
         "incorrect": "অকত্থ"
     },
     {
-        "connect": "অকপটে",
+        "correct": "অকপটে",
         "incorrect": "অ-কপটে"
     },
     {
-        "connect": "অকর্মক",
+        "correct": "অকর্মক",
         "incorrect": "অ-কর্মক"
     },
     {
-        "connect": "অকর্মণ্য",
+        "correct": "অকর্মণ্য",
         "incorrect": "অকর্ম্নণ্য"
     },
     {
-        "connect": "অকর্মা",
+        "correct": "অকর্মা",
         "incorrect": "অ-কর্মা"
     },
     {
-        "connect": "অকল্পনীয়",
+        "correct": "অকল্পনীয়",
         "incorrect": "অকল্পণীয়"
     },
     {
-        "connect": "অকল্যাণ",
+        "correct": "অকল্যাণ",
         "incorrect": "অকল্যান"
     },
     {
-        "connect": "অকল্যাণকর",
+        "correct": "অকল্যাণকর",
         "incorrect": "অকল্যাণ কর"
     },
     {
-        "connect": "অকস্মাৎ",
+        "correct": "অকস্মাৎ",
         "incorrect": "অকস্যাৎ"
     },
     {
-        "connect": "অকাট্য",
+        "correct": "অকাট্য",
         "incorrect": "অকাঠ্য"
     },
     {
-        "connect": "অ-কার (অ-বর্ণের চিহ্ন)",
+        "correct": "অ-কার (অ-বর্ণের চিহ্ন)",
         "incorrect": "অকার"
     },
     {
-        "connect": "অকারান্ত",
+        "correct": "অকারান্ত",
         "incorrect": "অ-কারান্ত"
     },
     {
-        "connect": "অকার্যকর",
+        "correct": "অকার্যকর",
         "incorrect": "অকার্য কর"
     },
     {
-        "connect": "অকার্যকারিতা",
+        "correct": "অকার্যকারিতা",
         "incorrect": "অকার্যকারীতা"
     },
     {
-        "connect": "অকার্যকারী",
+        "correct": "অকার্যকারী",
         "incorrect": "অকার্যকারি"
     },
     {
-        "connect": "অকার্যক্ষম",
+        "correct": "অকার্যক্ষম",
         "incorrect": "অ কার্যক্ষম"
     },
     {
-        "connect": "অকালপক্ব",
+        "correct": "অকালপক্ব",
         "incorrect": "অকালপক্ক"
     },
     {
-        "connect": "অকালবর্ষণ",
+        "correct": "অকালবর্ষণ",
         "incorrect": "অকাল বর্ষণ"
     },
     {
-        "connect": "অকালবার্ধক্য",
+        "correct": "অকালবার্ধক্য",
         "incorrect": "অকাল বার্ধক্য"
     },
     {
-        "connect": "অকালবোধন",
+        "correct": "অকালবোধন",
         "incorrect": "অকাল বোধন"
     },
     {
-        "connect": "অকালমৃত্যু",
+        "correct": "অকালমৃত্যু",
         "incorrect": "অকাল মৃত্যু"
     },
     {
-        "connect": "অকিঞ্চিৎ",
+        "correct": "অকিঞ্চিৎ",
         "incorrect": "অকিঞ্চিত"
     },
     {
-        "connect": "অকিঞ্চিৎকর",
+        "correct": "অকিঞ্চিৎকর",
         "incorrect": "অকিঞ্চিৎ কর"
     },
     {
-        "connect": "অকুণ্ঠ",
+        "correct": "অকুণ্ঠ",
         "incorrect": "অকুন্ঠ"
     },
     {
-        "connect": "অকুণ্ঠিত",
+        "correct": "অকুণ্ঠিত",
         "incorrect": "অকুন্ঠিত"
     },
     {
-        "connect": "অকুণ্ঠিতচিত্ত (সরলমনা)",
+        "correct": "অকুণ্ঠিতচিত্ত (সরলমনা)",
         "incorrect": "অকুণ্ঠিত চিত্ত"
     },
     {
-        "connect": "অকুণ্ঠিত চিত্তে (সরল মনে)",
+        "correct": "অকুণ্ঠিত চিত্তে (সরল মনে)",
         "incorrect": "অকুণ্ঠিতচিত্তে"
     },
     {
-        "connect": "অকুতোভয়",
+        "correct": "অকুতোভয়",
         "incorrect": "অকুতভয়"
     },
     {
-        "connect": "অকুলান",
+        "correct": "অকুলান",
         "incorrect": "অকূলান"
     },
     {
-        "connect": "অকুলীন (বংশমর্যাদাহীন)",
+        "correct": "অকুলীন (বংশমর্যাদাহীন)",
         "incorrect": "অকুলিন"
     },
     {
-        "connect": "অকুস্থল",
+        "correct": "অকুস্থল",
         "incorrect": "অকুস্তল"
     },
     {
-        "connect": "অকূল",
+        "correct": "অকূল",
         "incorrect": "অকুল"
     },
     {
-        "connect": "অকৃতকার্য",
+        "correct": "অকৃতকার্য",
         "incorrect": "অ-কৃতকার্য"
     },
     {
-        "connect": "অকৃতজ্ঞ",
+        "correct": "অকৃতজ্ঞ",
         "incorrect": "অ-কৃতজ্ঞ"
     },
     {
-        "connect": "অকৃতদার",
+        "correct": "অকৃতদার",
         "incorrect": "অকৃত দার"
     },
     {
-        "connect": "অকৃত্রিম",
+        "correct": "অকৃত্রিম",
         "incorrect": "অ-কৃত্রিম"
     }
 ]
