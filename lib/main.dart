@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as base;
 import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/utils.dart';
@@ -247,6 +249,7 @@ class _WordPageState extends State<WordPage> {
     );
   }
 
+  final List notifications = ['hello'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -258,6 +261,15 @@ class _WordPageState extends State<WordPage> {
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
+          const Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: base.Badge(
+              badgeAnimation: BadgeAnimation.slide(),
+              badgeStyle: base.BadgeStyle(badgeColor: Colors.amber),
+              badgeContent: Text('3'),
+              child: Icon(Icons.notifications),
+            ),
+          ),
           IconButton(
             onPressed: () {
               setState(() {
