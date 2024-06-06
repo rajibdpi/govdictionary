@@ -174,5 +174,201 @@
     {
         "correct": "অকৃত্রিম",
         "incorrect": "অ-কৃত্রিম"
+    },
+    {
+        "correct": "অকেজো",
+        "incorrect": "অকেজ"
+    },
+    {
+        "correct": "অকেলাস (বিণ. দানাদার নয়)",
+        "incorrect": "অ-কেলাস"
+    },
+    {
+        "correct": "অক্টেন",
+        "incorrect": "অকটেন"
+    },
+    {
+        "correct": "অক্টোপাস",
+        "incorrect": "অকটোপাস"
+    },
+    {
+        "correct": "অক্টোবর",
+        "incorrect": "অকটোবর"
+    },
+    {
+        "correct": "অক্রীত (বিণ. যা কেনা হয়নি)",
+        "incorrect": "অকৃত"
+    },
+    {
+        "correct": "অক্লান্তকর্মা",
+        "incorrect": "অক্লান্ত কর্মা"
+    },
+    {
+        "correct": "অক্লিষ্ট",
+        "incorrect": "অক্লিস্ট"
+    },
+    {
+        "correct": "অক্লিষ্টকর্মা",
+        "incorrect": "অক্লিষ্ট কর্মা"
+    },
+    {
+        "correct": "অক্লেশে",
+        "incorrect": "অক্লেসে"
+    },
+    {
+        "correct": "অক্ষ",
+        "incorrect": "অক্ষো"
+    },
+    {
+        "correct": "correct",
+        "incorrect": "incorrect"
+    },
+    {
+        "correct": "অক্ষত",
+        "incorrect": "অক্ষতো"
+    },
+    {
+        "correct": "অক্ষতদেহ (বিণ. ক্ষতহীন দেহবিশিষ্ট)",
+        "incorrect": "অক্ষত দেহ"
+    },
+    {
+        "correct": "অক্ষত দেহে (অক্ষত দেহ নিয়ে)",
+        "incorrect": "অক্ষতদেহে"
+    },
+    {
+        "correct": "অক্ষতদেহ)",
+        "incorrect": "অক্ষত শরীর"
+    },
+    {
+        "correct": "অক্ষত শরীরে (অক্ষত শরীর নিয়ে)",
+        "incorrect": "অক্ষতশরীরে"
+    },
+    {
+        "correct": "অক্ষদণ্ড",
+        "incorrect": "অক্ষ দণ্ড"
+    },
+    {
+        "correct": "অক্ষয়",
+        "incorrect": "অকখ্বয়"
+    },
+    {
+        "correct": "অক্ষরজ্ঞান",
+        "incorrect": "অক্ষর জ্ঞান"
+    },
+    {
+        "correct": "অক্ষরপরিচয়",
+        "incorrect": "অক্ষর পরিচয়"
+    },
+    {
+        "correct": "অক্ষরবিন্যাস",
+        "incorrect": "অক্ষর বিন্যাস"
+    },
+    {
+        "correct": "অক্ষরবৃত্ত",
+        "incorrect": "অক্ষর বৃত্ত"
+    },
+    {
+        "correct": "অক্ষরেখা",
+        "incorrect": "অক্ষ রেখা"
+    },
+    {
+        "correct": "অক্ষশক্তি",
+        "incorrect": "অক্ষ শক্তি"
+    },
+    {
+        "correct": "অক্ষাংশ",
+        "incorrect": "অক্ষংশ"
+    },
+    {
+        "correct": "অক্ষিকােটর",
+        "incorrect": "অক্ষি কােটর"
+    },
+    {
+        "correct": "অক্ষিগোলক",
+        "incorrect": "অক্ষি গোলক"
+    },
+    {
+        "correct": "অক্ষিতারকা",
+        "incorrect": "অক্ষি তারকা"
+    },
+    {
+        "correct": "অক্ষীয়",
+        "incorrect": "অক্ষিয়"
+    },
+    {
+        "correct": "অক্ষুণ্ন",
+        "incorrect": "অক্ষুন্ন"
+    },
+    {
+        "correct": "অক্সিজেন",
+        "incorrect": "অকসিজেন"
+    },
+    {
+        "correct": "অক্সিডেশন",
+        "incorrect": "অকসিডেশন"
+    },
+    {
+        "correct": "অখণ্ড",
+        "incorrect": "অখন্ড"
+    },
+    {
+        "correct": "অখণ্ডত্ব",
+        "incorrect": "অখণ্ড-ত্ব"
+    },
+    {
+        "correct": "অখণ্ডনীয়",
+        "incorrect": "অখন্ডণীয়"
+    },
+    {
+        "correct": "অখণ্ডিত",
+        "incorrect": "অখন্ডীত"
+    },
+    {
+        "correct": "অখণ্ড্য (অখণ্ডনীয়)",
+        "incorrect": "অখণ্ড"
+    },
+    {
+        "correct": "অখাদ্য",
+        "incorrect": "অ-খাদ্য"
+    },
+    {
+        "correct": "অখুশি",
+        "incorrect": "অখুশী"
+    },
+    {
+        "correct": "অখ্যাত",
+        "incorrect": "অক্ষাত"
+    },
+    {
+        "correct": "অগণিত",
+        "incorrect": "অগনিত"
+    },
+    {
+        "correct": "অগত্যা",
+        "incorrect": "অগত্তা"
+    },
+    {
+        "correct": "অগভীর",
+        "incorrect": "অ-গভীর"
+    },
+    {
+        "correct": "অগুনতি",
+        "incorrect": "অগুণতি"
+    },
+    {
+        "correct": "অগোচর",
+        "incorrect": "অ-গোচর"
+    },
+    {
+        "correct": "অগোছালো",
+        "incorrect": "অগোছাল"
+    },
+    {
+        "correct": "অগ্নিকন্যা",
+        "incorrect": "অগ্নি কন্যা"
+    },
+    {
+        "correct": "অগ্নিকাণ্ড",
+        "incorrect": "অগ্নি কাণ্ড"
     }
 ]
