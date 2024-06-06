@@ -330,26 +330,3 @@ class _WordPageState extends State<WordPage> {
     );
   }
 }
-// ListTile(
-            //   leading: const Icon(Icons.update),
-            //   title: FutureBuilder<List<Map>>(
-            //     future: lastUpdatedLocalFile(),
-            //     builder: (context, snapshot) {
-            //       if (snapshot.connectionState == ConnectionState.waiting) {
-            //         return const CircularProgressIndicator(
-            //           semanticsLabel: 'Loading..',
-            //         );
-            //       } else if (snapshot.hasError) {
-            //         return Text('Error: ${snapshot.error}');
-            //       } else {
-            //         return Text(
-            //           'Updated at: ${snapshot.data!}',
-            //           style: const TextStyle(fontSize: 10),
-            //         );
-            //       }
-            //     },
-            //   ),
-            //   onTap: () {
-            //     Navigator.pop(context); // Close the drawer
-            //   },
-            // ),
