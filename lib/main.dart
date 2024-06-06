@@ -200,7 +200,7 @@ class _WordPageState extends State<WordPage> {
                         child: Text(word.correct[0]),
                       ),
                       onTap: () {
-                        print(checkConnectionStatus(connectionStatus));
+                        // print(checkConnectionStatus(connectionStatus));
                         showDialogMessage(context, word);
                       },
                     );
@@ -236,7 +236,7 @@ class _WordPageState extends State<WordPage> {
                         child: Text(word.correct[0]),
                       ),
                       onTap: () {
-                        print(checkConnectionStatus(connectionStatus));
+                        // print(checkConnectionStatus(connectionStatus));
                         showDialogMessage(context, word);
                       },
                     );
