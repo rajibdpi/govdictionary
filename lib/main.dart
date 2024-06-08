@@ -264,7 +264,7 @@ class _WordPageState extends State<WordPage> {
             child: base.Badge(
               // badgeAnimation: BadgeAnimation.slide(),
               badgeStyle: base.BadgeStyle(badgeColor: Colors.amber),
-              badgeContent: Text('3'),
+              badgeContent: Text('0'),
               child: Icon(Icons.notifications),
             ),
           ),
