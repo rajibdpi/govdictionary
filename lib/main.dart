@@ -81,7 +81,6 @@ class _WordPageState extends State<WordPage> {
     if (!mounted) {
       return Future.value(null);
     }
-    // print(result);
     return updateConnectionStatus(result);
   }
 
@@ -137,7 +136,6 @@ class _WordPageState extends State<WordPage> {
         } else {
           throw Exception('Failed to load words');
         }
-        // If the file doesn't exist, fetch data from the network and save it locally
       }
     } catch (e) {
       print('Error loading JSON: $e');
@@ -264,7 +262,7 @@ class _WordPageState extends State<WordPage> {
           const Padding(
             padding: EdgeInsets.only(right: 10),
             child: base.Badge(
-              badgeAnimation: BadgeAnimation.slide(),
+              // badgeAnimation: BadgeAnimation.slide(),
               badgeStyle: base.BadgeStyle(badgeColor: Colors.amber),
               badgeContent: Text('3'),
               child: Icon(Icons.notifications),
@@ -305,11 +303,14 @@ class _WordPageState extends State<WordPage> {
               title: const Text('About'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                Navigator.of(context).push(MaterialPageRoute(
+                Navigator.of(context).push(
+                  MaterialPageRoute(
                     builder: (context) => AboutPage(
-                          networkConnectionStatus:
-                              checkConnectionStatus(connectionStatus),
-                        )));
+                      networkConnectionStatus:
+                          checkConnectionStatus(connectionStatus),
+                    ),
+                  ),
+                );
               },
             ),
             ListTile(
