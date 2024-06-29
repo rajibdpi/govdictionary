@@ -8,7 +8,6 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
-import 'package:govdictionary/pages/notification.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
