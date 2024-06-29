@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:badges/badges.dart';
 import 'package:badges/badges.dart' as base;
 import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
