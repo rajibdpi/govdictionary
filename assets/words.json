@@ -1,370 +1,2674 @@
 [
-    {
-        "correct": "অওরত",
-        "incorrect": "আওরাত"
-    },
-    {
-        "correct": "অংশ গ্রহণ (ভাগ নেওয়া)",
-        "incorrect": "অংশগ্রহণ"
-    },
-    {
-        "correct": "অংশগ্রহণ (যোগদান)",
-        "incorrect": "অংশ গ্রহণ"
-    },
-    {
-        "correct": "অংশত",
-        "incorrect": "অংশতঃ"
-    },
-    {
-        "correct": "অংশীদার",
-        "incorrect": "অংশিদার"
-    },
-    {
-        "correct": "অংশীদারত্ব",
-        "incorrect": "অংশীদারিত্ব"
-    },
-    {
-        "correct": "অংশীদারি",
-        "incorrect": "অংশীদারী"
-    },
-    {
-        "correct": "অকথিত",
-        "incorrect": "অকথীত"
-    },
-    {
-        "correct": "অকথ্য",
-        "incorrect": "অকত্থ"
-    },
-    {
-        "correct": "অকপটে",
-        "incorrect": "অ-কপটে"
-    },
-    {
-        "correct": "অকর্মক",
-        "incorrect": "অ-কর্মক"
-    },
-    {
-        "correct": "অকর্মণ্য",
-        "incorrect": "অকর্ম্নণ্য"
-    },
-    {
-        "correct": "অকর্মা",
-        "incorrect": "অ-কর্মা"
-    },
-    {
-        "correct": "অকল্পনীয়",
-        "incorrect": "অকল্পণীয়"
-    },
-    {
-        "correct": "অকল্যাণ",
-        "incorrect": "অকল্যান"
-    },
-    {
-        "correct": "অকল্যাণকর",
-        "incorrect": "অকল্যাণ কর"
-    },
-    {
-        "correct": "অকস্মাৎ",
-        "incorrect": "অকস্যাৎ"
-    },
-    {
-        "correct": "অকাট্য",
-        "incorrect": "অকাঠ্য"
-    },
-    {
-        "correct": "অ-কার (অ-বর্ণের চিহ্ন)",
-        "incorrect": "অকার"
-    },
-    {
-        "correct": "অকারান্ত",
-        "incorrect": "অ-কারান্ত"
-    },
-    {
-        "correct": "অকার্যকর",
-        "incorrect": "অকার্য কর"
-    },
-    {
-        "correct": "অকার্যকারিতা",
-        "incorrect": "অকার্যকারীতা"
-    },
-    {
-        "correct": "অকার্যকারী",
-        "incorrect": "অকার্যকারি"
-    },
-    {
-        "correct": "অকার্যক্ষম",
-        "incorrect": "অ কার্যক্ষম"
-    },
-    {
-        "correct": "অকালপক্ব",
-        "incorrect": "অকালপক্ক"
-    },
-    {
-        "correct": "অকালবর্ষণ",
-        "incorrect": "অকাল বর্ষণ"
-    },
-    {
-        "correct": "অকালবার্ধক্য",
-        "incorrect": "অকাল বার্ধক্য"
-    },
-    {
-        "correct": "অকালবোধন",
-        "incorrect": "অকাল বোধন"
-    },
-    {
-        "correct": "অকালমৃত্যু",
-        "incorrect": "অকাল মৃত্যু"
-    },
-    {
-        "correct": "অকিঞ্চিৎ",
-        "incorrect": "অকিঞ্চিত"
-    },
-    {
-        "correct": "অকিঞ্চিৎকর",
-        "incorrect": "অকিঞ্চিৎ কর"
-    },
-    {
-        "correct": "অকুণ্ঠ",
-        "incorrect": "অকুন্ঠ"
-    },
-    {
-        "correct": "অকুণ্ঠিত",
-        "incorrect": "অকুন্ঠিত"
-    },
-    {
-        "correct": "অকুণ্ঠিতচিত্ত (সরলমনা)",
-        "incorrect": "অকুণ্ঠিত চিত্ত"
-    },
-    {
-        "correct": "অকুণ্ঠিত চিত্তে (সরল মনে)",
-        "incorrect": "অকুণ্ঠিতচিত্তে"
-    },
-    {
-        "correct": "অকুতোভয়",
-        "incorrect": "অকুতভয়"
-    },
-    {
-        "correct": "অকুলান",
-        "incorrect": "অকূলান"
-    },
-    {
-        "correct": "অকুলীন (বংশমর্যাদাহীন)",
-        "incorrect": "অকুলিন"
-    },
-    {
-        "correct": "অকুস্থল",
-        "incorrect": "অকুস্তল"
-    },
-    {
-        "correct": "অকূল",
-        "incorrect": "অকুল"
-    },
-    {
-        "correct": "অকৃতকার্য",
-        "incorrect": "অ-কৃতকার্য"
-    },
-    {
-        "correct": "অকৃতজ্ঞ",
-        "incorrect": "অ-কৃতজ্ঞ"
-    },
-    {
-        "correct": "অকৃতদার",
-        "incorrect": "অকৃত দার"
-    },
-    {
-        "correct": "অকৃত্রিম",
-        "incorrect": "অ-কৃত্রিম"
-    },
-    {
-        "correct": "অকেজো",
-        "incorrect": "অকেজ"
-    },
-    {
-        "correct": "অকেলাস (বিণ. দানাদার নয়)",
-        "incorrect": "অ-কেলাস"
-    },
-    {
-        "correct": "অক্টেন",
-        "incorrect": "অকটেন"
-    },
-    {
-        "correct": "অক্টোপাস",
-        "incorrect": "অকটোপাস"
-    },
-    {
-        "correct": "অক্টোবর",
-        "incorrect": "অকটোবর"
-    },
-    {
-        "correct": "অক্রীত (বিণ. যা কেনা হয়নি)",
-        "incorrect": "অকৃত"
-    },
-    {
-        "correct": "অক্লান্তকর্মা",
-        "incorrect": "অক্লান্ত কর্মা"
-    },
-    {
-        "correct": "অক্লিষ্ট",
-        "incorrect": "অক্লিস্ট"
-    },
-    {
-        "correct": "অক্লিষ্টকর্মা",
-        "incorrect": "অক্লিষ্ট কর্মা"
-    },
-    {
-        "correct": "অক্লেশে",
-        "incorrect": "অক্লেসে"
-    },
-    {
-        "correct": "অক্ষ",
-        "incorrect": "অক্ষো"
-    },
-    {
-        "correct": "অক্ষত",
-        "incorrect": "অক্ষতো"
-    },
-    {
-        "correct": "অক্ষতদেহ (বিণ. ক্ষতহীন দেহবিশিষ্ট)",
-        "incorrect": "অক্ষত দেহ"
-    },
-    {
-        "correct": "অক্ষত দেহে (অক্ষত দেহ নিয়ে)",
-        "incorrect": "অক্ষতদেহে"
-    },
-    {
-        "correct": "অক্ষতদেহ)",
-        "incorrect": "অক্ষত শরীর"
-    },
-    {
-        "correct": "অক্ষত শরীরে (অক্ষত শরীর নিয়ে)",
-        "incorrect": "অক্ষতশরীরে"
-    },
-    {
-        "correct": "অক্ষদণ্ড",
-        "incorrect": "অক্ষ দণ্ড"
-    },
-    {
-        "correct": "অক্ষয়",
-        "incorrect": "অকখ্বয়"
-    },
-    {
-        "correct": "অক্ষরজ্ঞান",
-        "incorrect": "অক্ষর জ্ঞান"
-    },
-    {
-        "correct": "অক্ষরপরিচয়",
-        "incorrect": "অক্ষর পরিচয়"
-    },
-    {
-        "correct": "অক্ষরবিন্যাস",
-        "incorrect": "অক্ষর বিন্যাস"
-    },
-    {
-        "correct": "অক্ষরবৃত্ত",
-        "incorrect": "অক্ষর বৃত্ত"
-    },
-    {
-        "correct": "অক্ষরেখা",
-        "incorrect": "অক্ষ রেখা"
-    },
-    {
-        "correct": "অক্ষশক্তি",
-        "incorrect": "অক্ষ শক্তি"
-    },
-    {
-        "correct": "অক্ষাংশ",
-        "incorrect": "অক্ষংশ"
-    },
-    {
-        "correct": "অক্ষিকােটর",
-        "incorrect": "অক্ষি কােটর"
-    },
-    {
-        "correct": "অক্ষিগোলক",
-        "incorrect": "অক্ষি গোলক"
-    },
-    {
-        "correct": "অক্ষিতারকা",
-        "incorrect": "অক্ষি তারকা"
-    },
-    {
-        "correct": "অক্ষীয়",
-        "incorrect": "অক্ষিয়"
-    },
-    {
-        "correct": "অক্ষুণ্ন",
-        "incorrect": "অক্ষুন্ন"
-    },
-    {
-        "correct": "অক্সিজেন",
-        "incorrect": "অকসিজেন"
-    },
-    {
-        "correct": "অক্সিডেশন",
-        "incorrect": "অকসিডেশন"
-    },
-    {
-        "correct": "অখণ্ড",
-        "incorrect": "অখন্ড"
-    },
-    {
-        "correct": "অখণ্ডত্ব",
-        "incorrect": "অখণ্ড-ত্ব"
-    },
-    {
-        "correct": "অখণ্ডনীয়",
-        "incorrect": "অখন্ডণীয়"
-    },
-    {
-        "correct": "অখণ্ডিত",
-        "incorrect": "অখন্ডীত"
-    },
-    {
-        "correct": "অখণ্ড্য (অখণ্ডনীয়)",
-        "incorrect": "অখণ্ড"
-    },
-    {
-        "correct": "অখাদ্য",
-        "incorrect": "অ-খাদ্য"
-    },
-    {
-        "correct": "অখুশি",
-        "incorrect": "অখুশী"
-    },
-    {
-        "correct": "অখ্যাত",
-        "incorrect": "অক্ষাত"
-    },
-    {
-        "correct": "অগণিত",
-        "incorrect": "অগনিত"
-    },
-    {
-        "correct": "অগত্যা",
-        "incorrect": "অগত্তা"
-    },
-    {
-        "correct": "অগভীর",
-        "incorrect": "অ-গভীর"
-    },
-    {
-        "correct": "অগুনতি",
-        "incorrect": "অগুণতি"
-    },
-    {
-        "correct": "অগোচর",
-        "incorrect": "অ-গোচর"
-    },
-    {
-        "correct": "অগোছালো",
-        "incorrect": "অগোছাল"
-    },
-    {
-        "correct": "অগ্নিকন্যা",
-        "incorrect": "অগ্নি কন্যা"
-    },
-    {
-        "correct": "অগ্নিকাণ্ড",
-        "incorrect": "অগ্নি কাণ্ড"
-    }
+  {
+    "correct": "অওরত",
+    "incorrect": "আওরাত"
+  },
+  {
+    "correct": "অংশ গ্রহণ (ভাগ নেওয়া)",
+    "incorrect": "অংশগ্রহণ"
+  },
+  {
+    "correct": "অংশগ্রহণ (যোগদান)",
+    "incorrect": "অংশ গ্রহণ"
+  },
+  {
+    "correct": "অংশত",
+    "incorrect": "অংশতঃ"
+  },
+  {
+    "correct": "অংশীদার",
+    "incorrect": "অংশিদার"
+  },
+  {
+    "correct": "অংশীদারত্ব",
+    "incorrect": "অংশীদারিত্ব"
+  },
+  {
+    "correct": "অংশীদারি",
+    "incorrect": "অংশীদারী"
+  },
+  {
+    "correct": "অকথিত",
+    "incorrect": "অকথীত"
+  },
+  {
+    "correct": "অকথ্য",
+    "incorrect": "অকত্থ"
+  },
+  {
+    "correct": "অকপটে",
+    "incorrect": "অ-কপটে"
+  },
+  {
+    "correct": "অকর্মক",
+    "incorrect": "অ-কর্মক"
+  },
+  {
+    "correct": "অকর্মণ্য",
+    "incorrect": "অকর্ম্নণ্য"
+  },
+  {
+    "correct": "অকর্মা",
+    "incorrect": "অ-কর্মা"
+  },
+  {
+    "correct": "অকল্পনীয়",
+    "incorrect": "অকল্পণীয়"
+  },
+  {
+    "correct": "অকল্যাণ",
+    "incorrect": "অকল্যান"
+  },
+  {
+    "correct": "অকল্যাণকর",
+    "incorrect": "অকল্যাণ কর"
+  },
+  {
+    "correct": "অকস্মাৎ",
+    "incorrect": "অকস্যাৎ"
+  },
+  {
+    "correct": "অকাট্য",
+    "incorrect": "অকাঠ্য"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অ-কার (অ-বর্ণের চিহ্ন)",
+    "incorrect": "অকার"
+  },
+  {
+    "correct": "অকারান্ত",
+    "incorrect": "অ-কারান্ত"
+  },
+  {
+    "correct": "অকার্যকর",
+    "incorrect": "অকার্য কর"
+  },
+  {
+    "correct": "অকার্যকারিতা",
+    "incorrect": "অকার্যকারীতা"
+  },
+  {
+    "correct": "অকার্যকারী",
+    "incorrect": "অকার্যকারি"
+  },
+  {
+    "correct": "অকার্যক্ষম",
+    "incorrect": "অ কার্যক্ষম"
+  },
+  {
+    "correct": "অকালপক্ব",
+    "incorrect": "অকালপক্ক"
+  },
+  {
+    "correct": "অকালবর্ষণ",
+    "incorrect": "অকাল বর্ষণ"
+  },
+  {
+    "correct": "অকালবার্ধক্য",
+    "incorrect": "অকাল বার্ধক্য"
+  },
+  {
+    "correct": "অকালবোধন",
+    "incorrect": "অকাল বোধন"
+  },
+  {
+    "correct": "অকালমৃত্যু",
+    "incorrect": "অকাল মৃত্যু"
+  },
+  {
+    "correct": "অকিঞ্চিৎ",
+    "incorrect": "অকিঞ্চিত"
+  },
+  {
+    "correct": "অকিঞ্চিৎকর",
+    "incorrect": "অকিঞ্চিৎ কর"
+  },
+  {
+    "correct": "অকুণ্ঠ",
+    "incorrect": "অকুন্ঠ"
+  },
+  {
+    "correct": "অকুণ্ঠিত",
+    "incorrect": "অকুন্ঠিত"
+  },
+  {
+    "correct": "অকুণ্ঠিতচিত্ত (সরলমনা)",
+    "incorrect": "অকুণ্ঠিত চিত্ত"
+  },
+  {
+    "correct": "অকুণ্ঠিত চিত্তে (সরল মনে)",
+    "incorrect": "অকুণ্ঠিতচিত্তে"
+  },
+  {
+    "correct": "অকুতোভয়",
+    "incorrect": "অকুতভয়"
+  },
+  {
+    "correct": "অকুলান",
+    "incorrect": "অকূলান"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অকুলীন (বংশমর্যাদাহীন)",
+    "incorrect": "অকুলিন"
+  },
+  {
+    "correct": "অকুস্থল",
+    "incorrect": "অকুস্তল"
+  },
+  {
+    "correct": "অকূল",
+    "incorrect": "অকুল"
+  },
+  {
+    "correct": "অকৃতকার্য",
+    "incorrect": "অ-কৃতকার্য"
+  },
+  {
+    "correct": "অকৃতজ্ঞ",
+    "incorrect": "অ-কৃতজ্ঞ"
+  },
+  {
+    "correct": "অকৃতদার",
+    "incorrect": "অকৃত দার"
+  },
+  {
+    "correct": "অকৃত্রিম",
+    "incorrect": "অ-কৃত্রিম"
+  },
+  {
+    "correct": "অকেজো",
+    "incorrect": "অকেজ"
+  },
+  {
+    "correct": "অকেলাস (বিণ. দানাদার নয়)",
+    "incorrect": "অ-কেলাস"
+  },
+  {
+    "correct": "অক্টেন",
+    "incorrect": "অকটেন"
+  },
+  {
+    "correct": "অক্টোপাস",
+    "incorrect": "অকটোপাস"
+  },
+  {
+    "correct": "অক্টোবর",
+    "incorrect": "অকটোবর"
+  },
+  {
+    "correct": "অক্রীত (বিণ. যা কেনা হয়নি)",
+    "incorrect": "অকৃত"
+  },
+  {
+    "correct": "অক্লান্তকর্মা",
+    "incorrect": "অক্লান্ত কর্মা"
+  },
+  {
+    "correct": "অক্লিষ্ট",
+    "incorrect": "অক্লিস্ট"
+  },
+  {
+    "correct": "অক্লিষ্টকর্মা",
+    "incorrect": "অক্লিষ্ট কর্মা"
+  },
+  {
+    "correct": "অক্লেশে",
+    "incorrect": "অক্লেসে"
+  },
+  {
+    "correct": "অক্ষ",
+    "incorrect": "অক্ষো"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অক্ষত",
+    "incorrect": "অক্ষতো"
+  },
+  {
+    "correct": "অক্ষতদেহ (বিণ. \n ক্ষতহীন দেহবিশিষ্ট)",
+    "incorrect": "অক্ষত দেহ"
+  },
+  {
+    "correct": "অক্ষত দেহে (অক্ষত দেহ নিয়ে)",
+    "incorrect": "অক্ষতদেহে"
+  },
+  {
+    "correct": "অক্ষতশরীর (বিণ. \n অক্ষতদেহ)",
+    "incorrect": "অক্ষত শরীর"
+  },
+  {
+    "correct": "অক্ষত শরীরে (অক্ষত শরীর নিয়ে)",
+    "incorrect": "অক্ষতশরীরে"
+  },
+  {
+    "correct": "অক্ষদণ্ড",
+    "incorrect": "অক্ষ দণ্ড"
+  },
+  {
+    "correct": "অক্ষয়",
+    "incorrect": "অকখ্বয়"
+  },
+  {
+    "correct": "অক্ষরজ্ঞান",
+    "incorrect": "অক্ষর জ্ঞান"
+  },
+  {
+    "correct": "অক্ষরপরিচয়",
+    "incorrect": "অক্ষর পরিচয়"
+  },
+  {
+    "correct": "অক্ষরবিন্যাস",
+    "incorrect": "অক্ষর বিন্যাস"
+  },
+  {
+    "correct": "অক্ষরবৃত্ত",
+    "incorrect": "অক্ষর বৃত্ত"
+  },
+  {
+    "correct": "অক্ষরেখা",
+    "incorrect": "অক্ষ রেখা"
+  },
+  {
+    "correct": "অক্ষশক্তি",
+    "incorrect": "অক্ষ শক্তি"
+  },
+  {
+    "correct": "অক্ষাংশ",
+    "incorrect": "অক্ষংশ"
+  },
+  {
+    "correct": "অক্ষিকােটর",
+    "incorrect": "অক্ষি কােটর"
+  },
+  {
+    "correct": "অক্ষিগোলক",
+    "incorrect": "অক্ষি গোলক"
+  },
+  {
+    "correct": "অক্ষিতারকা",
+    "incorrect": "অক্ষি তারকা"
+  },
+  {
+    "correct": "অক্ষীয়",
+    "incorrect": "অক্ষিয়"
+  },
+  {
+    "correct": "অক্ষুণ্ন",
+    "incorrect": "অক্ষুন্ন"
+  },
+  {
+    "correct": "অক্সিজেন",
+    "incorrect": "অকসিজেন"
+  },
+  {
+    "correct": "অক্সিডেশন",
+    "incorrect": "অকসিডেশন"
+  },
+  {
+    "correct": "অখণ্ড",
+    "incorrect": "অখন্ড"
+  },
+  {
+    "correct": "অখণ্ডত্ব",
+    "incorrect": "অখণ্ড-ত্ব"
+  },
+  {
+    "correct": "অখণ্ডনীয়",
+    "incorrect": "অখন্ডণীয়"
+  },
+  {
+    "correct": "অখণ্ডিত",
+    "incorrect": "অখন্ডীত"
+  },
+  {
+    "correct": "অখণ্ড্য (অখণ্ডনীয়)",
+    "incorrect": "অখণ্ড"
+  },
+  {
+    "correct": "অখাদ্য",
+    "incorrect": "অ-খাদ্য"
+  },
+  {
+    "correct": "অখুশি",
+    "incorrect": "অখুশী"
+  },
+  {
+    "correct": "অখ্যাত",
+    "incorrect": "অক্ষাত"
+  },
+  {
+    "correct": "অগণিত",
+    "incorrect": "অগনিত"
+  },
+  {
+    "correct": "অগত্যা",
+    "incorrect": "অগত্তা"
+  },
+  {
+    "correct": "অগভীর",
+    "incorrect": "অ-গভীর"
+  },
+  {
+    "correct": "অগুনতি",
+    "incorrect": "অগুণতি"
+  },
+  {
+    "correct": "অগোচর",
+    "incorrect": "অ-গোচর"
+  },
+  {
+    "correct": "অগোছালো",
+    "incorrect": "অগোছাল"
+  },
+  {
+    "correct": "অগ্নিকন্যা",
+    "incorrect": "অগ্নি কন্যা"
+  },
+  {
+    "correct": "অগ্নিকাণ্ড",
+    "incorrect": "অগ্নি কাণ্ড"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অগ্নিকুণ্ড",
+    "incorrect": "অগ্নি কুণ্ড"
+  },
+  {
+    "correct": "অগ্নিকোণ",
+    "incorrect": "অগ্নি কোণ"
+  },
+  {
+    "correct": "অগ্নিগর্ভ",
+    "incorrect": "অগ্নি গর্ভ"
+  },
+  {
+    "correct": "অগ্নিগিরি",
+    "incorrect": "অগ্নি গিরি"
+  },
+  {
+    "correct": "অগ্নিদগ্ধ",
+    "incorrect": "অগ্নি দগ্ধ"
+  },
+  {
+    "correct": "অগ্নিনির্বাপণ",
+    "incorrect": "অগ্নিনির্বাপন"
+  },
+  {
+    "correct": "অগ্নিপরীক্ষা",
+    "incorrect": "অগ্নি পরীক্ষা"
+  },
+  {
+    "correct": "অগ্নিপূজা",
+    "incorrect": "অগ্নি পূজা"
+  },
+  {
+    "correct": "অগ্নিবর্ণ",
+    "incorrect": "অগ্নি বর্ণ"
+  },
+  {
+    "correct": "অগ্নিবর্ষণ",
+    "incorrect": "অগ্নি বর্ষণ"
+  },
+  {
+    "correct": "অগ্নিবলয়",
+    "incorrect": "অগ্নি বলয়"
+  },
+  {
+    "correct": "অগ্নিবীণা",
+    "incorrect": "অগ্নি বীণা"
+  },
+  {
+    "correct": "অগ্নিমন্ত্র",
+    "incorrect": "অগ্নি মন্ত্র"
+  },
+  {
+    "correct": "অগ্নিমান্দ্য",
+    "incorrect": "অগ্নি মান্দ্য"
+  },
+  {
+    "correct": "অগ্নিমূর্তি",
+    "incorrect": "অগ্নি মূর্তি"
+  },
+  {
+    "correct": "অগ্নিমূল্য",
+    "incorrect": "অগ্নি মূল্য"
+  },
+  {
+    "correct": "অগ্নিশর্মা",
+    "incorrect": "অগ্নি শর্মা"
+  },
+  {
+    "correct": "অগ্নিশিখা",
+    "incorrect": "অগ্নি শিখা"
+  },
+  {
+    "correct": "অগ্নিসংযোগ",
+    "incorrect": "অগ্নি সংযোগ"
+  },
+  {
+    "correct": "অগ্নিসাক্ষী",
+    "incorrect": "অগ্নি সাক্ষী"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অগ্নিসাৎ",
+    "incorrect": "অগ্নিস্যাৎ"
+  },
+  {
+    "correct": "অগ্নিস্ফুলিঙ্গ",
+    "incorrect": "অগ্নি স্ফুলিঙ্গ"
+  },
+  {
+    "correct": "অগ্ন্যাশয়",
+    "incorrect": "অগ্নাশয়"
+  },
+  {
+    "correct": "অগ্ন্যুৎপাত",
+    "incorrect": "অগ্নুৎপাত"
+  },
+  {
+    "correct": "অগ্রগণ্য",
+    "incorrect": "অগ্রগন্য"
+  },
+  {
+    "correct": "অগ্রগতি",
+    "incorrect": "অগ্র গতি"
+  },
+  {
+    "correct": "অগ্রগামী",
+    "incorrect": "অগ্রগামি"
+  },
+  {
+    "correct": "অগ্রজ",
+    "incorrect": "অগ্রজো"
+  },
+  {
+    "correct": "অগ্রজপ্রতিম",
+    "incorrect": "অগ্রজ প্রতিম"
+  },
+  {
+    "correct": "অগ্রজিহ্বা",
+    "incorrect": "অগ্র জিহ্বা"
+  },
+  {
+    "correct": "অগ্রণী",
+    "incorrect": "অগ্রনী"
+  },
+  {
+    "correct": "অগ্রদূত",
+    "incorrect": "অগ্র দূত"
+  },
+  {
+    "correct": "অগ্রপশ্চাৎ",
+    "incorrect": "অগ্র-পশ্চাত"
+  },
+  {
+    "correct": "অগ্রবর্তী",
+    "incorrect": "অগ্রবর্তি"
+  },
+  {
+    "correct": "অগ্রভাগ",
+    "incorrect": "অগ্র ভাগ"
+  },
+  {
+    "correct": "অগ্রহণীয়",
+    "incorrect": "অগ্রহনীয়"
+  },
+  {
+    "correct": "অগ্রহায়ণ",
+    "incorrect": "অগ্রহায়ন"
+  },
+  {
+    "correct": "অগ্রাধিকার",
+    "incorrect": "অগ্রাধীকার"
+  },
+  {
+    "correct": "অগ্রাহ্য",
+    "incorrect": "অ-গ্রাহ্য"
+  },
+  {
+    "correct": "অগ্রিম",
+    "incorrect": "অগ্রীম"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অঘটন",
+    "incorrect": "অঘটণ"
+  },
+  {
+    "correct": "অঘটনঘটনপটীয়সী",
+    "incorrect": "অঘটন ঘটন পটীয়সী"
+  },
+  {
+    "correct": "অঘটিত",
+    "incorrect": "অঘটীত"
+  },
+  {
+    "correct": "অঘোষধ্বনি",
+    "incorrect": "অঘোষ ধ্বনি"
+  },
+  {
+    "correct": "অঘোষিত",
+    "incorrect": "অঘোষীত"
+  },
+  {
+    "correct": "অঘ্রান (অগ্রহায়ণ)",
+    "incorrect": "অঘ্রাণ"
+  },
+  {
+    "correct": "অঙ্ক",
+    "incorrect": "অংক"
+  },
+  {
+    "correct": "অঙ্কন",
+    "incorrect": "অঙ্কণ"
+  },
+  {
+    "correct": "অঙ্কবাচক",
+    "incorrect": "অঙ্ক বাচক"
+  },
+  {
+    "correct": "অঙ্কশাস্ত্র",
+    "incorrect": "অঙ্ক শাস্ত্র"
+  },
+  {
+    "correct": "অঙ্কশাস্ত্রবিদ",
+    "incorrect": "অঙ্ক শাস্ত্রবিদ"
+  },
+  {
+    "correct": "অঙ্কিত",
+    "incorrect": "অঙ্কীত"
+  },
+  {
+    "correct": "অঙ্কুর",
+    "incorrect": "অংকুর"
+  },
+  {
+    "correct": "অঙ্কুরিত",
+    "incorrect": "অঙ্কুরীত"
+  },
+  {
+    "correct": "অঙ্কুরোদ্‌গম",
+    "incorrect": "অংকুরোদগম"
+  },
+  {
+    "correct": "অঙ্গচ্ছেদন",
+    "incorrect": "অঙ্গছেদন"
+  },
+  {
+    "correct": "অঙ্গন",
+    "incorrect": "অঙ্গণ"
+  },
+  {
+    "correct": "অঙ্গপ্রত্যঙ্গ",
+    "incorrect": "অঙ্গ প্রত্যঙ্গ"
+  },
+  {
+    "correct": "অঙ্গবিকৃতি",
+    "incorrect": "অঙ্গ বিকৃতি"
+  },
+  {
+    "correct": "অঙ্গবৈকল্য",
+    "incorrect": "অঙ্গ বৈকল্য"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অঙ্গভঙ্গি",
+    "incorrect": "অঙ্গভঙ্গী"
+  },
+  {
+    "correct": "অঙ্গরাজ্য",
+    "incorrect": "অঙ্গ রাজ্য"
+  },
+  {
+    "correct": "অঙ্গসংগঠন",
+    "incorrect": "অঙ্গ সংগঠন"
+  },
+  {
+    "correct": "অঙ্গসংস্থান",
+    "incorrect": "অঙ্গ সংস্থান"
+  },
+  {
+    "correct": "অঙ্গসৌষ্ঠব",
+    "incorrect": "অঙ্গ সৌষ্ঠব"
+  },
+  {
+    "correct": "অঙ্গহানি",
+    "incorrect": "অঙ্গহানী"
+  },
+  {
+    "correct": "অঙ্গাঙ্গি",
+    "incorrect": "অঙ্গাঙ্গী"
+  },
+  {
+    "correct": "অঙ্গাঙ্গিভাবে",
+    "incorrect": "অঙ্গাঙ্গি ভাবে"
+  },
+  {
+    "correct": "অঙ্গার",
+    "incorrect": "অংগার"
+  },
+  {
+    "correct": "অঙ্গীকরণ",
+    "incorrect": "অঙ্গিকরণ"
+  },
+  {
+    "correct": "অঙ্গীকারবদ্ধ",
+    "incorrect": "অঙ্গীকারাবদ্ধ"
+  },
+  {
+    "correct": "অঙ্গীকৃত",
+    "incorrect": "অঙ্গিকৃত"
+  },
+  {
+    "correct": "অঙ্গীভূত",
+    "incorrect": "অঙ্গীভুত"
+  },
+  {
+    "correct": "অঙ্গুলি",
+    "incorrect": "অংগুলি"
+  },
+  {
+    "correct": "অঙ্গুলিনির্দেশ",
+    "incorrect": "অংগুলি নির্দেশ"
+  },
+  {
+    "correct": "অঙ্গুলিসংকেত",
+    "incorrect": "অংগুলি সংকেত"
+  },
+  {
+    "correct": "অশিশকৎসনীয়",
+    "incorrect": "অশিশকৎস্যনীয়"
+  },
+  {
+    "correct": "অচিকিৎসনীয়",
+    "incorrect": "অচিকিৎস্যনীয়"
+  },
+  {
+    "correct": "অচিন",
+    "incorrect": "অচীন"
+  },
+  {
+    "correct": "অচিন্তনীয়",
+    "incorrect": "অচিন্ত্যনীয়"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অচিন্তিতপূর্ব",
+    "incorrect": "অচিন্তিত পূর্ব"
+  },
+  {
+    "correct": "অচিহ্নিত",
+    "incorrect": "অচিহ্নীত"
+  },
+  {
+    "correct": "অচূর্ণিত",
+    "incorrect": "অচুর্নীত"
+  },
+  {
+    "correct": "অচেতন",
+    "incorrect": "অ-চেতন"
+  },
+  {
+    "correct": "অচেষ্টিত",
+    "incorrect": "অচেষ্টীত"
+  },
+  {
+    "correct": "অচৈতন্য",
+    "incorrect": "অ-চৈতন্য"
+  },
+  {
+    "correct": "অচ্ছুত",
+    "incorrect": "অচ্ছুৎ"
+  },
+  {
+    "correct": "অচ্ছেদ্য",
+    "incorrect": "অছেদ্য"
+  },
+  {
+    "correct": "অছি",
+    "incorrect": "ওছি"
+  },
+  {
+    "correct": "অছিয়তনামা",
+    "incorrect": "ওছিয়তনামা"
+  },
+  {
+    "correct": "অজ পাড়াগাঁ",
+    "incorrect": "অজপাড়াগাঁ"
+  },
+  {
+    "correct": "অজন্মা",
+    "incorrect": "অ-জন্মা"
+  },
+  {
+    "correct": "অজস্র",
+    "incorrect": "অজশ্র"
+  },
+  {
+    "correct": "অজানিত",
+    "incorrect": "অজানীত"
+  },
+  {
+    "correct": "অজান্তে",
+    "incorrect": "অজানতে"
+  },
+  {
+    "correct": "অজীর্ণ",
+    "incorrect": "অজীর্ন"
+  },
+  {
+    "correct": "অজু",
+    "incorrect": "অযু"
+  },
+  {
+    "correct": "অজুহাত",
+    "incorrect": "ওজুহাত"
+  },
+  {
+    "correct": "অজৈব",
+    "incorrect": "অ-জৈব"
+  },
+  {
+    "correct": "অজৈব সার",
+    "incorrect": "অজৈবসার"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অজ্ঞাত",
+    "incorrect": "অ-জ্ঞাত"
+  },
+  {
+    "correct": "অজ্ঞাতনামা",
+    "incorrect": "অজ্ঞাত নামা"
+  },
+  {
+    "correct": "অজ্ঞাতপরিচয়",
+    "incorrect": "অজ্ঞাত পরিচয়"
+  },
+  {
+    "correct": "অজ্ঞাতসারে",
+    "incorrect": "অজ্ঞাত সারে"
+  },
+  {
+    "correct": "অজ্ঞাপনীয়",
+    "incorrect": "অজ্ঞাপণীয়"
+  },
+  {
+    "correct": "অজ্ঞাবাদ",
+    "incorrect": "অজ্ঞা বাদ"
+  },
+  {
+    "correct": "অজ্ঞাবাদী",
+    "incorrect": "অজ্ঞা বাদি"
+  },
+  {
+    "correct": "অজ্ঞেয়",
+    "incorrect": "অ-জ্ঞেয়"
+  },
+  {
+    "correct": "অজ্ঞেয়বাদ",
+    "incorrect": "অজ্ঞেয় বাদ"
+  },
+  {
+    "correct": "অঞ্জলি",
+    "incorrect": "অঞ্জলী"
+  },
+  {
+    "correct": "অটবি",
+    "incorrect": "অটবী"
+  },
+  {
+    "correct": "অটল",
+    "incorrect": "অ-টল"
+  },
+  {
+    "correct": "অটুট",
+    "incorrect": "অটূট"
+  },
+  {
+    "correct": "অটোগ্রাফ",
+    "incorrect": "অটো গ্রাফ"
+  },
+  {
+    "correct": "অটোম্যাটিক",
+    "incorrect": "অটোমেটিক"
+  },
+  {
+    "correct": "অট্টালিকা",
+    "incorrect": "অট্রালিকা"
+  },
+  {
+    "correct": "অডিট",
+    "incorrect": "ওডিট"
+  },
+  {
+    "correct": "অডিটর",
+    "incorrect": "ওডিটর"
+  },
+  {
+    "correct": "অডিশন",
+    "incorrect": "অডিসন"
+  },
+  {
+    "correct": "অড়বরই",
+    "incorrect": "অড়বড়ই"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অড়হর",
+    "incorrect": "অরহর"
+  },
+  {
+    "correct": "অঢেল",
+    "incorrect": "অ-ঢেল"
+  },
+  {
+    "correct": "অণু",
+    "incorrect": "অনু"
+  },
+  {
+    "correct": "অণুজীব",
+    "incorrect": "অনুজীব"
+  },
+  {
+    "correct": "অণুবীক্ষণ",
+    "incorrect": "অনুবীক্ষণ"
+  },
+  {
+    "correct": "অণ্ডকোষ",
+    "incorrect": "অন্ডকোষ"
+  },
+  {
+    "correct": "অতএব",
+    "incorrect": "অতঃএব"
+  },
+  {
+    "correct": "অতঃপর",
+    "incorrect": "অতপর"
+  },
+  {
+    "correct": "অতর্কিত",
+    "incorrect": "অতর্কীত"
+  },
+  {
+    "correct": "অতলান্তিক",
+    "incorrect": "অতলান্তীক"
+  },
+  {
+    "correct": "অতশত",
+    "incorrect": "অতোশতো"
+  },
+  {
+    "correct": "অতি",
+    "incorrect": "অতী"
+  },
+  {
+    "correct": "অতিকথন",
+    "incorrect": "অতীকথন"
+  },
+  {
+    "correct": "অতিকায়",
+    "incorrect": "অতীকায়"
+  },
+  {
+    "correct": "অতিক্রমণীয়",
+    "incorrect": "অতিক্রমনীয়"
+  },
+  {
+    "correct": "অতিক্রম্য",
+    "incorrect": "অতিক্রাম্য"
+  },
+  {
+    "correct": "অতিক্রান্ত",
+    "incorrect": "অতীক্রান্ত"
+  },
+  {
+    "correct": "অতিচালাক",
+    "incorrect": "অতি চালাক"
+  },
+  {
+    "correct": "অতিথিপরায়ণ",
+    "incorrect": "অতিথিপরায়ন"
+  },
+  {
+    "correct": "অতিথিবৎসল",
+    "incorrect": "অতিথি বৎসল"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অতিথিশালা",
+    "incorrect": "অতিথি শালা"
+  },
+  {
+    "correct": "অতিপ্রাকৃত",
+    "incorrect": "অতিপ্রকৃত"
+  },
+  {
+    "correct": "অতিবাহিত",
+    "incorrect": "অতিবাহীত"
+  },
+  {
+    "correct": "অতিবৃষ্টি",
+    "incorrect": "অতীবৃষ্টি"
+  },
+  {
+    "correct": "অতিবেগুনি",
+    "incorrect": "অতিবেগুনী"
+  },
+  {
+    "correct": "অতিভুজ",
+    "incorrect": "অতিভূজ"
+  },
+  {
+    "correct": "অতিমানব",
+    "incorrect": "অতীমানব"
+  },
+  {
+    "correct": "অতিমানবিক",
+    "incorrect": "অতীমানবিক"
+  },
+  {
+    "correct": "অতিরঞ্জন",
+    "incorrect": "অতিরঞ্জণ"
+  },
+  {
+    "correct": "অতিরঞ্জিত",
+    "incorrect": "অতিরঞ্জীত"
+  },
+  {
+    "correct": "অতিরিক্ত",
+    "incorrect": "অতীরিক্ত"
+  },
+  {
+    "correct": "অতিশয়",
+    "incorrect": "অতীশয়"
+  },
+  {
+    "correct": "অতিশয়োক্তি",
+    "incorrect": "অতিশয়ক্তি"
+  },
+  {
+    "correct": "অতিষ্ঠ",
+    "incorrect": "অতীষ্ঠ"
+  },
+  {
+    "correct": "অতীন্দ্রিয়",
+    "incorrect": "অতিন্দ্রীয়"
+  },
+  {
+    "correct": "অতীত",
+    "incorrect": "অতিত"
+  },
+  {
+    "correct": "অতীব",
+    "incorrect": "অতিব"
+  },
+  {
+    "correct": "অতুলনীয়",
+    "incorrect": "অতুলণীয়"
+  },
+  {
+    "correct": "অতৃপ্তি",
+    "incorrect": "অ-তৃপ্তি"
+  },
+  {
+    "correct": "অত্যধিক",
+    "incorrect": "অত্যাধিক"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অত্যন্ত",
+    "incorrect": "অত্যান্ত"
+  },
+  {
+    "correct": "অত্যল্প",
+    "incorrect": "অত্যাল্প"
+  },
+  {
+    "correct": "অত্যাচারিত",
+    "incorrect": "অত্যাচারীত"
+  },
+  {
+    "correct": "অত্যাচারী",
+    "incorrect": "অত্যাচারি"
+  },
+  {
+    "correct": "অত্যাধুনিক",
+    "incorrect": "অত্যাধুনীক"
+  },
+  {
+    "correct": "অত্যাবশ্যক",
+    "incorrect": "অত্যাবাশ্যক"
+  },
+  {
+    "correct": "অত্যাশ্চর্য",
+    "incorrect": "অত্যাচর্য"
+  },
+  {
+    "correct": "অত্যাসন্ন",
+    "incorrect": "অত্যাস্যন্ন"
+  },
+  {
+    "correct": "অত্যুক্তি",
+    "incorrect": "অত্যূক্তি"
+  },
+  {
+    "correct": "অথই",
+    "incorrect": "অথৈ"
+  },
+  {
+    "correct": "অথর্ব",
+    "incorrect": "অথর্বো"
+  },
+  {
+    "correct": "অদক্ষ",
+    "incorrect": "অ-দক্ষ"
+  },
+  {
+    "correct": "অদরকারি",
+    "incorrect": "অদরকারী"
+  },
+  {
+    "correct": "অদলবদল",
+    "incorrect": "অদল বদল"
+  },
+  {
+    "correct": "অদাহ্য",
+    "incorrect": "অ-দাহ্য"
+  },
+  {
+    "correct": "অদীক্ষিত",
+    "incorrect": "অদিক্ষীত"
+  },
+  {
+    "correct": "অদূর",
+    "incorrect": "অদুর"
+  },
+  {
+    "correct": "অদূরদর্শিতা",
+    "incorrect": "অদূরদর্শীতা"
+  },
+  {
+    "correct": "অদূরদর্শী",
+    "incorrect": "অদূরদর্শি"
+  },
+  {
+    "correct": "অদূরবর্তী",
+    "incorrect": "অদুরবর্তী"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অদূরভবিষ্যৎ",
+    "incorrect": "অদূর ভবিষ্যত"
+  },
+  {
+    "correct": "অদৃষ্ট",
+    "incorrect": "অ-দৃষ্ট"
+  },
+  {
+    "correct": "অদৃষ্টপূর্ব",
+    "incorrect": "অদৃষ্ট পূর্ব"
+  },
+  {
+    "correct": "অদৃষ্টবাদ",
+    "incorrect": "অদৃষ্ট বাদ"
+  },
+  {
+    "correct": "অদৃষ্টবাদিতা",
+    "incorrect": "অদৃষ্টবাদীতা"
+  },
+  {
+    "correct": "অদৃষ্টবাদী",
+    "incorrect": "অদৃষ্টবাদি"
+  },
+  {
+    "correct": "অদ্বিতীয়",
+    "incorrect": "অ-দ্বিতীয়"
+  },
+  {
+    "correct": "অদ্বৈতবাদ",
+    "incorrect": "অদৈত্যবাদ"
+  },
+  {
+    "correct": "অদ্ভুত",
+    "incorrect": "অদ্ভূত"
+  },
+  {
+    "correct": "অদ্য (আজ)",
+    "incorrect": "আদ্য"
+  },
+  {
+    "correct": "অদ্যাপি",
+    "incorrect": "অদ্যপি"
+  },
+  {
+    "correct": "অদ্যাবধি",
+    "incorrect": "অদ্যবধি"
+  },
+  {
+    "correct": "অদ্রবণীয়",
+    "incorrect": "অদ্রবনীয়"
+  },
+  {
+    "correct": "অদ্রাব্য",
+    "incorrect": "অ-দ্রাব্য"
+  },
+  {
+    "correct": "অধঃক্রম",
+    "incorrect": "অধোক্রম"
+  },
+  {
+    "correct": "অধঃপতন",
+    "incorrect": "অধপতন"
+  },
+  {
+    "correct": "অধঃস্থ",
+    "incorrect": "অধস্থ"
+  },
+  {
+    "correct": "অধমর্ণ",
+    "incorrect": "অধমর্ন"
+  },
+  {
+    "correct": "অধরোষ্ঠ",
+    "incorrect": "অধঃরষ্ঠ"
+  },
+  {
+    "correct": "অধরৌষ্ঠ্য",
+    "incorrect": "অধঃরৌষ্ঠ"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অধর্মচারী",
+    "incorrect": "অধর্মচারি"
+  },
+  {
+    "correct": "অধর্মপরায়ণ",
+    "incorrect": "অধর্মপরায়ন"
+  },
+  {
+    "correct": "অধস্তন",
+    "incorrect": "অধঃস্তন"
+  },
+  {
+    "correct": "অধিকতর",
+    "incorrect": "অধিকতরো"
+  },
+  {
+    "correct": "অধিকন্তু",
+    "incorrect": "অধীকন্তু"
+  },
+  {
+    "correct": "অধিকরণ",
+    "incorrect": "অধিকরন"
+  },
+  {
+    "correct": "অধিকর্তা",
+    "incorrect": "অধীকর্তা"
+  },
+  {
+    "correct": "অধিকাংশ",
+    "incorrect": "অধীকাংশ"
+  },
+  {
+    "correct": "অধিকারচ্যুত",
+    "incorrect": "অধিকার চ্যুত"
+  },
+  {
+    "correct": "অধিকারিণী",
+    "incorrect": "অধিকারীনি"
+  },
+  {
+    "correct": "অধিকারী",
+    "incorrect": "অধিকারি"
+  },
+  {
+    "correct": "অধিকৃত",
+    "incorrect": "অধীকৃত"
+  },
+  {
+    "correct": "অধিগ্রহণ",
+    "incorrect": "অধিগ্রহন"
+  },
+  {
+    "correct": "অধিজিহ্বা",
+    "incorrect": "অধি জিহ্বা"
+  },
+  {
+    "correct": "অধিদপ্তর",
+    "incorrect": "অধি দপ্তর"
+  },
+  {
+    "correct": "অধিনায়ক",
+    "incorrect": "অধীনায়ক"
+  },
+  {
+    "correct": "অধিবর্ষ",
+    "incorrect": "অধীবর্ষ"
+  },
+  {
+    "correct": "অধিবৃত্ত",
+    "incorrect": "অধি বৃত্ত"
+  },
+  {
+    "correct": "অধিবাসী",
+    "incorrect": "অধিবাসি"
+  },
+  {
+    "correct": "অধিবেশন",
+    "incorrect": "অধিবেসন"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অধিভুক্ত",
+    "incorrect": "অধিভূক্ত"
+  },
+  {
+    "correct": "অধিমাংস",
+    "incorrect": "অধীমাংস"
+  },
+  {
+    "correct": "অধিষ্ঠাতা",
+    "incorrect": "অধিষ্টাতা"
+  },
+  {
+    "correct": "অধিষ্ঠিত",
+    "incorrect": "অধিষ্টিত"
+  },
+  {
+    "correct": "অধীক্ষক",
+    "incorrect": "অধিক্ষক"
+  },
+  {
+    "correct": "অধীন",
+    "incorrect": "অধীনস্থ"
+  },
+  {
+    "correct": "অধীর",
+    "incorrect": "অধির"
+  },
+  {
+    "correct": "অধীশ্বর",
+    "incorrect": "অধিশ্বর"
+  },
+  {
+    "correct": "অধুনা",
+    "incorrect": "অধূনা"
+  },
+  {
+    "correct": "অধৈর্য",
+    "incorrect": "অধৈর্য্য"
+  },
+  {
+    "correct": "অধোগতি",
+    "incorrect": "অধঃগতি"
+  },
+  {
+    "correct": "অধোবদন",
+    "incorrect": "অধঃবদন"
+  },
+  {
+    "correct": "অধ্যক্ষ",
+    "incorrect": "অধ্যাক্ষ"
+  },
+  {
+    "correct": "অধ্যবসায়",
+    "incorrect": "অধ্যাবসায়"
+  },
+  {
+    "correct": "অধ্যয়ন",
+    "incorrect": "অধ্যায়ণ"
+  },
+  {
+    "correct": "অধ্যাত্ম",
+    "incorrect": "আধ্যাত্ম"
+  },
+  {
+    "correct": "অধ্যাদেশ",
+    "incorrect": "অধ্যা দেশ"
+  },
+  {
+    "correct": "অধ্যাপনা",
+    "incorrect": "অধ্যাপণা"
+  },
+  {
+    "correct": "অধ্যুষিত",
+    "incorrect": "অধ্যূষিত"
+  },
+  {
+    "correct": "অনগ্রসর",
+    "incorrect": "অণগ্রসর"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অনটন",
+    "incorrect": "অনাটন"
+  },
+  {
+    "correct": "অনড়",
+    "incorrect": "অনর"
+  },
+  {
+    "correct": "অনতিক্রমণ",
+    "incorrect": "অনতিক্রমন"
+  },
+  {
+    "correct": "অনতিপূর্বে",
+    "incorrect": "অনতিপূর্বে"
+  },
+  {
+    "correct": "অনতিবিলম্বে",
+    "incorrect": "অনতি বিলম্বে"
+  },
+  {
+    "correct": "অনধিক",
+    "incorrect": "অণধিক"
+  },
+  {
+    "correct": "অনধিকারচর্চা",
+    "incorrect": "অনধিকার চর্চা"
+  },
+  {
+    "correct": "অনধিকারপ্রবেশ",
+    "incorrect": "অধিকার প্রবেশ"
+  },
+  {
+    "correct": "অননুকরণীয়",
+    "incorrect": "অনণুকরণীয়"
+  },
+  {
+    "correct": "অননুমিত",
+    "incorrect": "অনণুমিত"
+  },
+  {
+    "correct": "অননুমোদন",
+    "incorrect": "অনণুমোদন"
+  },
+  {
+    "correct": "অনুমোদিত",
+    "incorrect": "অনুমোদীত"
+  },
+  {
+    "correct": "অনন্বয়ী",
+    "incorrect": "অনন্বয়ি"
+  },
+  {
+    "correct": "অনন্যসাধারণ",
+    "incorrect": "অনন্য সাধারণ"
+  },
+  {
+    "correct": "অনন্যোপায়",
+    "incorrect": "অনন্যপায়"
+  },
+  {
+    "correct": "অনবদ্য",
+    "incorrect": "অনাবদ্য"
+  },
+  {
+    "correct": "অনবধানবশত",
+    "incorrect": "অনবধানবশতঃ"
+  },
+  {
+    "correct": "অনবরত",
+    "incorrect": "অণবরত"
+  },
+  {
+    "correct": "অনভিপ্রেত",
+    "incorrect": "অনভীপ্রেত"
+  },
+  {
+    "correct": "অনভ্যস্ত",
+    "incorrect": "অনভ্যস্থ"
+  },
+  {
+    "correct": "অনমনীয়",
+    "incorrect": "অনমণীয়"
+  },
+  {
+    "correct": "অনশনকারী",
+    "incorrect": "অনশণকারি"
+  },
+  {
+    "correct": "অনশন ধর্মঘট",
+    "incorrect": "অনশনধর্মঘট"
+  },
+  {
+    "correct": "অনস্বীকার্য",
+    "incorrect": "অনশিকার্য"
+  },
+  {
+    "correct": "অনাকাঙ্ক্ষিত",
+    "incorrect": "অনাকাংখিত"
+  },
+  {
+    "correct": "অনাক্রমণ",
+    "incorrect": "অনাক্রমন"
+  },
+  {
+    "correct": "অনাড়ম্বর",
+    "incorrect": "অনারম্বড়"
+  },
+  {
+    "correct": "অনাথাশ্রম",
+    "incorrect": "অনাথশ্রম"
+  },
+  {
+    "correct": "অনাদায়ি",
+    "incorrect": "অনাদায়ী"
+  },
+  {
+    "correct": "অনাপত্তিপত্র",
+    "incorrect": "অনাপত্তি পত্র"
+  },
+  {
+    "correct": "অনাবশ্যক",
+    "incorrect": "অণাবশ্যক"
+  },
+  {
+    "correct": "অনাবাদি",
+    "incorrect": "অনাবাদী"
+  },
+  {
+    "correct": "অনাবাসিক",
+    "incorrect": "অনাবাসীক"
+  },
+  {
+    "correct": "অনাবাসী",
+    "incorrect": "অনাবাসি"
+  },
+  {
+    "correct": "অনাবিষ্কৃত",
+    "incorrect": "অনাবিস্কৃত"
+  },
+  {
+    "correct": "অনাবৃষ্টি",
+    "incorrect": "অনা বৃষ্টি"
+  },
+  {
+    "correct": "অনারারি",
+    "incorrect": "অনারারী"
+  },
+  {
+    "correct": "অনার্দ্র",
+    "incorrect": "অনাদ্র"
+  },
+  {
+    "correct": "অনার্য",
+    "incorrect": "অণার্য"
+  },
+  {
+    "correct": "অনাস্থা",
+    "incorrect": "অণাস্থা"
+  },
+  {
+    "correct": "অনাহারী",
+    "incorrect": "অনাহারি"
+  },
+  {
+    "correct": "অনাহূত (অনিমন্ত্রিত)",
+    "incorrect": "অনাহুত"
+  },
+  {
+    "correct": "অনিচ্ছাকৃত",
+    "incorrect": "অনিচ্ছা কৃত"
+  },
+  {
+    "correct": "অনিচ্ছাপূর্বক",
+    "incorrect": "অনিচ্ছা পূর্বক"
+  },
+  {
+    "correct": "অনিচ্ছুক",
+    "incorrect": "অনিচ্ছূক"
+  },
+  {
+    "correct": "অনিন্দনীয়",
+    "incorrect": "অনিন্দ্যনীয়"
+  },
+  {
+    "correct": "অনিন্দ্য",
+    "incorrect": "অনিন্দ"
+  },
+  {
+    "correct": "অনিবার্য",
+    "incorrect": "অণিবার্য"
+  },
+  {
+    "correct": "অনিয়ন্ত্রিত",
+    "incorrect": "অনিয়ন্ত্রীত"
+  },
+  {
+    "correct": "অনিয়মিত",
+    "incorrect": "অনিয়মীত"
+  },
+  {
+    "correct": "অনিরূপিত",
+    "incorrect": "অনিরুপিত"
+  },
+  {
+    "correct": "অনির্ণীত",
+    "incorrect": "অনির্নীত"
+  },
+  {
+    "correct": "অনির্ণেয়",
+    "incorrect": "অনির্নেয়"
+  },
+  {
+    "correct": "অনির্দিষ্ট",
+    "incorrect": "অনির্দিস্ট"
+  },
+  {
+    "correct": "অনির্ধারিত",
+    "incorrect": "অনির্ধারীত"
+  },
+  {
+    "correct": "অনির্বচনীয়",
+    "incorrect": "অনির্বাচনীয়"
+  },
+  {
+    "correct": "অনির্বাণ",
+    "incorrect": "অনির্বান"
+  },
+  {
+    "correct": "অনিষ্ট",
+    "incorrect": "অনীষ্ট"
+  },
+  {
+    "correct": "অনিষ্টকর",
+    "incorrect": "অনিষ্ট কর"
+  },
+  {
+    "correct": "অনিষ্টকারী",
+    "incorrect": "অনিষ্টকারি"
+  },
+  {
+    "correct": "অনিষ্পন্ন",
+    "incorrect": "অনিস্পন্ন"
+  },
+  {
+    "correct": "অনীপ্সিত",
+    "incorrect": "অনিপ্সিত"
+  },
+  {
+    "correct": "অনীহা",
+    "incorrect": "অনিহা"
+  },
+  {
+    "correct": "অনুকম্পা",
+    "incorrect": "অণুকম্পা"
+  },
+  {
+    "correct": "অনুকরণ",
+    "incorrect": "অনুকরন"
+  },
+  {
+    "correct": "অনুকরণকারী",
+    "incorrect": "অণুকরণকারি"
+  },
+  {
+    "correct": "অনুকরণীয়",
+    "incorrect": "অনুকরনীয়"
+  },
+  {
+    "correct": "অনুকূল",
+    "incorrect": "অনুকুল"
+  },
+  {
+    "correct": "অনুক্রমণিকা",
+    "incorrect": "অনুক্রমনিকা"
+  },
+  {
+    "correct": "অনুক্ষণ",
+    "incorrect": "অণুক্ষণ"
+  },
+  {
+    "correct": "অনুগত",
+    "incorrect": "অণুগত"
+  },
+  {
+    "correct": "অনুগামী",
+    "incorrect": "অনুগামি"
+  },
+  {
+    "correct": "অনুগ্রহপূর্বক",
+    "incorrect": "অণুগ্রহ পূর্বক"
+  },
+  {
+    "correct": "অনুগ্রহপ্রার্থী",
+    "incorrect": "অনুগ্রহ প্রার্থী"
+  },
+  {
+    "correct": "অনুঘটক",
+    "incorrect": "অণুঘটক"
+  },
+  {
+    "correct": "অনুচর",
+    "incorrect": "অণুচর"
+  },
+  {
+    "correct": "অনুচিত",
+    "incorrect": "অণুচিত"
+  },
+  {
+    "correct": "অনুচ্চারণীয়",
+    "incorrect": "অণুচ্চারনীয়"
+  },
+  {
+    "correct": "অনুচ্ছেদ",
+    "incorrect": "অণুচ্ছেদ"
+  },
+  {
+    "correct": "অনুজঙ্ঘাস্থি",
+    "incorrect": "অণুজঙ্ঘাস্তি"
+  },
+  {
+    "correct": "অনুজপ্রতিম",
+    "incorrect": "অনুজপ্রতীম"
+  },
+  {
+    "correct": "অনুজ্জ্বল",
+    "incorrect": "অনুজ্জল"
+  },
+  {
+    "correct": "অনুজ্ঞা",
+    "incorrect": "অণুজ্ঞা"
+  },
+  {
+    "correct": "অনুজ্ঞাপত্র",
+    "incorrect": "অনুজ্ঞা পত্র"
+  },
+  {
+    "correct": "অনুতপ্ত",
+    "incorrect": "অণুতপ্ত"
+  },
+  {
+    "correct": "অনুত্তীর্ণ",
+    "incorrect": "অণুত্তীর্ন"
+  },
+  {
+    "correct": "অনুদান",
+    "incorrect": "অণুদান"
+  },
+  {
+    "correct": "অনুদিত (যা উদিত হয়নি)",
+    "incorrect": "অনূদিত"
+  },
+  {
+    "correct": "অনুদ্‌ঘাটিত",
+    "incorrect": "অনুদ্ঘাটিত"
+  },
+  {
+    "correct": "অনুদ্‌বায়ী",
+    "incorrect": "অনুদ্বায়ী"
+  },
+  {
+    "correct": "অনুধাবন",
+    "incorrect": "অণুধাবন"
+  },
+  {
+    "correct": "অনুনাসিক",
+    "incorrect": "আনুনাসিক"
+  },
+  {
+    "correct": "অনুন্নত",
+    "incorrect": "অণুন্নত"
+  },
+  {
+    "correct": "অনুপযুক্ত",
+    "incorrect": "অনুপোযুক্ত"
+  },
+  {
+    "correct": "অনুপযোগিতা",
+    "incorrect": "অনুপযোগীতা"
+  },
+  {
+    "correct": "অনুপযোগী",
+    "incorrect": "অনুপযোগি"
+  },
+  {
+    "correct": "অনুপস্থিতি",
+    "incorrect": "অণুপস্থিতি"
+  },
+  {
+    "correct": "অনুপাত",
+    "incorrect": "অণুপাত"
+  },
+  {
+    "correct": "অনুপুঙ্খ",
+    "incorrect": "অনুপুংখ"
+  },
+  {
+    "correct": "অনুপূর্ব",
+    "incorrect": "অণুপূর্ব"
+  },
+  {
+    "correct": "অনুপ্রবেশ",
+    "incorrect": "অণুপ্রবেশ"
+  },
+  {
+    "correct": "অনুপ্রাণিত",
+    "incorrect": "অনুপ্রানিত"
+  },
+  {
+    "correct": "অনুপ্রাস",
+    "incorrect": "অণুপ্রাস"
+  },
+  {
+    "correct": "অনুপ্রেরণা",
+    "incorrect": "অনুপ্রেরনা"
+  },
+  {
+    "correct": "অনুবাদ",
+    "incorrect": "অনূবাদ"
+  },
+  {
+    "correct": "অনুবিধি",
+    "incorrect": "অনূবিধি"
+  },
+  {
+    "correct": "অনুবিভাগ",
+    "incorrect": "অণুবিভাগ"
+  },
+  {
+    "correct": "অনুবেদন",
+    "incorrect": "অণুবেদন"
+  },
+  {
+    "correct": "অনুভূতি",
+    "incorrect": "অনুভুতি"
+  },
+  {
+    "correct": "অনুভূতিপ্রবণ",
+    "incorrect": "অনুভূতি প্রবণ"
+  },
+  {
+    "correct": "অনুভূমিক",
+    "incorrect": "আনুভূমিক"
+  },
+  {
+    "correct": "অনুমতি",
+    "incorrect": "অণুমতি"
+  },
+  {
+    "correct": "অনুমতিপত্র",
+    "incorrect": "অনুমতি পত্র"
+  },
+  {
+    "correct": "অনুমাননির্ভর",
+    "incorrect": "অনুমান নির্ভর"
+  },
+  {
+    "correct": "অনুমানসাপেক্ষ",
+    "incorrect": "অনুমান সাপেক্ষ"
+  },
+  {
+    "correct": "অনুমিত",
+    "incorrect": "অনূমিত"
+  },
+  {
+    "correct": "অনুমোদনক্রমে",
+    "incorrect": "অনুমোদন ক্রমে"
+  },
+  {
+    "correct": "অনুমোদিত",
+    "incorrect": "অনুমোদীত"
+  },
+  {
+    "correct": "অনুযায়ী",
+    "incorrect": "অনুযায়ি"
+  },
+  {
+    "correct": "অনুযোগকারী",
+    "incorrect": "অনুযোগকারি"
+  },
+  {
+    "correct": "অনুরক্ত",
+    "incorrect": "অণুরক্ত"
+  },
+  {
+    "correct": "অনুরণন",
+    "incorrect": "অনুরনন"
+  },
+  {
+    "correct": "অনুরণিত",
+    "incorrect": "অনুরণীত"
+  },
+  {
+    "correct": "অনুরাগী",
+    "incorrect": "অনুরাগি"
+  },
+  {
+    "correct": "অনুরুদ্ধ",
+    "incorrect": "অনুরূদ্ধ"
+  },
+  {
+    "correct": "অনুরূপ",
+    "incorrect": "অনুরুপ"
+  },
+  {
+    "correct": "অনুরোধক্রমে",
+    "incorrect": "অনুরোধ ক্রমে"
+  },
+  {
+    "correct": "অনুলিখন",
+    "incorrect": "অণুলিখন"
+  },
+  {
+    "correct": "অনুলিপি",
+    "incorrect": "অণুলিপি"
+  },
+  {
+    "correct": "অনুলিপিকার",
+    "incorrect": "অনুলিপি কার"
+  },
+  {
+    "correct": "অনুলেখক",
+    "incorrect": "অনুলিখক"
+  },
+  {
+    "correct": "অনুশাসন",
+    "incorrect": "অণুশাসন"
+  },
+  {
+    "correct": "অনুশীলন",
+    "incorrect": "অনুশীলণ"
+  },
+  {
+    "correct": "অনুশীলনী",
+    "incorrect": "অনুশীলনি"
+  },
+  {
+    "correct": "অনুশীলিত",
+    "incorrect": "অনুশীলীত"
+  },
+  {
+    "correct": "অনুশোচনা",
+    "incorrect": "অণুশোচনা"
+  },
+  {
+    "correct": "অনুষঙ্গ",
+    "incorrect": "অনুসঙ্গ"
+  },
+  {
+    "correct": "অনুষঙ্গী",
+    "incorrect": "অনুসঙ্গী"
+  },
+  {
+    "correct": "অনুষদ",
+    "incorrect": "অনুসদ"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অনুষ্টুপ",
+    "incorrect": "অনুস্টুপ"
+  },
+  {
+    "correct": "অনুষ্ঠাতব্য",
+    "incorrect": "অনুষ্ঠিতব্য"
+  },
+  {
+    "correct": "অনুসন্ধানকারী",
+    "incorrect": "অনুসন্ধানকারি"
+  },
+  {
+    "correct": "অনুসন্ধানী",
+    "incorrect": "অনুসন্ধানি"
+  },
+  {
+    "correct": "অনুসন্ধিৎসা",
+    "incorrect": "অনুসন্ধিতসা"
+  },
+  {
+    "correct": "অনুসরণ",
+    "incorrect": "অণুসরন"
+  },
+  {
+    "correct": "অনুসর্গ",
+    "incorrect": "অনুস্বর্গ"
+  },
+  {
+    "correct": "অনুসারী",
+    "incorrect": "অনুসারি"
+  },
+  {
+    "correct": "অনুসিদ্ধান্ত",
+    "incorrect": "অণুসিদ্ধান্ত"
+  },
+  {
+    "correct": "অনুস্বাক্ষর",
+    "incorrect": "অণুস্বাক্ষর"
+  },
+  {
+    "correct": "অনূদিত",
+    "incorrect": "অনুদিত"
+  },
+  {
+    "correct": "অনূর্ধ্ব",
+    "incorrect": "অনূর্ধ/অনুর্ধ্ব"
+  },
+  {
+    "correct": "অনেকক্ষণ",
+    "incorrect": "অনেক ক্ষণ"
+  },
+  {
+    "correct": "অনেকপ্রকার",
+    "incorrect": "অনেক প্রকার"
+  },
+  {
+    "correct": "অনেকাংশে",
+    "incorrect": "অনেকংশে"
+  },
+  {
+    "correct": "অনৈক্য",
+    "incorrect": "অন্যৈক"
+  },
+  {
+    "correct": "অনৈচ্ছিক",
+    "incorrect": "অনৈচ্ছীক"
+  },
+  {
+    "correct": "অনৈতিক",
+    "incorrect": "অনৈতীক"
+  },
+  {
+    "correct": "অন্তঃকরণ",
+    "incorrect": "অন্তকরণ"
+  },
+  {
+    "correct": "অন্তঃকলহ",
+    "incorrect": "অন্তর্কলহ"
+  },
+  {
+    "correct": "অন্তঃপুর",
+    "incorrect": "অন্তপুর"
+  },
+  {
+    "correct": "অন্তঃপুরবাসিনী",
+    "incorrect": "অন্তঃপুর বাসিনী"
+  },
+  {
+    "correct": "অন্তঃশুল্ক",
+    "incorrect": "অন্তশুল্ক"
+  },
+  {
+    "correct": "অন্তঃসত্ত্বা",
+    "incorrect": "অন্তঃসত্তা"
+  },
+  {
+    "correct": "অন্তঃসারশূন্য",
+    "incorrect": "অন্তসারশূন্য"
+  },
+  {
+    "correct": "অন্তঃস্থ",
+    "incorrect": "অন্তস্থ"
+  },
+  {
+    "correct": "অন্তরকলন",
+    "incorrect": "অন্তর্কলন"
+  },
+  {
+    "correct": "অন্তরঙ্গ",
+    "incorrect": "অন্তরংগ"
+  },
+  {
+    "correct": "অন্তরায়",
+    "incorrect": "অন্ত রায়"
+  },
+  {
+    "correct": "অন্তরিক্ষ",
+    "incorrect": "অন্তরীক্ষ"
+  },
+  {
+    "correct": "অন্তরিন",
+    "incorrect": "অন্তরীণ"
+  },
+  {
+    "correct": "অন্তরীপ",
+    "incorrect": "অন্তরিপ"
+  },
+  {
+    "correct": "অন্তর্গত",
+    "incorrect": "অর্ন্তগত"
+  },
+  {
+    "correct": "অন্তর্গূঢ়",
+    "incorrect": "অর্ন্তগুঢ়"
+  },
+  {
+    "correct": "অন্তর্ঘাত",
+    "incorrect": "অর্ন্তঘাত"
+  },
+  {
+    "correct": "অন্তর্ঘাতমূলক",
+    "incorrect": "অন্তর্ঘাত মূলক"
+  },
+  {
+    "correct": "অন্তর্ঘাতী",
+    "incorrect": "অন্তর্ঘাতি"
+  },
+  {
+    "correct": "অন্তর্দৃষ্টি",
+    "incorrect": "অন্তঃদৃষ্টি"
+  },
+  {
+    "correct": "অন্তর্দ্বন্দ্ব",
+    "incorrect": "অন্তর্ন্দ্বন্দ"
+  },
+  {
+    "correct": "অন্তর্ধান",
+    "incorrect": "অন্তঃধান"
+  },
+  {
+    "correct": "অন্তর্নিহিত",
+    "incorrect": "অন্তর্নিহীত"
+  },
+  {
+    "correct": "অন্তর্বর্তী",
+    "incorrect": "অন্তবর্তী"
+  },
+  {
+    "correct": "অন্তর্বাণিজ্য",
+    "incorrect": "অন্তঃবাণিজ্য"
+  },
+  {
+    "correct": "অন্তর্ভুক্ত",
+    "incorrect": "অন্তর্ভূক্ত"
+  },
+  {
+    "correct": "অন্তর্ভুক্তি",
+    "incorrect": "অন্তর্ভূক্তি"
+  },
+  {
+    "correct": "অন্তর্ভূত",
+    "incorrect": "অন্তর্ভুত"
+  },
+  {
+    "correct": "অন্তর্ভেদী",
+    "incorrect": "অন্তর্ভেদি"
+  },
+  {
+    "correct": "অন্তর্মুখী",
+    "incorrect": "অন্তর্মুখি"
+  },
+  {
+    "correct": "অন্তর্যামী",
+    "incorrect": "অন্তর্যামি"
+  },
+  {
+    "correct": "অন্তস্তল",
+    "incorrect": "অন্তস্থল"
+  },
+  {
+    "correct": "অন্তস্থ",
+    "incorrect": "অন্তঃস্থ"
+  },
+  {
+    "correct": "অন্তহীন",
+    "incorrect": "অন্তহিন"
+  },
+  {
+    "correct": "অন্তিম",
+    "incorrect": "অন্তীম"
+  },
+  {
+    "correct": "অন্তেবাসী",
+    "incorrect": "অন্তেবাসি"
+  },
+  {
+    "correct": "অন্ত্যজ",
+    "incorrect": "অন্তজ"
+  },
+  {
+    "correct": "অন্ত্যবর্ণ",
+    "incorrect": "অন্তবর্ণ"
+  },
+  {
+    "correct": "অন্ত্যানুপ্রাস",
+    "incorrect": "অন্তাণুপ্রাস"
+  },
+  {
+    "correct": "অন্ত্যোষ্টি",
+    "incorrect": "অন্ত্যেষ্ট্যি"
+  },
+  {
+    "correct": "অন্ত্যোষ্টিক্রিয়া",
+    "incorrect": "অন্ত্যেষ্ট্যি ক্রিয়া"
+  },
+  {
+    "correct": "অন্দরমহল",
+    "incorrect": "অন্দর মহল"
+  },
+  {
+    "correct": "অন্ধকারাচ্ছান্ন",
+    "incorrect": "অন্ধকারচ্ছন্ন"
+  },
+  {
+    "correct": "অন্ধবিশ্বাস",
+    "incorrect": "অন্ধ বিশ্বাস"
+  },
+  {
+    "correct": "অন্নচিন্তা",
+    "incorrect": "অন্ন চিন্তা"
+  },
+  {
+    "correct": "অন্ননালি",
+    "incorrect": "অন্ননালী"
+  },
+  {
+    "correct": "অন্নপ্রাশন",
+    "incorrect": "অন্নপ্রাসন"
+  },
+  {
+    "correct": "অন্নবস্ত্র",
+    "incorrect": "অন্ন বস্ত্র"
+  },
+  {
+    "correct": "অন্নসংস্থান",
+    "incorrect": "অন্ন সংস্থান"
+  },
+  {
+    "correct": "অন্নাভাব",
+    "incorrect": "অন্নভাব"
+  },
+  {
+    "correct": "অন্বেষণ",
+    "incorrect": "অন্বেষন"
+  },
+  {
+    "correct": "অন্যতম",
+    "incorrect": "অন্য তম"
+  },
+  {
+    "correct": "অন্যধর্মাবলম্বী",
+    "incorrect": "অন্য ধর্মাবলম্বী"
+  },
+  {
+    "correct": "অন্যমনস্ক",
+    "incorrect": "অন্যমনষ্ক"
+  },
+  {
+    "correct": "অন্যায্য",
+    "incorrect": "অন্যয্য"
+  },
+  {
+    "correct": "অন্যায়কারী",
+    "incorrect": "অন্যায় কারী"
+  },
+  {
+    "correct": "অন্যায়ভাবে",
+    "incorrect": "অন্যায় ভাবে"
+  },
+  {
+    "correct": "অন্যায়াচরণ",
+    "incorrect": "অন্যায়চরণ"
+  },
+  {
+    "correct": "অন্যূন",
+    "incorrect": "অন্যুন"
+  },
+  {
+    "correct": "অপকর্ষ",
+    "incorrect": "অপকর্শ"
+  },
+  {
+    "correct": "অপকারিতা",
+    "incorrect": "অপকারীতা"
+  },
+  {
+    "correct": "অপকারী",
+    "incorrect": "অপকারি"
+  },
+  {
+    "correct": "অপকীর্তি",
+    "incorrect": "অপকীর্তী"
+  },
+  {
+    "correct": "অপকৃতি",
+    "incorrect": "অপকৃতী"
+  },
+  {
+    "correct": "অপক্ব",
+    "incorrect": "অপক্ক"
+  },
+  {
+    "correct": "অপক্ষপাত",
+    "incorrect": "অ-পক্ষপাত"
+  },
+  {
+    "correct": "অপক্ষপাতিত্ব",
+    "incorrect": "অপক্ষপাতীত্ব"
+  },
+  {
+    "correct": "অপক্ষপাতী",
+    "incorrect": "অপক্ষপাতি"
+  },
+  {
+    "correct": "অপঘাত",
+    "incorrect": "অপ ঘাত"
+  },
+  {
+    "correct": "অপচয়কারী",
+    "incorrect": "অপচয়কারি"
+  },
+  {
+    "correct": "অপচেষ্টা",
+    "incorrect": "অপ চেষ্টা"
+  },
+  {
+    "correct": "অপত্যস্নেহ",
+    "incorrect": "অপত্য স্নেহ"
+  },
+  {
+    "correct": "অপথ্য",
+    "incorrect": "অ-পথ্য"
+  },
+  {
+    "correct": "অপদস্থ",
+    "incorrect": "অপদস্ত"
+  },
+  {
+    "correct": "অপনোদন",
+    "incorrect": "অপনদন"
+  },
+  {
+    "correct": "অপপ্রচার",
+    "incorrect": "অপ-প্রচার"
+  },
+  {
+    "correct": "অপপ্রয়োগ",
+    "incorrect": "অপ-প্রয়োগ"
+  },
+  {
+    "correct": "অপব্যবহার",
+    "incorrect": "অপ-ব্যবহার"
+  },
+  {
+    "correct": "অপব্যয়",
+    "incorrect": "অপ-ব্যয়"
+  },
+  {
+    "correct": "অপব্যয়িতা",
+    "incorrect": "অপব্যয়ীতা"
+  },
+  {
+    "correct": "অপব্যয়ী",
+    "incorrect": "অপব্যয়ি"
+  },
+  {
+    "correct": "অপভ্রংশ",
+    "incorrect": "অপভ্রংস"
+  },
+  {
+    "correct": "অপমানজনক",
+    "incorrect": "অপমান জনক"
+  },
+  {
+    "correct": "অপমানসূচক",
+    "incorrect": "অপমান সূচক"
+  },
+  {
+    "correct": "অপমানিত",
+    "incorrect": "অপমানীত"
+  },
+  {
+    "correct": "অপমৃত্যু",
+    "incorrect": "অপ-মৃত্যু"
+  },
+  {
+    "correct": "অপরাজিত",
+    "incorrect": "অ-পরাজিত"
+  },
+  {
+    "correct": "অপরাজেয়",
+    "incorrect": "অ-পরাজেয়"
+  },
+  {
+    "correct": "অপরাধমুক্ত",
+    "incorrect": "অপরাধ মুক্ত"
+  },
+  {
+    "correct": "অপরাধমূলক",
+    "incorrect": "অপরাধ মূলক"
+  },
+  {
+    "correct": "অপরাহ্ণ",
+    "incorrect": "অপরাহ্ন"
+  },
+  {
+    "correct": "অপরিকল্পিত",
+    "incorrect": "অপরীকল্পিত"
+  },
+  {
+    "correct": "অপরিচ্ছন্ন",
+    "incorrect": "অ-পরিচ্ছন্ন"
+  },
+  {
+    "correct": "অপরিণত",
+    "incorrect": "অপরিনত"
+  },
+  {
+    "correct": "অপরিণামদর্শিতা",
+    "incorrect": "অপরিণামদর্শীতা"
+  },
+  {
+    "correct": "অপরিণামদর্শী",
+    "incorrect": "অপরিনামদর্শী"
+  },
+  {
+    "correct": "অপরিবর্তনশীল",
+    "incorrect": "অপরিবর্তন শীল"
+  },
+  {
+    "correct": "অপরিবর্তনীয়",
+    "incorrect": "অপরিবর্তনিয়"
+  },
+  {
+    "correct": "অপরিবর্তিত",
+    "incorrect": "অপরিবর্তীত"
+  },
+  {
+    "correct": "অপরিবাহী",
+    "incorrect": "অপরিবাহি"
+  },
+  {
+    "correct": "অপরিশুদ্ধ",
+    "incorrect": "অপরিসুদ্ধ"
+  },
+  {
+    "correct": "অপরিশোধিত",
+    "incorrect": "অপরিশোধীত"
+  },
+  {
+    "correct": "অপরিষ্কার",
+    "incorrect": "অপরিস্কার"
+  },
+  {
+    "correct": "অপরিসর",
+    "incorrect": "অপরিশর"
+  },
+  {
+    "correct": "অপরিহার্য",
+    "incorrect": "অপরীহার্য"
+  },
+  {
+    "correct": "অপরীক্ষিত",
+    "incorrect": "অপরিক্ষীত"
+  },
+  {
+    "correct": "অপরূপ",
+    "incorrect": "অপরুপ"
+  },
+  {
+    "correct": "অপর্যাপ্ত",
+    "incorrect": "অ-পর্যাপ্ত"
+  },
+  {
+    "correct": "অপলাপ",
+    "incorrect": "অপোলাপ"
+  },
+  {
+    "correct": "অপসংস্কৃতি",
+    "incorrect": "অপ-সংস্কৃতি"
+  },
+  {
+    "correct": "অপসারণ",
+    "incorrect": "অপসারন"
+  },
+  {
+    "correct": "অপসারিত",
+    "incorrect": "অপসারীত"
+  },
+  {
+    "correct": "অপসিদ্ধান্ত",
+    "incorrect": "অপ-সিদ্ধান্ত"
+  },
+  {
+    "correct": "অপস্রিয়মাণ",
+    "incorrect": "অপসৃয়মাণ"
+  },
+  {
+    "correct": "অপহরণ",
+    "incorrect": "অপহরন"
+  },
+  {
+    "correct": "অপাঙ্‌ক্তেয়",
+    "incorrect": "অপাঙতেয়"
+  },
+  {
+    "correct": "অপারগ",
+    "incorrect": "অ-পারগ"
+  },
+  {
+    "correct": "অপারগতা",
+    "incorrect": "অ-পারগতা"
+  },
+  {
+    "correct": "অপুষ্টি",
+    "incorrect": "অপুস্টি"
+  },
+  {
+    "correct": "অপুষ্পক",
+    "incorrect": "অপুস্পক"
+  },
+  {
+    "correct": "অপূরণীয়",
+    "incorrect": "অপূরনীয়"
+  },
+  {
+    "correct": "অপেক্ষমাণ",
+    "incorrect": "অপেক্ষমান"
+  },
+  {
+    "correct": "অপেক্ষাকৃত",
+    "incorrect": "অপেক্ষা কৃত"
+  },
+  {
+    "correct": "অপেশাদারি",
+    "incorrect": "অপেশাদারী"
+  },
+  {
+    "correct": "অপ্রকাশিত",
+    "incorrect": "অ-প্রকাশিত"
+  },
+  {
+    "correct": "অপ্রকৃতিস্থ",
+    "incorrect": "অপ্রকৃতস্থ"
+  },
+  {
+    "correct": "অপ্রচলিত",
+    "incorrect": "অপ্রচলীত"
+  },
+  {
+    "correct": "অপ্রতিকার্য",
+    "incorrect": "অপ্রতিকার্য্য"
+  },
+  {
+    "correct": "অপ্রতিদ্বন্দ্বী",
+    "incorrect": "অপ্রতিদ্বন্দি"
+  },
+  {
+    "correct": "অপ্রতিরোধ্য",
+    "incorrect": "অ-প্রতিরোধ্য"
+  },
+  {
+    "correct": "অপ্রতুল",
+    "incorrect": "অ-প্রতুল"
+  },
+  {
+    "correct": "অপ্রত্যাশিত",
+    "incorrect": "অপ্রত্যাশীত"
+  },
+  {
+    "correct": "অপ্রধান",
+    "incorrect": "অ-প্রধান"
+  },
+  {
+    "correct": "অপ্রয়োজনীয়",
+    "incorrect": "অ-প্রয়োজনীয়"
+  },
+  {
+    "correct": "অপ্রশস্ত",
+    "incorrect": "অ-প্রশস্ত"
+  },
+  {
+    "correct": "অপ্রাকৃত",
+    "incorrect": "অ-প্রাকৃত"
+  },
+  {
+    "correct": "অপ্রাপ্তবয়স্ক",
+    "incorrect": "অপ্রাপ্তবয়ষ্ক"
+  },
+  {
+    "correct": "অপ্রামাণিক",
+    "incorrect": "অপ্রামাণীক"
+  },
+  {
+    "correct": "অপ্রামাণ্য",
+    "incorrect": "অ-প্রামান্য"
+  },
+  {
+    "correct": "অপ্রাসঙ্গিক",
+    "incorrect": "অ-প্রাসঙ্গিক"
+  },
+  {
+    "correct": "অপ্রীতিকর",
+    "incorrect": "অপ্রিতিকর"
+  },
+  {
+    "correct": "correct",
+    "incorrect": "incorrect"
+  },
+  {
+    "correct": "অফসেট",
+    "incorrect": "অপসেট"
+  },
+  {
+    "correct": "অফিসীয়",
+    "incorrect": "অফিসিয়"
+  },
+  {
+    "correct": "অবকলন",
+    "incorrect": "অবকলণ"
+  },
+  {
+    "correct": "অবকলিত",
+    "incorrect": "অবকলীত"
+  },
+  {
+    "correct": "অবকাঠামো",
+    "incorrect": "অব-কাঠামো"
+  },
+  {
+    "correct": "অবকাশযাপন",
+    "incorrect": "অবকাশ যাপন"
+  },
+  {
+    "correct": "অবক্ষয়",
+    "incorrect": "অব ক্ষয়"
+  },
+  {
+    "correct": "অবগতি",
+    "incorrect": "অবগতী"
+  },
+  {
+    "correct": "অবগাহন",
+    "incorrect": "অবগাহণ"
+  },
+  {
+    "correct": "অবগুণ্ঠন",
+    "incorrect": "অবগুন্ঠন"
+  },
+  {
+    "correct": "অবচেতন",
+    "incorrect": "অবচেতনা"
+  },
+  {
+    "correct": "অবতরণ",
+    "incorrect": "অবতরন"
+  },
+  {
+    "correct": "অবতরণিকা",
+    "incorrect": "অবতরনিকা"
+  },
+  {
+    "correct": "অবতারণা",
+    "incorrect": "অবতারনা"
+  },
+  {
+    "correct": "অবতীর্ণ",
+    "incorrect": "অবতীর্ন"
+  },
+  {
+    "correct": "অবদমন",
+    "incorrect": "অবদমণ"
+  },
+  {
+    "correct": "অবদমিত",
+    "incorrect": "অবদমীত"
+  },
+  {
+    "correct": "অবদলিযোগ্য",
+    "incorrect": "অবদলী যোগ্য"
+  },
+  {
+    "correct": "অবধারিত",
+    "incorrect": "অবধারীত"
+  },
+  {
+    "correct": "অবনমন",
+    "incorrect": "অবনমণ"
+  }
 ]
