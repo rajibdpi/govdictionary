@@ -281,6 +281,12 @@ class _WordPageState extends State<WordPage> {
                           30,
                           (index) {
                             return ListTile(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              leading: const IconButton(
+                                  onPressed: null,
+                                  icon: Icon(Icons.notifications)),
                               title: Text('Notification ${index + 1}'),
                             );
                           },
