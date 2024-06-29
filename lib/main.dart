@@ -8,6 +8,7 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
+import 'package:govdictionary/pages/notification.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
@@ -258,13 +259,24 @@ class _WordPageState extends State<WordPage> {
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
-          const Padding(
-            padding: EdgeInsets.only(right: 10),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
             child: base.Badge(
               // badgeAnimation: BadgeAnimation.slide(),
-              badgeStyle: base.BadgeStyle(badgeColor: Colors.amber),
-              badgeContent: Text('0'),
-              child: Icon(Icons.notifications),
+              badgeStyle: const base.BadgeStyle(badgeColor: Colors.amber),
+              badgeContent: const Text('1'),
+              child: const Icon(Icons.notifications),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    content: const Text('Notifications'),
+                  ),
+                );
+              },
             ),
           ),
           IconButton(
