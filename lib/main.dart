@@ -269,11 +269,24 @@ class _WordPageState extends State<WordPage> {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (context) => AlertDialog(
+                  builder: (BuildContext context) => AlertDialog(
+                    backgroundColor: Colors.grey.shade50,
+                    scrollable: true,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    content: const Text('Notifications'),
+                    content: SingleChildScrollView(
+                      child: ListBody(
+                        children: List.generate(
+                          30,
+                          (index) {
+                            return ListTile(
+                              title: Text('Notification ${index + 1}'),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                 );
               },
