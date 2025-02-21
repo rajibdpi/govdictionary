@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:govdictionary/components/message_bus.dart';
 
 //lastUpdateLocalFile()
 String appName = 'সরকারি কাজে ব্যবহারিক বাংলা';
@@ -49,6 +50,8 @@ Future<void> saveUpdate() async {
     remotefileSize = 0;
     // Force reload app data
     await fileStats();
+    // Notify all pages to refresh their data
+    MessageBus().notifyUpdate();
   } else {
     throw Exception('Failed to load words');
   }
