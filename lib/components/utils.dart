@@ -44,6 +44,11 @@ Future<void> saveUpdate() async {
     final remoteJsonString = remoteFileResponse.body;
     await File('${directory.path}/$appDatabaseName')
         .writeAsString(remoteJsonString);
+    // Reset the file sizes to trigger UI update
+    localFileSize = 0;
+    remotefileSize = 0;
+    // Force reload app data
+    await fileStats();
   } else {
     throw Exception('Failed to load words');
   }
