@@ -7,6 +7,7 @@ import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
+import 'package:govdictionary/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -253,6 +254,7 @@ class _WordPageState extends State<WordPage> {
       ],
     );
   }
+
   final List notifications = ['hello'];
   @override
   Widget build(BuildContext context) {
@@ -354,14 +356,33 @@ class _WordPageState extends State<WordPage> {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsPage(),
+                  ),
+                );
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
+              leading: const Icon(Icons.update),
               title: const Text('Updated at'),
-              onTap: () {
+              onTap: () async {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to settings page or perform settings related actions
+                final stats = await fileStats();
+                if (!mounted) return;
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Last Update'),
+                    content: Text('${stats["UpdatedAt"]}'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  ),
+                );
               },
             ),
           ],
