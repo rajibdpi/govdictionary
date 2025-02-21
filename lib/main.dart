@@ -10,6 +10,7 @@ import 'package:govdictionary/pages/about.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/src/material/refresh_indicator.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -220,32 +221,38 @@ class _WordPageState extends State<WordPage> {
                     semanticsLabel: 'Loading',
                   ),
                 )
-              : ListView.builder(
-                  itemCount: filteredWords.length,
-                  itemBuilder: (context, index) {
-                    final word = filteredWords[index];
-                    return ListTile(
-                      selectedTileColor: Colors.deepPurple.shade50,
-                      selected: index == selectedItemIndex,
-                      title: Text(
-                        '${word.correct} - ${word.incorrect}',
-                        style: const TextStyle(fontWeight: FontWeight.normal),
-                      ),
-                      leading: CircleAvatar(
-                        child: Text(word.correct[0]),
-                      ),
-                      onTap: () {
-                        // print(checkConnectionStatus(connectionStatus));
-                        showDialogMessage(context, word);
-                      },
-                    );
+              : RefreshIndicator(
+                  onRefresh: () async {
+                    if (await updateAvailable()) {
+                      await saveUpdate();
+                      await loadWords();
+                    }
                   },
+                  child: ListView.builder(
+                    itemCount: filteredWords.length,
+                    itemBuilder: (context, index) {
+                      final word = filteredWords[index];
+                      return ListTile(
+                        selectedTileColor: Colors.deepPurple.shade50,
+                        selected: index == selectedItemIndex,
+                        title: Text(
+                          '${word.correct} - ${word.incorrect}',
+                          style: const TextStyle(fontWeight: FontWeight.normal),
+                        ),
+                        leading: CircleAvatar(
+                          child: Text(word.correct[0]),
+                        ),
+                        onTap: () {
+                          showDialogMessage(context, word);
+                        },
+                      );
+                    },
+                  ),
                 ),
         ),
       ],
     );
   }
-
   final List notifications = ['hello'];
   @override
   Widget build(BuildContext context) {
