@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:govdictionary/components/theme_controller.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -8,19 +10,17 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool isDarkMode = false;
   double fontSize = 16.0;
   String selectedLanguage = 'বাংলা';
 
   @override
   Widget build(BuildContext context) {
+    final themeController = Provider.of<ThemeController>(context);
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.indigo,
         title: const Text(
           'Settings',
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: TextStyle(fontSize: 18),
         ),
       ),
       body: ListView(
@@ -31,11 +31,9 @@ class _SettingsPageState extends State<SettingsPage> {
               title: const Text('Dark Mode'),
               subtitle: const Text('Enable dark theme'),
               trailing: Switch(
-                value: isDarkMode,
+                value: themeController.isDarkMode,
                 onChanged: (value) {
-                  setState(() {
-                    isDarkMode = value;
-                  });
+                  themeController.toggleTheme();
                 },
               ),
             ),

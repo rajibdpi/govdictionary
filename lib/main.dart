@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:badges/badges.dart' as base;
 import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
+import 'package:govdictionary/components/theme_controller.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
@@ -12,9 +13,15 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/src/material/refresh_indicator.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider<ThemeController>(
+      create: (_) => ThemeController(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,12 +29,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeController = Provider.of<ThemeController>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appName,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+      theme: themeController.currentTheme,
       home: const WordPage(),
     );
   }
@@ -260,10 +266,9 @@ class _WordPageState extends State<WordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           appName,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
@@ -318,7 +323,6 @@ class _WordPageState extends State<WordPage> {
             ),
           )
         ],
-        backgroundColor: Colors.indigo,
       ),
       drawer: Drawer(
         child: ListView(
