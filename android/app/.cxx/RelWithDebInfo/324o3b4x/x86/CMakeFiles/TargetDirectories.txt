@@ -1,0 +1,2 @@
+/Users/rajib/github/govdictionary/android/app/.cxx/RelWithDebInfo/324o3b4x/x86/CMakeFiles/edit_cache.dir
+/Users/rajib/github/govdictionary/android/app/.cxx/RelWithDebInfo/324o3b4x/x86/CMakeFiles/rebuild_cache.dir

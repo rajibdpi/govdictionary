@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
   final networkConnectionStatus;
-  AboutPage({super.key, this.networkConnectionStatus});
+  const AboutPage({super.key, this.networkConnectionStatus});
 
   @override
   State<AboutPage> createState() => _AboutPageState();

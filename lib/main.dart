@@ -12,7 +12,6 @@ import 'package:govdictionary/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/src/material/refresh_indicator.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
 }
 
 class WordPage extends StatefulWidget {
-  const WordPage({Key? key}) : super(key: key);
+  const WordPage({super.key});
 
   @override
   _WordPageState createState() => _WordPageState();
@@ -230,7 +229,7 @@ class _WordPageState extends State<WordPage> {
                 )
               : RefreshIndicator(
                   onRefresh: () async {
-                    if (await updateAvailable()) {
+                    if (updateAvailable()) {
                       await saveUpdate();
                       await loadWords();
                     }

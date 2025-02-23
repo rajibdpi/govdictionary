@@ -1,0 +1,2 @@
+/Users/rajib/github/govdictionary/android/app/.cxx/Debug/4g342c65/x86/CMakeFiles/edit_cache.dir
+/Users/rajib/github/govdictionary/android/app/.cxx/Debug/4g342c65/x86/CMakeFiles/rebuild_cache.dir
