@@ -329,7 +329,7 @@ class _WordPageState extends State<WordPage> {
           children: <Widget>[
             DrawerHeader(
               decoration: const BoxDecoration(
-                color: Colors.indigo,
+                color: Colors.teal,
               ),
               child: Text(
                 appName,

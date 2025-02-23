@@ -15,7 +15,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
         // actions: [],
         title: const Text(
           "About",

@@ -114,7 +114,7 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(2),
           ),
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.teal,
           // backgroundColor: Colors.black87,
           // action: SnackBarAction(
           //   label: "Undo",
