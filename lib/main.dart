@@ -4,15 +4,23 @@ import 'dart:io';
 import 'package:badges/badges.dart' as base;
 import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
+import 'package:govdictionary/components/theme_controller.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
+import 'package:govdictionary/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider<ThemeController>(
+      create: (_) => ThemeController(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,19 +28,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeController = Provider.of<ThemeController>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appName,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+      theme: themeController.currentTheme,
       home: const WordPage(),
     );
   }
 }
 
 class WordPage extends StatefulWidget {
-  const WordPage({Key? key}) : super(key: key);
+  const WordPage({super.key});
 
   @override
   _WordPageState createState() => _WordPageState();
@@ -220,26 +227,33 @@ class _WordPageState extends State<WordPage> {
                     semanticsLabel: 'Loading',
                   ),
                 )
-              : ListView.builder(
-                  itemCount: filteredWords.length,
-                  itemBuilder: (context, index) {
-                    final word = filteredWords[index];
-                    return ListTile(
-                      selectedTileColor: Colors.deepPurple.shade50,
-                      selected: index == selectedItemIndex,
-                      title: Text(
-                        '${word.correct} - ${word.incorrect}',
-                        style: const TextStyle(fontWeight: FontWeight.normal),
-                      ),
-                      leading: CircleAvatar(
-                        child: Text(word.correct[0]),
-                      ),
-                      onTap: () {
-                        // print(checkConnectionStatus(connectionStatus));
-                        showDialogMessage(context, word);
-                      },
-                    );
+              : RefreshIndicator(
+                  onRefresh: () async {
+                    if (updateAvailable()) {
+                      await saveUpdate();
+                      await loadWords();
+                    }
                   },
+                  child: ListView.builder(
+                    itemCount: filteredWords.length,
+                    itemBuilder: (context, index) {
+                      final word = filteredWords[index];
+                      return ListTile(
+                        selectedTileColor: Colors.deepPurple.shade50,
+                        selected: index == selectedItemIndex,
+                        title: Text(
+                          '${word.correct} - ${word.incorrect}',
+                          style: const TextStyle(fontWeight: FontWeight.normal),
+                        ),
+                        leading: CircleAvatar(
+                          child: Text(word.correct.isNotEmpty ? word.correct[0] : '?'),
+                        ),
+                        onTap: () {
+                          showDialogMessage(context, word);
+                        },
+                      );
+                    },
+                  ),
                 ),
         ),
       ],
@@ -251,10 +265,9 @@ class _WordPageState extends State<WordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
           appName,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
         // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
@@ -309,7 +322,6 @@ class _WordPageState extends State<WordPage> {
             ),
           )
         ],
-        backgroundColor: Colors.indigo,
       ),
       drawer: Drawer(
         child: ListView(
@@ -317,7 +329,7 @@ class _WordPageState extends State<WordPage> {
           children: <Widget>[
             DrawerHeader(
               decoration: const BoxDecoration(
-                color: Colors.indigo,
+                color: Colors.teal,
               ),
               child: Text(
                 appName,
@@ -347,14 +359,33 @@ class _WordPageState extends State<WordPage> {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsPage(),
+                  ),
+                );
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
+              leading: const Icon(Icons.update),
               title: const Text('Updated at'),
-              onTap: () {
+              onTap: () async {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to settings page or perform settings related actions
+                final stats = await fileStats();
+                if (!mounted) return;
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Last Update'),
+                    content: Text('${stats["UpdatedAt"]}'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  ),
+                );
               },
             ),
           ],

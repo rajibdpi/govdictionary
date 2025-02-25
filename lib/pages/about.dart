@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
   final networkConnectionStatus;
-  AboutPage({super.key, this.networkConnectionStatus});
+  const AboutPage({super.key, this.networkConnectionStatus});
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -15,7 +15,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
         // actions: [],
         title: const Text(
           "About",
