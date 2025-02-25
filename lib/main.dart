@@ -246,7 +246,7 @@ class _WordPageState extends State<WordPage> {
                           style: const TextStyle(fontWeight: FontWeight.normal),
                         ),
                         leading: CircleAvatar(
-                          child: Text(word.correct[0]),
+                          child: Text(word.correct.isNotEmpty ? word.correct[0] : '?'),
                         ),
                         onTap: () {
                           showDialogMessage(context, word);
