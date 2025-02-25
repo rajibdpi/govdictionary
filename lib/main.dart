@@ -219,11 +219,25 @@ class _WordPageState extends State<WordPage> {
                       ),
                     ),
                     Container(
-                      width: 40,
-                      color: Colors.grey[200],
+                      width: 45,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Colors.teal.shade100, Colors.teal.shade50],
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
                       child: ListView.builder(
-                        itemCount:
-                            50, // Adjusted from 51 to 50 to match total characters
+                        itemCount: 50,
                         itemBuilder: (context, index) {
                           final letter = index < 11
                               ? [
@@ -280,21 +294,34 @@ class _WordPageState extends State<WordPage> {
                                   'ঃ',
                                   'ঁ'
                                 ][index - 11];
-                          return InkWell(
-                            onTap: () {
-                              final query = letter;
-                              searchController.text = query;
-                              searchWords(query);
-                            },
-                            child: Container(
-                              height: 25,
-                              alignment: Alignment.center,
-                              child: Text(
-                                letter,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.indigo,
+                          return Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                final query = letter;
+                                searchController.text = query;
+                                searchWords(query);
+                              },
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 200),
+                                height: 32,
+                                margin: const EdgeInsets.symmetric(
+                                    vertical: 2, horizontal: 4),
+                                decoration: BoxDecoration(
+                                  color: searchController.text == letter
+                                      ? Colors.teal.withOpacity(0.2)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    letter,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.teal.shade700,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
