@@ -191,26 +191,118 @@ class _WordPageState extends State<WordPage> {
                     semanticsLabel: 'Loading',
                   ),
                 )
-              : ListView.builder(
-                  itemCount: filteredWords.length,
-                  itemBuilder: (context, index) {
-                    final word = filteredWords[index];
-                    return ListTile(
-                      selectedTileColor: Colors.deepPurple.shade50,
-                      selected: index == selectedItemIndex,
-                      title: Text(
-                        '${word.correct} - ${word.incorrect}',
-                        style: const TextStyle(fontWeight: FontWeight.normal),
+              : Row(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: ListView.builder(
+                        itemCount: filteredWords.length,
+                        itemBuilder: (context, index) {
+                          final word = filteredWords[index];
+                          return ListTile(
+                            selectedTileColor: Colors.deepPurple.shade50,
+                            selected: index == selectedItemIndex,
+                            title: Text(
+                              '${word.correct} - ${word.incorrect}',
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.normal),
+                            ),
+                            leading: CircleAvatar(
+                              child: Text(word.correct[0]),
+                            ),
+                            onTap: () {
+                              // print(checkConnectionStatus(connectionStatus));
+                              showDialogMessage(context, word);
+                            },
+                          );
+                        },
                       ),
-                      leading: CircleAvatar(
-                        child: Text(word.correct[0]),
+                    ),
+                    Container(
+                      width: 40,
+                      color: Colors.grey[200],
+                      child: ListView.builder(
+                        itemCount:
+                            50, // Adjusted from 51 to 50 to match total characters
+                        itemBuilder: (context, index) {
+                          final letter = index < 11
+                              ? [
+                                  'অ',
+                                  'আ',
+                                  'ই',
+                                  'ঈ',
+                                  'উ',
+                                  'ঊ',
+                                  'ঋ',
+                                  'এ',
+                                  'ঐ',
+                                  'ও',
+                                  'ঔ',
+                                ][index]
+                              : [
+                                  'ক',
+                                  'খ',
+                                  'গ',
+                                  'ঘ',
+                                  'ঙ',
+                                  'চ',
+                                  'ছ',
+                                  'জ',
+                                  'ঝ',
+                                  'ঞ',
+                                  'ট',
+                                  'ঠ',
+                                  'ড',
+                                  'ঢ',
+                                  'ণ',
+                                  'ত',
+                                  'থ',
+                                  'দ',
+                                  'ধ',
+                                  'ন',
+                                  'প',
+                                  'ফ',
+                                  'ব',
+                                  'ভ',
+                                  'ম',
+                                  'য',
+                                  'র',
+                                  'ল',
+                                  'শ',
+                                  'ষ',
+                                  'স',
+                                  'হ',
+                                  'ড়',
+                                  'ঢ়',
+                                  'য়',
+                                  'ৎ',
+                                  'ং',
+                                  'ঃ',
+                                  'ঁ'
+                                ][index - 11];
+                          return InkWell(
+                            onTap: () {
+                              final query = letter;
+                              searchController.text = query;
+                              searchWords(query);
+                            },
+                            child: Container(
+                              height: 25,
+                              alignment: Alignment.center,
+                              child: Text(
+                                letter,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.indigo,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                      onTap: () {
-                        // print(checkConnectionStatus(connectionStatus));
-                        showDialogMessage(context, word);
-                      },
-                    );
-                  },
+                    ),
+                  ],
                 ),
         ),
       ],
@@ -246,7 +338,8 @@ class _WordPageState extends State<WordPage> {
                           style: const TextStyle(fontWeight: FontWeight.normal),
                         ),
                         leading: CircleAvatar(
-                          child: Text(word.correct.isNotEmpty ? word.correct[0] : '?'),
+                          child: Text(
+                              word.correct.isNotEmpty ? word.correct[0] : '?'),
                         ),
                         onTap: () {
                           showDialogMessage(context, word);
