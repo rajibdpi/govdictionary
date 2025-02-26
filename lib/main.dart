@@ -123,6 +123,7 @@ class _WordPageState extends State<WordPage> {
               localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
           filteredWords = allWords;
           isLoading = false;
+          // print(File('${directory.path}/$appDatabaseName'));
         });
       } else {
         // load from remoteFile
