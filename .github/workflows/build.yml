@@ -1,0 +1,85 @@
+name: Build Flutter App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            flutter_path: /opt/hostedtoolcache/flutter
+          - os: windows-latest
+            flutter_path: ${env:LOCALAPPDATA}\flutter
+          - os: macos-latest
+            flutter_path: /Users/runner/hostedtoolcache/flutter
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+      
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Analyze project source
+        run: flutter analyze
+      
+      - name: Run tests
+        run: flutter test
+      
+      # Build for Android (on ubuntu)
+      - name: Build Android APK
+        if: matrix.os == 'ubuntu-latest'
+        run: flutter build apk --release
+      
+      # Build for iOS (on macOS)
+      - name: Build iOS
+        if: matrix.os == 'macos-latest'
+        run: |
+          flutter build ios --release --no-codesign
+          
+      # Build for Web (on ubuntu)
+      - name: Build Web
+        if: matrix.os == 'ubuntu-latest'
+        run: flutter build web --release
+      
+      # Build for Windows (on windows)
+      - name: Build Windows
+        if: matrix.os == 'windows-latest'
+        run: flutter build windows --release
+      
+      # Build for macOS (on macOS)
+      - name: Build macOS
+        if: matrix.os == 'macos-latest'
+        run: flutter build macos --release
+      
+      # Build for Linux (on ubuntu)
+      - name: Build Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ninja-build libgtk-3-dev
+          flutter build linux --release
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}-build
+          path: |
+            build/app/outputs/flutter-apk/*.apk
+            build/ios/iphoneos
+            build/web
+            build/windows/**/*.exe
+            build/macos/Build/Products/Release/*.app
+            build/linux/x64/release/bundle
