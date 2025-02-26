@@ -83,3 +83,11 @@ jobs:
             build/windows/**/*.exe
             build/macos/Build/Products/Release/*.app
             build/linux/x64/release/bundle
+
+      - name: Cleanup
+        if: always()
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader
+          git config --local --unset-all core.sshCommand
+          git submodule foreach --recursive git config --local --unset-all http.https://github.com/.extraheader
+          git submodule foreach --recursive git config --local --unset-all core.sshCommand
