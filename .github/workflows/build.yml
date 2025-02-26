@@ -31,17 +31,33 @@ jobs:
       
       - name: Install dependencies
         run: flutter pub get
-      
-      # - name: Analyze project source
-      #   run: flutter analyze
-      
+        
       - name: Run tests
         run: flutter test
       
       # Build for Android (on ubuntu)
       - name: Build Android APK
         if: matrix.os == 'ubuntu-latest'
-        run: flutter build apk --release
+        run: |
+          # Accept Android SDK licenses
+          yes | flutter doctor --android-licenses
+          
+          # Configure Gradle to use network retry
+          echo "org.gradle.daemon=false" >> android/gradle.properties
+          echo "org.gradle.jvmargs=-Xmx3g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError" >> android/gradle.properties
+          echo "org.gradle.parallel=true" >> android/gradle.properties
+          echo "org.gradle.configureondemand=true" >> android/gradle.properties
+          echo "org.gradle.internal.repository.max.retries=10" >> android/gradle.properties
+          echo "org.gradle.internal.repository.initial.backoff=500" >> android/gradle.properties
+          
+          # Build APK with retry mechanism
+          for i in 1 2 3; do
+            if flutter build apk --release; then
+              break
+            fi
+            echo "Attempt $i failed, retrying..."
+            sleep 30
+          done
       
       # Build for iOS (on macOS)
       - name: Build iOS
