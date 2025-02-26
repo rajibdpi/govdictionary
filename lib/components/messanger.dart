@@ -4,9 +4,11 @@ import 'package:govdictionary/models/word.dart';
 
 // showDialogMessage()
 showDialogMessage(BuildContext context, Word word) {
+  if (!context.mounted) return;
   Future.delayed(
     Duration.zero,
     () {
+      if (!context.mounted) return;
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -22,8 +24,10 @@ showDialogMessage(BuildContext context, Word word) {
               children: [
                 TextButton.icon(
                   onPressed: () async {
+                    if (!context.mounted) return;
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     await Clipboard.setData(ClipboardData(text: word.correct));
+                    if (!context.mounted) return;
                     showSnackBarMessage(
                         context, 'Copied successfully', word.correct);
                   },
@@ -35,10 +39,11 @@ showDialogMessage(BuildContext context, Word word) {
                 ),
                 TextButton.icon(
                   onPressed: () async {
+                    if (!context.mounted) return;
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     await Clipboard.setData(
                         ClipboardData(text: word.incorrect));
-                    // copied successfully
+                    if (!context.mounted) return;
                     showSnackBarMessage(
                         context, 'Copied successfully', word.incorrect);
                   },
@@ -92,9 +97,11 @@ showDialogMessage(BuildContext context, Word word) {
 
 // showSnackBarMessage()
 showSnackBarMessage(BuildContext context, String title, String content) {
+  if (!context.mounted) return;
   Future.delayed(
     Duration.zero,
     () {
+      if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: ListTile(

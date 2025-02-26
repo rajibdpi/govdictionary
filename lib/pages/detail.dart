@@ -21,13 +21,13 @@ class _WordDetailsState extends State<WordDetails> {
         actions: [
           IconButton(
             onPressed: () {
-              print("Share Button Pressed");
+              debugPrint("Share Button Pressed");
             },
             icon: const Icon(Icons.share),
           ),
           IconButton(
             onPressed: () {
-              print("Copy Button Pressed");
+              debugPrint("Copy Button Pressed");
             },
             icon: const Icon(Icons.copy),
           ),

@@ -2,8 +2,8 @@ import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
-  final networkConnectionStatus;
-  const AboutPage({super.key, this.networkConnectionStatus});
+  final String networkConnectionStatus;
+  const AboutPage({super.key, required this.networkConnectionStatus});
 
   @override
   State<AboutPage> createState() => _AboutPageState();

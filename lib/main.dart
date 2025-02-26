@@ -81,7 +81,7 @@ class _WordPageState extends State<WordPage> {
     try {
       result = await connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      print('Couldn\'t check connectivity $e');
+      debugPrint('Couldn\'t check connectivity $e');
       return;
     }
     if (!mounted) {
@@ -95,7 +95,7 @@ class _WordPageState extends State<WordPage> {
     setState(() {
       connectionStatus = result;
     });
-    // print('Connectivity changed: $connectionStatus');
+    // debugPrint('Connectivity changed: $connectionStatus');
   }
 
 //checkConnectionStatus
@@ -123,7 +123,7 @@ class _WordPageState extends State<WordPage> {
               localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
           filteredWords = allWords;
           isLoading = false;
-          // print(File('${directory.path}/$appDatabaseName'));
+          // debugPrint('${directory.path}/$appDatabaseName');
         });
       } else {
         // load from remoteFile
@@ -145,8 +145,11 @@ class _WordPageState extends State<WordPage> {
         }
       }
     } catch (e) {
-      print('Error loading JSON: $e');
-      // Handle error
+      debugPrint('Error loading JSON: $e');
+      // Handle error appropriately
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -212,7 +215,7 @@ class _WordPageState extends State<WordPage> {
                               child: Text(word.correct[0]),
                             ),
                             onTap: () {
-                              // print(checkConnectionStatus(connectionStatus));
+                              // debugPrint(checkConnectionStatus(connectionStatus));
                               showDialogMessage(context, word);
                             },
                           );
@@ -231,7 +234,7 @@ class _WordPageState extends State<WordPage> {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withAlpha(25),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),
@@ -310,7 +313,7 @@ class _WordPageState extends State<WordPage> {
                                     vertical: 2, horizontal: 4),
                                 decoration: BoxDecoration(
                                   color: searchController.text == letter
-                                      ? Colors.teal.withOpacity(0.2)
+                                      ? Colors.teal.withAlpha(51)
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
