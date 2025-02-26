@@ -42,21 +42,41 @@ jobs:
           # Accept Android SDK licenses
           yes | flutter doctor --android-licenses
           
-          # Configure Gradle to use network retry
-          echo "org.gradle.daemon=false" >> android/gradle.properties
-          echo "org.gradle.jvmargs=-Xmx3g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError" >> android/gradle.properties
-          echo "org.gradle.parallel=true" >> android/gradle.properties
-          echo "org.gradle.configureondemand=true" >> android/gradle.properties
-          echo "org.gradle.internal.repository.max.retries=10" >> android/gradle.properties
-          echo "org.gradle.internal.repository.initial.backoff=500" >> android/gradle.properties
+          # Configure Gradle settings for better stability
+          cat >> android/gradle.properties << EOF
+          org.gradle.daemon=false
+          org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+          org.gradle.parallel=true
+          org.gradle.workers.max=2
+          org.gradle.configureondemand=false
+          org.gradle.caching=true
+          android.enableJetifier=true
+          android.useAndroidX=true
+          org.gradle.internal.repository.max.retries=3
+          org.gradle.internal.repository.initial.backoff=1000
+          EOF
           
-          # Build APK with retry mechanism
+          # Clean build cache before starting
+          cd android
+          ./gradlew clean
+          cd ..
+          
+          # Build APK with improved error handling
           for i in 1 2 3; do
-            if flutter build apk --release; then
+            echo "Build attempt $i..."
+            if flutter build apk --release --verbose; then
+              echo "Build successful!"
               break
+            else
+              echo "Build attempt $i failed"
+              if [ $i -lt 3 ]; then
+                echo "Cleaning build cache and retrying in 60 seconds..."
+                cd android
+                ./gradlew clean
+                cd ..
+                sleep 60
+              fi
             fi
-            echo "Attempt $i failed, retrying..."
-            sleep 30
           done
       
       # Build for iOS (on macOS)
