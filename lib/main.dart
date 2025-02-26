@@ -42,10 +42,10 @@ class WordPage extends StatefulWidget {
   const WordPage({super.key});
 
   @override
-  _WordPageState createState() => _WordPageState();
+  State<WordPage> createState() => WordPageState();
 }
 
-class _WordPageState extends State<WordPage> {
+class WordPageState extends State<WordPage> {
   late List<Word> allWords;
   late List<Word> filteredWords = [];
   late String updateAtDateTime;
@@ -84,10 +84,8 @@ class _WordPageState extends State<WordPage> {
       debugPrint('Couldn\'t check connectivity $e');
       return;
     }
-    if (!mounted) {
-      return Future.value(null);
-    }
-    return updateConnectionStatus(result);
+    if (!mounted) return;
+    updateConnectionStatus(result);
   }
 
   //updateConnectionStatus connectionStatus
