@@ -42,12 +42,17 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         env:
           ANDROID_SDK_ROOT: ${{ runner.temp }}/android-sdk
+          FLUTTER_HOME: ${{ env.FLUTTER_HOME }}
         run: |
           # Set up Android SDK directory
           mkdir -p $ANDROID_SDK_ROOT
           
+          # Ensure FLUTTER_HOME is set
+          echo "FLUTTER_HOME=$FLUTTER_HOME"
+          
           # Set up Flutter SDK path in local.properties
-          echo "flutter.sdk=${{ env.FLUTTER_HOME }}" > android/local.properties
+          mkdir -p android
+          echo "flutter.sdk=$FLUTTER_HOME" > android/local.properties
           echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
           
           # Initialize Gradle Wrapper
