@@ -1,8 +1,10 @@
-name: Build Flutter App
+name: Build and Release Flutter App
 
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main ]
 
@@ -119,3 +121,44 @@ jobs:
             build/windows/**/*.exe
             build/macos/Build/Products/Release/*.app
             build/linux/x64/release/bundle
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Extract Changelog
+        id: changelog
+        run: |
+          VERSION=${{ env.VERSION }}
+          CHANGELOG_CONTENT=$(awk -v ver="$VERSION" '/^## \[.*\]/ {p=0} /^## \['"$VERSION"'\]/ {p=1;next} p' CHANGELOG.md)
+          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+          echo "$CHANGELOG_CONTENT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release v${{ env.VERSION }}
+          body: |
+            ${{ env.CHANGELOG }}
+          files: |
+            artifacts/**/*.apk
+            artifacts/**/*.exe
+            artifacts/**/*.app
+            artifacts/**/bundle/*
+          draft: false
+          prerelease: false
