@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:badges/badges.dart' as base;
+// import 'package:badges/badges.dart' as base;
 import 'package:flutter/services.dart';
 import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/theme_controller.dart';
@@ -474,9 +474,10 @@ class WordPageState extends State<WordPage> {
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
-              onTap: () {
+              onTap: () async {
                 Navigator.pop(context); // Close the drawer
-                Navigator.of(context).push(
+                if (!mounted) return;
+                await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => AboutPage(
                       networkConnectionStatus:
@@ -489,9 +490,10 @@ class WordPageState extends State<WordPage> {
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
-              onTap: () {
+              onTap: () async {
                 Navigator.pop(context); // Close the drawer
-                Navigator.of(context).push(
+                if (!mounted) return;
+                await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const SettingsPage(),
                   ),
@@ -503,21 +505,24 @@ class WordPageState extends State<WordPage> {
               title: const Text('Updated'),
               onTap: () async {
                 Navigator.pop(context); // Close the drawer
+                if (!mounted) return;
                 final stats = await fileStats();
                 if (!mounted) return;
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Last Update'),
-                    content: Text('${stats["UpdatedAt"]}'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('Close'),
-                      ),
-                    ],
-                  ),
-                );
+                if (context.mounted) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext dialogContext) => AlertDialog(
+                      title: const Text('Last Update'),
+                      content: Text('${stats["UpdatedAt"]}'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(dialogContext),
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
               },
             ),
           ],
