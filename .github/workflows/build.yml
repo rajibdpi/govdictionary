@@ -44,9 +44,9 @@ jobs:
           ANDROID_HOME: ${{ runner.home }}/Android/Sdk
         run: |
           # Accept Android SDK licenses automatically
-          mkdir -p "$ANDROID_HOME"
+          mkdir -p "${{ runner.home}}/Android/Sdk"
+          export ANDROID_HOME="${{ runner.home}}/Android/Sdk"
           touch "$ANDROID_HOME/repositories.cfg"
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
           yes | flutter doctor --android-licenses > /dev/null 2>&1 || true
           
           # Configure Gradle settings for better stability
