@@ -41,51 +41,23 @@ jobs:
       - name: Build Android APK
         if: matrix.os == 'ubuntu-latest'
         env:
-          ANDROID_HOME: ${{ runner.home }}/Android/Sdk
+          ANDROID_SDK_ROOT: ${{ runner.temp }}/android-sdk
         run: |
-          # Set up Android SDK directory in the runner workspace
-          mkdir -p "${{ github.workspace}}/android-sdk"
-          export ANDROID_HOME="${{ github.workspace}}/android-sdk"
-          touch "$ANDROID_HOME/repositories.cfg"
-          yes | flutter doctor --android-licenses > /dev/null 2>&1 || true
+          # Set up Android SDK directory
+          mkdir -p $ANDROID_SDK_ROOT
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
           
-          # Configure Gradle settings for better stability
-          cat >> android/gradle.properties << EOF
-          org.gradle.daemon=false
-          org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
-          org.gradle.parallel=true
-          org.gradle.workers.max=2
-          org.gradle.configureondemand=false
-          org.gradle.caching=true
-          android.enableJetifier=true
-          android.useAndroidX=true
-          org.gradle.internal.repository.max.retries=3
-          org.gradle.internal.repository.initial.backoff=1000
-          EOF
-          
-          # Clean build cache before starting
+          # Initialize Gradle Wrapper
           cd android
-          ./gradlew clean
+          if [ ! -f "./gradlew" ]; then
+            gradle wrapper
+          fi
+          chmod +x ./gradlew
           cd ..
           
-          # Build APK with improved error handling and license acceptance
-          for i in 1 2 3; do
-            echo "Build attempt $i..."
-            if flutter build apk --release --verbose; then
-              echo "Build successful!"
-              break
-            else
-              echo "Build attempt $i failed"
-              if [ $i -lt 3 ]; then
-                echo "Cleaning build cache and retrying in 60 seconds..."
-                yes | sdkmanager --licenses > /dev/null 2>&1 || true
-                cd android
-                ./gradlew clean
-                cd ..
-                sleep 60
-              fi
-            fi
-          done
+          # Accept licenses and build
+          yes | flutter doctor --android-licenses
+          flutter build apk --release
       
       # Build for iOS (on macOS)
       - name: Build iOS
