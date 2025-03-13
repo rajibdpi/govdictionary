@@ -41,8 +41,11 @@ jobs:
       - name: Build Android APK
         if: matrix.os == 'ubuntu-latest'
         run: |
-          # Accept Android SDK licenses
-          yes | flutter doctor --android-licenses
+          # Accept Android SDK licenses automatically
+          mkdir -p /root/.android
+          touch /root/.android/repositories.cfg
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          yes | flutter doctor --android-licenses > /dev/null 2>&1 || true
           
           # Configure Gradle settings for better stability
           cat >> android/gradle.properties << EOF
@@ -63,7 +66,7 @@ jobs:
           ./gradlew clean
           cd ..
           
-          # Build APK with improved error handling
+          # Build APK with improved error handling and license acceptance
           for i in 1 2 3; do
             echo "Build attempt $i..."
             if flutter build apk --release --verbose; then
@@ -73,6 +76,7 @@ jobs:
               echo "Build attempt $i failed"
               if [ $i -lt 3 ]; then
                 echo "Cleaning build cache and retrying in 60 seconds..."
+                yes | sdkmanager --licenses > /dev/null 2>&1 || true
                 cd android
                 ./gradlew clean
                 cd ..
