@@ -43,9 +43,9 @@ jobs:
         env:
           ANDROID_HOME: ${{ runner.home }}/Android/Sdk
         run: |
-          # Accept Android SDK licenses automatically
-          mkdir -p "${{ runner.home}}/Android/Sdk"
-          export ANDROID_HOME="${{ runner.home}}/Android/Sdk"
+          # Set up Android SDK directory in the runner workspace
+          mkdir -p "${{ github.workspace}}/android-sdk"
+          export ANDROID_HOME="${{ github.workspace}}/android-sdk"
           touch "$ANDROID_HOME/repositories.cfg"
           yes | flutter doctor --android-licenses > /dev/null 2>&1 || true
           
