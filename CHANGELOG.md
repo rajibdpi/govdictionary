@@ -1,4 +1,35 @@
-# Changelog
+# সরকারি কাজে ব্যবহারিক বাংলা - Changelog
+
+## [1.0.0] - 2024-01
+
+### Features
+- Modern Material Design 3 UI with Bengali typography
+- Instant search with Bengali character support
+- Dark/Light theme modes for comfortable reading
+- Offline dictionary access with local data storage
+- Real-time network connectivity monitoring
+- Quick access Bengali character sidebar
+- Custom theme settings
+- About page with app information
+- Settings page for app customization
+
+### Technical Improvements
+- Efficient data loading with JSON caching
+- Optimized search algorithm for instant results
+- Responsive UI with smooth animations
+- Robust error handling and user feedback
+- Clean architecture with Provider pattern
+- Cross-platform compatibility (iOS, Android, Web)
+
+### Coming Soon
+- Push notifications for dictionary updates
+- Enhanced word details view
+- Additional customization options
+- Performance optimizations
+
+### Note
+- The notification feature is currently under development
+- For feedback and support, please visit the GitHub repository
 
 ## [1.0.0] - 2024-03-21
 
