@@ -45,7 +45,10 @@ jobs:
         run: |
           # Set up Android SDK directory
           mkdir -p $ANDROID_SDK_ROOT
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
+          
+          # Set up Flutter SDK path in local.properties
+          echo "flutter.sdk=${{ env.FLUTTER_HOME }}" > android/local.properties
+          echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
           
           # Initialize Gradle Wrapper
           cd android
