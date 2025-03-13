@@ -391,47 +391,57 @@ class WordPageState extends State<WordPage> {
           appName,
           style: const TextStyle(fontSize: 16),
         ),
-        // leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: base.Badge(
-              // badgeAnimation: BadgeAnimation.slide(),
-              badgeStyle: const base.BadgeStyle(badgeColor: Colors.amber),
-              badgeContent: const Text('1'),
-              child: const Icon(Icons.notifications),
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    backgroundColor: Colors.grey.shade50,
-                    scrollable: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    content: SingleChildScrollView(
-                      child: ListBody(
-                        children: List.generate(
-                          30,
-                          (index) {
-                            return ListTile(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              leading: const IconButton(
-                                  onPressed: null,
-                                  icon: Icon(Icons.notifications)),
-                              title: Text('Notification ${index + 1}'),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeController>(context, listen: false)
+                  .toggleTheme();
+            },
+            icon: Icon(
+              Provider.of<ThemeController>(context).isDarkMode
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
             ),
           ),
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 10),
+          //   child: base.Badge(
+          //     // badgeAnimation: BadgeAnimation.slide(),
+          //     badgeStyle: const base.BadgeStyle(badgeColor: Colors.amber),
+          //     badgeContent: const Text('1'),
+          //     child: const Icon(Icons.notifications),
+          //     onTap: () {
+          //       showDialog(
+          //         context: context,
+          //         builder: (BuildContext context) => AlertDialog(
+          //           backgroundColor: Colors.grey.shade50,
+          //           scrollable: true,
+          //           shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(10),
+          //           ),
+          //           content: SingleChildScrollView(
+          //             child: ListBody(
+          //               children: List.generate(
+          //                 30,
+          //                 (index) {
+          //                   return ListTile(
+          //                     onTap: () {
+          //                       Navigator.pop(context);
+          //                     },
+          //                     leading: const IconButton(
+          //                         onPressed: null,
+          //                         icon: Icon(Icons.notifications)),
+          //                     title: Text('Notification ${index + 1}'),
+          //                   );
+          //                 },
+          //               ),
+          //             ),
+          //           ),
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
           IconButton(
             onPressed: () {
               setState(() {
