@@ -59,24 +59,39 @@ jobs:
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
           echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
           
-          # Initialize Gradle Wrapper with network retry
+          # Initialize Gradle Wrapper with network retry and proper error handling
           cd android
           if [ ! -f "./gradlew" ]; then
             for i in {1..3}; do
-              if gradle wrapper; then
+              echo "Attempt $i: Initializing Gradle Wrapper..."
+              if gradle wrapper --gradle-version 8.3 --distribution-type bin; then
+                echo "Gradle wrapper initialized successfully"
                 break
               fi
-              echo "Retry $i: Gradle wrapper download failed, retrying..."
+              if [ $i -eq 3 ]; then
+                echo "Failed to initialize Gradle wrapper after 3 attempts"
+                exit 1
+              fi
+              echo "Retry $i: Gradle wrapper initialization failed, retrying..."
               sleep 5
             done
           fi
           chmod +x ./gradlew
+          
+          # Verify Gradle wrapper
+          ./gradlew --version
+          
           cd ..
           
           # Build with network retry
           for i in {1..3}; do
             if flutter build apk --release; then
+              echo "APK build successful"
               break
+            fi
+            if [ $i -eq 3 ]; then
+              echo "Failed to build APK after 3 attempts"
+              exit 1
             fi
             echo "Retry $i: Build failed, retrying..."
             sleep 10
