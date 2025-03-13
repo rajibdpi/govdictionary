@@ -50,7 +50,7 @@ class WordPageState extends State<WordPage> {
   late List<Word> filteredWords = [];
   late String updateAtDateTime;
   bool isLoading = true; // Track loading state
-  bool isSearchBarOpen = false;
+  bool isSearchBarOpen = true;
   int? selectedItemIndex;
   TextEditingController searchController = TextEditingController();
 
@@ -500,7 +500,7 @@ class WordPageState extends State<WordPage> {
             ),
             ListTile(
               leading: const Icon(Icons.update),
-              title: const Text('Updated at'),
+              title: const Text('Updated'),
               onTap: () async {
                 Navigator.pop(context); // Close the drawer
                 final stats = await fileStats();
