@@ -40,11 +40,13 @@ jobs:
       # Build for Android (on ubuntu)
       - name: Build Android APK
         if: matrix.os == 'ubuntu-latest'
+        env:
+          ANDROID_HOME: ${{ runner.home }}/Android/Sdk
         run: |
           # Accept Android SDK licenses automatically
-          mkdir -p /root/.android
-          touch /root/.android/repositories.cfg
-          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          mkdir -p "$ANDROID_HOME"
+          touch "$ANDROID_HOME/repositories.cfg"
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
           yes | flutter doctor --android-licenses > /dev/null 2>&1 || true
           
           # Configure Gradle settings for better stability
