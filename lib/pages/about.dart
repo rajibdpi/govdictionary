@@ -16,7 +16,6 @@ class _AboutPageState extends State<AboutPage> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.teal,
-        // actions: [],
         title: const Text(
           "About",
           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -24,42 +23,164 @@ class _AboutPageState extends State<AboutPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: FutureBuilder<Map>(
-            future: fileStats(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                // While waiting for the future to complete, you can display a loading indicator or placeholder text
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                // If there's an error, you can display an error message
-                return Text('Error: ${snapshot.error}');
-              } else {
-                // If the future completes successfully, display the last update time
-                return Column(
+        child: FutureBuilder<Map>(
+          future: fileStats(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextButton.icon(
-                      onPressed: updateAvailable() == true
-                          ? () {
-                              saveUpdate();
-                            }
-                          : null,
-                      label: updateAvailable() == true
-                          ? const Text('Update Available')
-                          : const Text('Already Updated'),
+                    const Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                      size: 60,
                     ),
+                    const SizedBox(height: 16),
                     Text(
-                      snapshot.data!.entries
-                          .map((entry) => '${entry.key}: ${entry.value}')
-                          .join('\n'),
+                      'Error: ${snapshot.error}',
+                      style: Theme.of(context).textTheme.titleMedium,
+                      textAlign: TextAlign.center,
                     ),
-                    // Text('${widget.networkConnectionStatus}'),
                   ],
-                );
-              }
-            },
-          ),
+                ),
+              );
+            }
+
+            return ListView(
+              children: [
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Author Information',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Developer:',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              'Rajib Ahmed',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Version:',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              '1.0.0',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'App Name:',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              'সরকারি কাজে ব্যবহারিক বাংলা',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'App Information',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 16),
+                        ...snapshot.data!.entries.map(
+                          (entry) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  '${entry.key}:',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                Text(
+                                  '${entry.value}',
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Updates',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 16),
+                        Center(
+                          child: FilledButton.icon(
+                            onPressed: updateAvailable() == true
+                                ? () {
+                                    saveUpdate();
+                                  }
+                                : null,
+                            icon: Icon(
+                              updateAvailable() == true
+                                  ? Icons.system_update
+                                  : Icons.check_circle,
+                            ),
+                            label: Text(
+                              updateAvailable() == true
+                                  ? 'Update Available'
+                                  : 'Already Updated',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
