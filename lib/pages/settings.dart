@@ -10,9 +10,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  double fontSize = 16.0;
-  String selectedLanguage = 'বাংলা';
-
   @override
   Widget build(BuildContext context) {
     final themeController = Provider.of<ThemeController>(context);
@@ -44,20 +41,18 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 ListTile(
                   title: const Text('Font Size'),
-                  subtitle: Text('${fontSize.toInt()}'),
+                  subtitle: Text('${themeController.fontSize.toInt()}'),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Slider(
-                    value: fontSize,
+                    value: themeController.fontSize,
                     min: 12,
                     max: 24,
                     divisions: 12,
-                    label: fontSize.toInt().toString(),
+                    label: themeController.fontSize.toInt().toString(),
                     onChanged: (value) {
-                      setState(() {
-                        fontSize = value;
-                      });
+                      themeController.setFontSize(value);
                     },
                   ),
                 ),
@@ -68,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Card(
             child: ListTile(
               title: const Text('Language'),
-              subtitle: Text(selectedLanguage),
+              subtitle: Text(themeController.language),
               onTap: () {
                 showDialog(
                   context: context,
@@ -80,18 +75,14 @@ class _SettingsPageState extends State<SettingsPage> {
                         ListTile(
                           title: const Text('বাংলা'),
                           onTap: () {
-                            setState(() {
-                              selectedLanguage = 'বাংলা';
-                            });
+                            themeController.setLanguage('বাংলা');
                             Navigator.pop(context);
                           },
                         ),
                         ListTile(
                           title: const Text('English'),
                           onTap: () {
-                            setState(() {
-                              selectedLanguage = 'English';
-                            });
+                            themeController.setLanguage('English');
                             Navigator.pop(context);
                           },
                         ),

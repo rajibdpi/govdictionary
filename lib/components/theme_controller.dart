@@ -1,12 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeController extends ChangeNotifier {
+  static const String _darkModeKey = 'darkMode';
+  static const String _fontSizeKey = 'fontSize';
+  static const String _languageKey = 'language';
+
   bool _isDarkMode = false;
+  double _fontSize = 16.0;
+  String _language = 'বাংলা';
+  late SharedPreferences _prefs;
+
+  ThemeController() {
+    _loadSettings();
+  }
 
   bool get isDarkMode => _isDarkMode;
+  double get fontSize => _fontSize;
+  String get language => _language;
 
-  void toggleTheme() {
+  Future<void> _loadSettings() async {
+    _prefs = await SharedPreferences.getInstance();
+    _isDarkMode = _prefs.getBool(_darkModeKey) ?? false;
+    _fontSize = _prefs.getDouble(_fontSizeKey) ?? 16.0;
+    _language = _prefs.getString(_languageKey) ?? 'বাংলা';
+    notifyListeners();
+  }
+
+  Future<void> toggleTheme() async {
     _isDarkMode = !_isDarkMode;
+    await _prefs.setBool(_darkModeKey, _isDarkMode);
+    notifyListeners();
+  }
+
+  Future<void> setFontSize(double size) async {
+    _fontSize = size;
+    await _prefs.setDouble(_fontSizeKey, size);
+    notifyListeners();
+  }
+
+  Future<void> setLanguage(String lang) async {
+    _language = lang;
+    await _prefs.setString(_languageKey, lang);
     notifyListeners();
   }
 
