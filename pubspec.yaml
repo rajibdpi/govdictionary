@@ -99,4 +99,10 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 inno_bundle:
   id: 75b4e920-117d-11f0-8036-4945daf5aa58
-  publisher: rajib
+  publisher: Rajib Ahmed
+  publisher_url: https://rajibdpi.github.io
+  publisher_email: rajibdpi@gmail.com
+  name: Govt Dictionary
+  version: 1.0.0
+  copyright: Copyright © 2025
+  url: https://github.com/rajibdpi/govdictionary
