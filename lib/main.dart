@@ -50,9 +50,13 @@ class WordPageState extends State<WordPage> {
   late List<Word> filteredWords = [];
   late String updateAtDateTime;
   bool isLoading = true; // Track loading state
+  bool isLoadingMore = false; // Track pagination loading state
   bool isSearchBarOpen = true;
   int? selectedItemIndex;
   TextEditingController searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
+  int _currentPage = 0;
+  static const int _itemsPerPage = 50;
 
   // connectivity
   List<ConnectivityResult> connectionStatus = [ConnectivityResult.none];
@@ -66,12 +70,14 @@ class WordPageState extends State<WordPage> {
     initConnectivity();
     connectivitySubscription =
         connectivity.onConnectivityChanged.listen(updateConnectionStatus);
+    _scrollController.addListener(_onScroll);
   }
 
   //dispose
   @override
   void dispose() {
     connectivitySubscription.cancel();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -119,7 +125,8 @@ class WordPageState extends State<WordPage> {
         setState(() {
           allWords =
               localJsonData.map((wordJson) => Word.fromJson(wordJson)).toList();
-          filteredWords = allWords;
+          originalWords = List.from(allWords);
+          _loadMoreItems(true);
           isLoading = false;
           // debugPrint('${directory.path}/$appDatabaseName');
         });
@@ -135,6 +142,7 @@ class WordPageState extends State<WordPage> {
             allWords = remoteJsonData
                 .map((wordJson) => Word.fromJson(wordJson))
                 .toList();
+            originalWords = List.from(allWords);
             filteredWords = allWords;
             isLoading = false;
           });
@@ -151,14 +159,65 @@ class WordPageState extends State<WordPage> {
     }
   }
 
+  late List<Word> originalWords;
+
   void searchWords(String query) {
     setState(() {
-      filteredWords = allWords
-          .where((word) =>
-              word.correct.toLowerCase().contains(query.toLowerCase()) ||
-              word.incorrect.toLowerCase().contains(query.toLowerCase()))
-          .toList();
+      if (query.isEmpty) {
+        allWords = List.from(originalWords);
+      } else {
+        allWords = originalWords
+            .where((word) =>
+                word.correct.toLowerCase().contains(query.toLowerCase()) ||
+                word.incorrect.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+      _currentPage = 0;
+      _loadMoreItems(true);
     });
+  }
+
+  void _loadMoreItems(bool reset) {
+    if (reset) {
+      filteredWords = [];
+      _currentPage = 0;
+    }
+
+    if (allWords.isEmpty) {
+      setState(() {
+        isLoadingMore = false;
+      });
+      return;
+    }
+
+    final int startIndex = _currentPage * _itemsPerPage;
+    if (startIndex >= allWords.length) {
+      setState(() {
+        isLoadingMore = false;
+      });
+      return;
+    }
+
+    final int endIndex = (startIndex + _itemsPerPage <= allWords.length)
+        ? startIndex + _itemsPerPage
+        : allWords.length;
+
+    setState(() {
+      filteredWords.addAll(allWords.sublist(startIndex, endIndex));
+      _currentPage++;
+      isLoadingMore = false;
+    });
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+            _scrollController.position.maxScrollExtent * 0.8 &&
+        !isLoadingMore) {
+      setState(() {
+        isLoadingMore = true;
+      });
+      _loadMoreItems(false);
+    }
   }
 
   Widget withSearchBar() {
@@ -198,8 +257,23 @@ class WordPageState extends State<WordPage> {
                     Expanded(
                       flex: 5,
                       child: ListView.builder(
-                        itemCount: filteredWords.length,
+                        controller: _scrollController,
+                        itemCount:
+                            filteredWords.length + (isLoadingMore ? 1 : 0),
                         itemBuilder: (context, index) {
+                          if (index == filteredWords.length && isLoadingMore) {
+                            return const Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Center(
+                                child: SizedBox(
+                                  height: 24,
+                                  width: 24,
+                                  child:
+                                      CircularProgressIndicator(strokeWidth: 2),
+                                ),
+                              ),
+                            );
+                          }
                           final word = filteredWords[index];
                           return ListTile(
                             selectedTileColor: Colors.deepPurple.shade50,
@@ -403,45 +477,6 @@ class WordPageState extends State<WordPage> {
                   : Icons.dark_mode,
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(right: 10),
-          //   child: base.Badge(
-          //     // badgeAnimation: BadgeAnimation.slide(),
-          //     badgeStyle: const base.BadgeStyle(badgeColor: Colors.amber),
-          //     badgeContent: const Text('1'),
-          //     child: const Icon(Icons.notifications),
-          //     onTap: () {
-          //       showDialog(
-          //         context: context,
-          //         builder: (BuildContext context) => AlertDialog(
-          //           backgroundColor: Colors.grey.shade50,
-          //           scrollable: true,
-          //           shape: RoundedRectangleBorder(
-          //             borderRadius: BorderRadius.circular(10),
-          //           ),
-          //           content: SingleChildScrollView(
-          //             child: ListBody(
-          //               children: List.generate(
-          //                 30,
-          //                 (index) {
-          //                   return ListTile(
-          //                     onTap: () {
-          //                       Navigator.pop(context);
-          //                     },
-          //                     leading: const IconButton(
-          //                         onPressed: null,
-          //                         icon: Icon(Icons.notifications)),
-          //                     title: Text('Notification ${index + 1}'),
-          //                   );
-          //                 },
-          //               ),
-          //             ),
-          //           ),
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
           IconButton(
             onPressed: () {
               setState(() {
