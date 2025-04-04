@@ -537,7 +537,7 @@ class WordPageState extends State<WordPage> {
             ),
             ListTile(
               leading: const Icon(Icons.update),
-              title: const Text('Updated'),
+              title: const Text('Check for Update'),
               onTap: () async {
                 Navigator.pop(context); // Close the drawer
                 if (!mounted) return;
