@@ -1,5 +1,6 @@
 import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
   final String networkConnectionStatus;
@@ -64,44 +65,120 @@ class _AboutPageState extends State<AboutPage> {
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Developer:',
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            Text(
-                              'Rajib Ahmed',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
+                        ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            'Rajib Ahmed',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          subtitle: Text(
+                            'Software Developer',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 16),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              'Version:',
-                              style: Theme.of(context).textTheme.bodyLarge,
+                            IconButton(
+                              icon: const Icon(Icons.email),
+                              onPressed: () {
+                                final Uri emailLaunchUri = Uri(
+                                  scheme: 'mailto',
+                                  path: 'rajibahmed.cse@gmail.com',
+                                );
+                                try {
+                                  launchUrl(emailLaunchUri,
+                                      mode: LaunchMode.platformDefault);
+                                } catch (e) {
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content:
+                                          Text('Could not launch email client'),
+                                    ),
+                                  );
+                                }
+                              },
+                              tooltip: 'Email',
                             ),
-                            Text(
-                              '1.0.0',
-                              style: Theme.of(context).textTheme.bodyMedium,
+                            IconButton(
+                              icon: const Icon(Icons.language),
+                              onPressed: () {
+                                final Uri websiteUri =
+                                    Uri.parse('https://rajibdpi.github.io');
+                                try {
+                                  launchUrl(websiteUri,
+                                      mode: LaunchMode.platformDefault);
+                                } catch (e) {
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Could not launch website'),
+                                    ),
+                                  );
+                                }
+                              },
+                              tooltip: 'Website',
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'App Name:',
-                              style: Theme.of(context).textTheme.bodyLarge,
+                            IconButton(
+                              icon: const Icon(Icons.code),
+                              onPressed: () {
+                                final Uri githubUri =
+                                    Uri.parse('https://github.com/rajibdpi');
+                                try {
+                                  launchUrl(githubUri,
+                                      mode: LaunchMode.platformDefault);
+                                } catch (e) {
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Could not launch GitHub'),
+                                    ),
+                                  );
+                                }
+                              },
+                              tooltip: 'GitHub',
                             ),
-                            Text(
-                              'সরকারি কাজে ব্যবহারিক বাংলা',
-                              style: Theme.of(context).textTheme.bodyMedium,
+                            IconButton(
+                              icon: const Icon(Icons.person),
+                              onPressed: () {
+                                final Uri linkedinUri = Uri.parse(
+                                    'https://linkedin.com/in/rajibdpi');
+                                try {
+                                  launchUrl(linkedinUri,
+                                      mode: LaunchMode.platformDefault);
+                                } catch (e) {
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content:
+                                          Text('Could not launch LinkedIn'),
+                                    ),
+                                  );
+                                }
+                              },
+                              tooltip: 'LinkedIn',
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.facebook),
+                              onPressed: () {
+                                final Uri facebookUri =
+                                    Uri.parse('https://facebook.com/rajibdpi');
+                                try {
+                                  launchUrl(facebookUri,
+                                      mode: LaunchMode.platformDefault);
+                                } catch (e) {
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content:
+                                          Text('Could not launch Facebook'),
+                                    ),
+                                  );
+                                }
+                              },
+                              tooltip: 'Facebook',
                             ),
                           ],
                         ),
