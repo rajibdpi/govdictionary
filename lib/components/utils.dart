@@ -34,7 +34,7 @@ Future<Map> fileStats() async {
 
 // checkUpdate
 bool updateAvailable() {
-  return localFileSize < remotefileSize ? true : false;
+  return localFileSize != remotefileSize;
 }
 
 // saveUpdate
