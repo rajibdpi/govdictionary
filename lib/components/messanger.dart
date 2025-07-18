@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:govdictionary/models/word.dart';
+import 'package:share_plus/share_plus.dart';
 
 // showDialogMessage()
 showDialogMessage(BuildContext context, Word word) {
@@ -60,6 +61,18 @@ showDialogMessage(BuildContext context, Word word) {
               icon: const Icon(Icons.info_outline),
             ),
             actions: [
+              IconButton(
+                icon: const Icon(Icons.share),
+                onPressed: () {
+                  SharePlus.instance.share(
+                    ShareParams(
+                      text: '${word.correct}\n\n${word.incorrect}',
+                      subject: 'Share Word',
+                      sharePositionOrigin: Rect.fromLTWH(0, 0, 100, 100),
+                    ),
+                  );
+                },
+              ),
               IconButton(
                 icon: const Icon(Icons.close),
                 onPressed: () {
