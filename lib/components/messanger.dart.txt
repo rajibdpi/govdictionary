@@ -16,7 +16,8 @@ showDialogMessage(BuildContext context, Word word) {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            scrollable: true,
+            // scrollable: true,
+            // title: Text(title),
             titleTextStyle: const TextStyle(fontSize: 16, color: Colors.black),
             content: Column(
               mainAxisSize: MainAxisSize.min,
@@ -54,18 +55,38 @@ showDialogMessage(BuildContext context, Word word) {
                 ),
               ],
             ),
+            // iconColor:  ,
             icon: TextButton.icon(
               onPressed: null,
               label: const Text("কপি করতে চাইলে ট্যাপ করুন"),
               icon: const Icon(Icons.info_outline),
             ),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.close),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
+            actions: const [
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Flexible(
+              //       child: IconButton(
+              //         color: Colors.green,
+              //         onPressed: () {
+              //           showSnackBarMessage(
+              //               context, "Success", "Record Deleted");
+              //           Navigator.of(context).pop();
+              //         },
+              //         icon: const Icon(Icons.check_circle_outlined),
+              //       ),
+              //     ),
+              //     Flexible(
+              //       child: IconButton(
+              //         color: Colors.red,
+              //         onPressed: () {
+              //           Navigator.of(context).pop();
+              //         },
+              //         icon: const Icon(Icons.highlight_off),
+              //       ),
+              //     ),
+              //   ],
+              // )
             ],
           );
         },
@@ -84,6 +105,7 @@ showSnackBarMessage(BuildContext context, String title, String content) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: ListTile(
+            // tileColor: Colors.white,
             title: Text(
               title,
               style: const TextStyle(color: Colors.white),
@@ -92,6 +114,7 @@ showSnackBarMessage(BuildContext context, String title, String content) {
               content,
               style: const TextStyle(color: Colors.white),
             ),
+            // subtitleTextStyle: const TextStyle(color: Colors.white),
           ),
           showCloseIcon: true,
           closeIconColor: Colors.white,
@@ -99,6 +122,13 @@ showSnackBarMessage(BuildContext context, String title, String content) {
             borderRadius: BorderRadius.circular(2),
           ),
           backgroundColor: Colors.teal,
+          // backgroundColor: Colors.black87,
+          // action: SnackBarAction(
+          //   label: "Undo",
+          //   onPressed: () {
+          //     print("Pressed Undo");
+          //   },
+          // ),
         ),
       );
     },
