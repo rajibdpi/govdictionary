@@ -238,7 +238,7 @@ class WordPageState extends State<WordPage> {
                 },
                 icon: const Icon(Icons.clear),
               ),
-              labelText: 'Search-খুঁজুন',
+              labelText: 'শব্দ খুঁজুন',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25.0),
               ),
