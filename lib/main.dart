@@ -296,6 +296,37 @@ class WordPageState extends State<WordPage> {
                                   ),
                                 ),
                               ],
+                              // children: [
+                              //   TextButton.icon(
+                              //     onPressed: () {
+                              //       // Add your onPressed logic for the correct word here
+                              //     },
+                              //     icon: const Icon(Icons.check,
+                              //         color: Colors.teal),
+                              //     label: Text(
+                              //       word.correct,
+                              //       style: const TextStyle(
+                              //         fontWeight: FontWeight.normal,
+                              //         color: Colors.teal,
+                              //       ),
+                              //     ),
+                              //   ),
+                              //   // const Text(' - '),
+                              //   TextButton.icon(
+                              //     onPressed: () {
+                              //       // Add your onPressed logic for the incorrect word here
+                              //     },
+                              //     icon: const Icon(Icons.close,
+                              //         color: Colors.red),
+                              //     label: Text(
+                              //       word.incorrect,
+                              //       style: const TextStyle(
+                              //         fontWeight: FontWeight.normal,
+                              //         color: Colors.red,
+                              //       ),
+                              //     ),
+                              //   ),
+                              // ],
                             ),
                             leading: CircleAvatar(
                               child: Text(word.correct[0]),
