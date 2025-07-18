@@ -66,9 +66,10 @@ showDialogMessage(BuildContext context, Word word) {
                 onPressed: () {
                   SharePlus.instance.share(
                     ShareParams(
-                      text: '${word.correct}\n\n${word.incorrect}',
-                      subject: 'Share Word',
-                      sharePositionOrigin: Rect.fromLTWH(0, 0, 100, 100),
+                      text:
+                          'শুদ্ধ - ${word.correct}\n\nঅশুদ্ধ - ${word.incorrect}',
+                      subject: 'শুদ্ধ ও অশুদ্ধ শব্দ',
+                      sharePositionOrigin: Rect.fromLTWH(100, 0, 0, 100),
                     ),
                   );
                 },
