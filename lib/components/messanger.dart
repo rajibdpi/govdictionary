@@ -28,8 +28,8 @@ showDialogMessage(BuildContext context, Word word) {
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     await Clipboard.setData(ClipboardData(text: word.correct));
                     if (!context.mounted) return;
-                    showSnackBarMessage(
-                        context, 'Copied successfully', word.correct);
+                    showSnackBarMessage(context,
+                        'শুদ্ধ শব্দটি সফলভাবে কপি হয়েছে', word.correct);
                   },
                   label: Text(word.correct),
                   icon: const Icon(
@@ -44,8 +44,8 @@ showDialogMessage(BuildContext context, Word word) {
                     await Clipboard.setData(
                         ClipboardData(text: word.incorrect));
                     if (!context.mounted) return;
-                    showSnackBarMessage(
-                        context, 'Copied successfully', word.incorrect);
+                    showSnackBarMessage(context,
+                        'অশুদ্ধ শব্দটি সফলভাবে কপি হয়েছে', word.incorrect);
                   },
                   label: Text(word.incorrect),
                   icon: const Icon(
@@ -67,7 +67,7 @@ showDialogMessage(BuildContext context, Word word) {
                   SharePlus.instance.share(
                     ShareParams(
                       text:
-                          'শুদ্ধ - ${word.correct}\n\nঅশুদ্ধ - ${word.incorrect}',
+                          'শুদ্ধ - ${word.correct}\nঅশুদ্ধ - ${word.incorrect}\n\nশুদ্ধ ও অশুদ্ধ শব্দ পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary',
                       subject: 'শুদ্ধ ও অশুদ্ধ শব্দ',
                       sharePositionOrigin: Rect.fromLTWH(100, 0, 0, 100),
                     ),
@@ -110,9 +110,10 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           showCloseIcon: true,
           closeIconColor: Colors.white,
           shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.teal, width: 1.5),
             borderRadius: BorderRadius.circular(2),
           ),
-          backgroundColor: Colors.black26,
+          backgroundColor: Colors.teal, // Changed to teal for better visibility
         ),
       );
     },
