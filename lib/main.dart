@@ -281,7 +281,8 @@ class WordPageState extends State<WordPage> {
                             title: Row(
                               children: [
                                 Text(
-                                  '✔️ ${word.correct}',
+                                  // '✔️ ${word.correct}',
+                                  word.correct,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.normal,
                                     color: Colors.teal,
@@ -289,7 +290,8 @@ class WordPageState extends State<WordPage> {
                                 ),
                                 const Text(' - '),
                                 Text(
-                                  '❌ ${word.incorrect}',
+                                  // '❌ ${word.incorrect}',
+                                  word.incorrect,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.normal,
                                     color: Colors.red,
@@ -301,7 +303,6 @@ class WordPageState extends State<WordPage> {
                               child: Text(word.correct[0]),
                             ),
                             onTap: () {
-                              // debugPrint(checkConnectionStatus(connectionStatus));
                               showDialogMessage(context, word);
                             },
                           );
