@@ -278,24 +278,10 @@ class WordPageState extends State<WordPage> {
                           return ListTile(
                             selectedTileColor: Colors.deepPurple.shade50,
                             selected: index == selectedItemIndex,
-                            title: Row(
-                              children: [
-                                Text(
-                                  '✔️ ${word.correct}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.teal,
-                                  ),
-                                ),
-                                const Text(' - '),
-                                Text(
-                                  '❌ ${word.incorrect}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                              ],
+                            title: Text(
+                              '${word.correct} - ${word.incorrect}',
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.normal),
                             ),
                             leading: CircleAvatar(
                               child: Text(word.correct[0]),
@@ -451,24 +437,9 @@ class WordPageState extends State<WordPage> {
                       return ListTile(
                         selectedTileColor: Colors.deepPurple.shade50,
                         selected: index == selectedItemIndex,
-                        title: Row(
-                          children: [
-                            Text(
-                              word.correct,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.green,
-                              ),
-                            ),
-                            const Text(' - '),
-                            Text(
-                              word.incorrect,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ],
+                        title: Text(
+                          '${word.correct} - ${word.incorrect}',
+                          style: const TextStyle(fontWeight: FontWeight.normal),
                         ),
                         leading: CircleAvatar(
                           child: Text(
