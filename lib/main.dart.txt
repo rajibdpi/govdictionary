@@ -102,7 +102,7 @@ class WordPageState extends State<WordPage> {
     // debugPrint('Connectivity changed: $connectionStatus');
   }
 
-  //checkConnectionStatus
+//checkConnectionStatus
   checkConnectionStatus(List<dynamic> connectionStatusList) {
     return connectionStatusList.map(
       (connection) {
@@ -113,7 +113,7 @@ class WordPageState extends State<WordPage> {
     ).join(',');
   }
 
-  //loadWords
+//loadWords
   Future<void> loadWords() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
@@ -168,8 +168,8 @@ class WordPageState extends State<WordPage> {
       } else {
         allWords = originalWords
             .where((word) =>
-                word.correct.isNotEmpty &&
-                word.correct.toLowerCase().startsWith(query.toLowerCase()))
+                word.correct.toLowerCase().contains(query.toLowerCase()) ||
+                word.incorrect.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
       _currentPage = 0;
