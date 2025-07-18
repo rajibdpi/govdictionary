@@ -112,7 +112,7 @@ showSnackBarMessage(BuildContext context, String title, String content) {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(2),
           ),
-          backgroundColor: Colors.teal,
+          backgroundColor: Colors.black26,
         ),
       );
     },
