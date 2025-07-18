@@ -29,7 +29,7 @@ showDialogMessage(BuildContext context, Word word) {
                     await Clipboard.setData(ClipboardData(text: word.correct));
                     if (!context.mounted) return;
                     showSnackBarMessage(context,
-                        'শুদ্ধ শব্দটি সফলভাবে কপি হয়েছে', word.correct);
+                        'সঠিক বানানটি সফলভাবে কপি হয়েছে', word.correct);
                   },
                   label: Text(word.correct),
                   icon: const Icon(
@@ -45,7 +45,7 @@ showDialogMessage(BuildContext context, Word word) {
                         ClipboardData(text: word.incorrect));
                     if (!context.mounted) return;
                     showSnackBarMessage(context,
-                        'অশুদ্ধ শব্দটি সফলভাবে কপি হয়েছে', word.incorrect);
+                        'অসঠিক বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
                   },
                   label: Text(word.incorrect),
                   icon: const Icon(
@@ -62,13 +62,23 @@ showDialogMessage(BuildContext context, Word word) {
             ),
             actions: [
               IconButton(
+                icon: const Icon(Icons.copy),
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(
+                      text:
+                          'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary'));
+                  showSnackBarMessage(context, 'সফলভাবে কপি হয়েছে',
+                      'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}');
+                },
+              ),
+              IconButton(
                 icon: const Icon(Icons.share),
                 onPressed: () {
                   SharePlus.instance.share(
                     ShareParams(
                       text:
-                          'শুদ্ধ - ${word.correct}\nঅশুদ্ধ - ${word.incorrect}\n\nশুদ্ধ ও অশুদ্ধ শব্দ পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary',
-                      subject: 'শুদ্ধ ও অশুদ্ধ শব্দ',
+                          'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary',
+                      subject: 'সঠিক ও ভুল বানান',
                       sharePositionOrigin: Rect.fromLTWH(100, 0, 0, 100),
                     ),
                   );
