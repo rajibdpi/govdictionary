@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // showDialogMessage()
 showDialogMessage(BuildContext context, Word word) {
@@ -45,7 +46,7 @@ showDialogMessage(BuildContext context, Word word) {
                         ClipboardData(text: word.incorrect));
                     if (!context.mounted) return;
                     showSnackBarMessage(context,
-                        'অসঠিক বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
+                        'ভুল বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
                   },
                   label: Text(word.incorrect),
                   icon: const Icon(
@@ -61,6 +62,23 @@ showDialogMessage(BuildContext context, Word word) {
               icon: const Icon(Icons.info_outline),
             ),
             actions: [
+              IconButton(
+                icon: const Icon(Icons.info_outline),
+                onPressed: () {
+                  print('Icon pressed');
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.link),
+                onPressed: () {
+                  launchUrl(
+                    Uri.parse(
+                      'https://play.google.com/store/apps/details?id=com.govdictionary',
+                    ),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
               IconButton(
                 icon: const Icon(Icons.copy),
                 onPressed: () {
