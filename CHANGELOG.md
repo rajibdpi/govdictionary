@@ -1,6 +1,6 @@
 # সরকারি কাজে ব্যবহারিক বাংলা - Changelog
 
-## [1.0.0] - 2024-01
+## [1.0.0] - 2024-03-21
 
 ### Features
 - Modern Material Design 3 UI with Bengali typography
@@ -19,30 +19,7 @@
 - Responsive UI with smooth animations
 - Robust error handling and user feedback
 - Clean architecture with Provider pattern
-- Cross-platform compatibility (iOS, Android, Web)
-
-### Coming Soon
-- Push notifications for dictionary updates
-- Enhanced word details view
-- Additional customization options
-- Performance optimizations
-
-### Note
-- The notification feature is currently under development
-- For feedback and support, please visit the GitHub repository
-
-## [1.0.0] - 2024-03-21
-
-### Added
-- Initial release of GovDictionary
-- Cross-platform support for macOS, Windows, Linux, Android, and iOS
-- Core dictionary functionality with word search and definitions
-- Modern UI with theme support
-- Notification system
-- Settings page for app customization
-- About page with app information
-- Offline data support with local storage
-- Real-time connectivity status monitoring
+- Cross-platform compatibility (iOS, Android, Web, Desktop)
 
 ### Dependencies
 - Flutter SDK: >=3.3.4 <4.0.0
@@ -63,3 +40,13 @@
 - macOS: 10.14 or higher
 - Windows: Windows 10 or higher
 - Linux: GTK 3.0 or higher
+
+### Coming Soon
+- Push notifications for dictionary updates
+- Enhanced word details view
+- Additional customization options
+- Performance optimizations
+
+### Note
+- The notification feature is currently under development
+- For feedback and support, please visit the GitHub repository
