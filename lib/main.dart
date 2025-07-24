@@ -280,20 +280,20 @@ class WordPageState extends State<WordPage> {
                             title: Row(
                               children: [
                                 Text(
-                                  word.correct,
+                                  'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.normal,
-                                    color: Colors.teal,
+                                    color: Colors.black,
                                   ),
                                 ),
-                                const Text(' - '),
-                                Text(
-                                  word.incorrect,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.red,
-                                  ),
-                                ),
+                                // const Text(' - '),
+                                // Text(
+                                //   word.incorrect,
+                                //   style: const TextStyle(
+                                //     fontWeight: FontWeight.normal,
+                                //     color: Colors.red,
+                                //   ),
+                                // ),
                               ],
                             ),
                             leading: CircleAvatar(
