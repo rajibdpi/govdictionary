@@ -20,39 +20,44 @@ showDialogMessage(BuildContext context, Word word) {
             ),
             scrollable: true,
             titleTextStyle: const TextStyle(fontSize: 16, color: Colors.black),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
+            content: Row(
               children: [
-                TextButton.icon(
-                  onPressed: () async {
-                    if (!context.mounted) return;
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    await Clipboard.setData(ClipboardData(text: word.correct));
-                    if (!context.mounted) return;
-                    showSnackBarMessage(context,
-                        'সঠিক বানানটি সফলভাবে কপি হয়েছে', word.correct);
-                  },
-                  label: Text(word.correct),
-                  icon: const Icon(
-                    Icons.check_circle_outlined,
-                    color: Colors.green,
-                  ),
-                ),
-                TextButton.icon(
-                  onPressed: () async {
-                    if (!context.mounted) return;
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    await Clipboard.setData(
-                        ClipboardData(text: word.incorrect));
-                    if (!context.mounted) return;
-                    showSnackBarMessage(context,
-                        'ভুল বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
-                  },
-                  label: Text(word.incorrect),
-                  icon: const Icon(
-                    Icons.highlight_off,
-                    color: Colors.red,
-                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton.icon(
+                      onPressed: () async {
+                        if (!context.mounted) return;
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        await Clipboard.setData(
+                            ClipboardData(text: word.correct));
+                        if (!context.mounted) return;
+                        showSnackBarMessage(context,
+                            'সঠিক বানানটি সফলভাবে কপি হয়েছে', word.correct);
+                      },
+                      label: Text(word.correct),
+                      icon: const Icon(
+                        Icons.check_circle_outlined,
+                        color: Colors.green,
+                      ),
+                    ),
+                    TextButton.icon(
+                      onPressed: () async {
+                        if (!context.mounted) return;
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        await Clipboard.setData(
+                            ClipboardData(text: word.incorrect));
+                        if (!context.mounted) return;
+                        showSnackBarMessage(context,
+                            'ভুল বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
+                      },
+                      label: Text(word.incorrect),
+                      icon: const Icon(
+                        Icons.highlight_off,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

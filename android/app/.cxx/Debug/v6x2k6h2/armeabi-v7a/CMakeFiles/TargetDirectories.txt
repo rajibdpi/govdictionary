@@ -1,0 +1,2 @@
+/Users/rajib/github/govdictionary/android/app/.cxx/Debug/v6x2k6h2/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/rajib/github/govdictionary/android/app/.cxx/Debug/v6x2k6h2/armeabi-v7a/CMakeFiles/rebuild_cache.dir
