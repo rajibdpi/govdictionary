@@ -280,7 +280,6 @@ class WordPageState extends State<WordPage> {
                             title: Row(
                               children: [
                                 Text(
-                                  // '✔️ ${word.correct}',
                                   word.correct,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.normal,
@@ -289,7 +288,6 @@ class WordPageState extends State<WordPage> {
                                 ),
                                 const Text(' - '),
                                 Text(
-                                  // '❌ ${word.incorrect}',
                                   word.incorrect,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.normal,
