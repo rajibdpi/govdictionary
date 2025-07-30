@@ -1,5 +1,5 @@
 name: govdictionary
-description: "A new Flutter project."
+description: "সরকারি কাজে ব্যবহৃত বাংলা | এই অ্যাপটি সরকারি কাজের জন্য ব্যবহৃত বিভিন্ন শব্দ ও তাদের অর্থ প্রদান করে।"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
