@@ -71,23 +71,23 @@ showDialogMessage(BuildContext context, Word word) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.info_outline),
-                      onPressed: () {
-                        print('Icon pressed');
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.link),
-                      onPressed: () {
-                        launchUrl(
-                          Uri.parse(
-                            'https://play.google.com/store/apps/details?id=com.govdictionary',
-                          ),
-                          mode: LaunchMode.externalApplication,
-                        );
-                      },
-                    ),
+                    // IconButton(
+                    //   icon: const Icon(Icons.info_outline),
+                    //   onPressed: () {
+                    //     print('Icon pressed');
+                    //   },
+                    // ),
+                    // IconButton(
+                    //   icon: const Icon(Icons.link),
+                    //   onPressed: () {
+                    //     launchUrl(
+                    //       Uri.parse(
+                    //         'https://play.google.com/store/apps/details?id=com.govdictionary',
+                    //       ),
+                    //       mode: LaunchMode.externalApplication,
+                    //     );
+                    //   },
+                    // ),
                     IconButton(
                       icon: const Icon(Icons.copy),
                       onPressed: () {
