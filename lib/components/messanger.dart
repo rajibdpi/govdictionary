@@ -63,7 +63,7 @@ showDialogMessage(BuildContext context, Word word) {
             ),
             icon: TextButton.icon(
               onPressed: null,
-              label: const Text("কপি করতে চাইলে ট্যাপ করুন"),
+              label: const Text("কপি করতে ট্যাপ করুন"),
               icon: const Icon(Icons.info_outline),
             ),
             actions: <Widget>[
