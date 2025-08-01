@@ -14,6 +14,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider<ThemeController>(
       create: (_) => ThemeController(),
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appName,
-      theme: themeController.currentTheme,
+      theme: themeController
+          .updatedTheme, // Use updatedTheme for dynamic font size
       home: const WordPage(),
     );
   }
@@ -48,8 +50,8 @@ class WordPageState extends State<WordPage> {
   late List<Word> allWords;
   late List<Word> filteredWords = [];
   late String updateAtDateTime;
-  bool isLoading = true; // Track loading state
-  bool isLoadingMore = false; // Track pagination loading state
+  bool isLoading = true;
+  bool isLoadingMore = false;
   bool isSearchBarOpen = true;
   int? selectedItemIndex;
   TextEditingController searchController = TextEditingController();
@@ -57,7 +59,6 @@ class WordPageState extends State<WordPage> {
   int _currentPage = 0;
   static const int _itemsPerPage = 50;
 
-  // connectivity
   List<ConnectivityResult> connectionStatus = [ConnectivityResult.none];
   final Connectivity connectivity = Connectivity();
   late StreamSubscription<List<ConnectivityResult>> connectivitySubscription;
@@ -72,53 +73,45 @@ class WordPageState extends State<WordPage> {
     _scrollController.addListener(_onScroll);
   }
 
-  //dispose
   @override
   void dispose() {
     connectivitySubscription.cancel();
     _scrollController.dispose();
+    searchController.dispose();
     super.dispose();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initConnectivity() async {
     late List<ConnectivityResult> result;
     try {
       result = await connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      debugPrint('Couldn\'t check connectivity $e');
+      debugPrint('Couldn\'t check connectivity: $e');
       return;
     }
     if (!mounted) return;
     updateConnectionStatus(result);
   }
 
-  //updateConnectionStatus connectionStatus
   Future<void> updateConnectionStatus(List<ConnectivityResult> result) async {
     setState(() {
       connectionStatus = result;
     });
-    // debugPrint('Connectivity changed: $connectionStatus');
   }
 
-  //checkConnectionStatus
-  checkConnectionStatus(List<dynamic> connectionStatusList) {
-    return connectionStatusList.map(
-      (connection) {
-        return connection.toString() == 'ConnectivityResult.none'
-            ? false
-            : true;
-      },
-    ).join(',');
+  String checkConnectionStatus(List<dynamic> connectionStatusList) {
+    return connectionStatusList
+        .map((connection) => connection.toString() == 'ConnectivityResult.none'
+            ? 'false'
+            : 'true')
+        .join(',');
   }
 
-  //loadWords
   Future<void> loadWords() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/$appDatabaseName');
       if (await file.exists()) {
-        // If the file exists locally, load data from it
         final localJsonString = await file.readAsString();
         final List<dynamic> localJsonData = jsonDecode(localJsonString);
         setState(() {
@@ -127,10 +120,8 @@ class WordPageState extends State<WordPage> {
           originalWords = List.from(allWords);
           _loadMoreItems(true);
           isLoading = false;
-          // debugPrint('${directory.path}/$appDatabaseName');
         });
       } else {
-        // load from remoteFile
         final remoteFileResponse = await remoteFile;
         if (remoteFileResponse.statusCode == 200) {
           final remoteJsonString = remoteFileResponse.body;
@@ -151,7 +142,6 @@ class WordPageState extends State<WordPage> {
       }
     } catch (e) {
       debugPrint('Error loading JSON: $e');
-      // Handle error appropriately
       setState(() {
         isLoading = false;
       });
@@ -229,25 +219,31 @@ class WordPageState extends State<WordPage> {
             controller: searchController,
             autofocus: true,
             decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.search),
+              prefixIcon: Icon(Icons.search,
+                  color: Theme.of(context).colorScheme.secondary),
               suffixIcon: IconButton(
                 onPressed: () {
                   searchController.clear();
                   searchWords('');
                 },
-                icon: const Icon(Icons.clear),
+                icon: Icon(Icons.clear,
+                    color: Theme.of(context).colorScheme.secondary),
               ),
               labelText: 'শব্দ খুঁজুন',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
+              border: Theme.of(context).inputDecorationTheme.border,
+              enabledBorder:
+                  Theme.of(context).inputDecorationTheme.enabledBorder,
+              focusedBorder:
+                  Theme.of(context).inputDecorationTheme.focusedBorder,
+              labelStyle: Theme.of(context).inputDecorationTheme.labelStyle,
             ),
           ),
         ),
         Expanded(
           child: isLoading
-              ? const Center(
+              ? Center(
                   child: CircularProgressIndicator(
+                    color: Theme.of(context).colorScheme.primary,
                     semanticsLabel: 'Loading',
                   ),
                 )
@@ -261,35 +257,51 @@ class WordPageState extends State<WordPage> {
                             filteredWords.length + (isLoadingMore ? 1 : 0),
                         itemBuilder: (context, index) {
                           if (index == filteredWords.length && isLoadingMore) {
-                            return const Padding(
-                              padding: EdgeInsets.all(16.0),
+                            return Padding(
+                              padding: const EdgeInsets.all(16.0),
                               child: Center(
                                 child: SizedBox(
                                   height: 24,
                                   width: 24,
-                                  child:
-                                      CircularProgressIndicator(strokeWidth: 2),
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
                                 ),
                               ),
                             );
                           }
                           final word = filteredWords[index];
                           return ListTile(
-                            selectedTileColor: Colors.deepPurple.shade50,
+                            selectedTileColor: Theme.of(context)
+                                .listTileTheme
+                                .selectedTileColor,
                             selected: index == selectedItemIndex,
-                            title: Row(
-                              children: [
-                                Text(
-                                  'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
+                            title: Text(
+                              'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground,
+                                fontSize: Provider.of<ThemeController>(context)
+                                    .fontSize,
+                              ),
                             ),
                             leading: CircleAvatar(
-                              child: Text(word.correct[0]),
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.secondary,
+                              child: Text(
+                                word.correct[0],
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
+                                  fontSize:
+                                      Provider.of<ThemeController>(context)
+                                              .fontSize -
+                                          2,
+                                ),
+                              ),
                             ),
                             onTap: () {
                               showDialogMessage(context, word);
@@ -305,12 +317,24 @@ class WordPageState extends State<WordPage> {
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Colors.teal.shade100, Colors.teal.shade50],
+                          colors: [
+                            Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withOpacity(0.2),
+                            Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withOpacity(0.1),
+                          ],
                         ),
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withAlpha(25),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onBackground
+                                .withAlpha(25),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),
@@ -389,7 +413,9 @@ class WordPageState extends State<WordPage> {
                                     vertical: 2, horizontal: 4),
                                 decoration: BoxDecoration(
                                   color: searchController.text == letter
-                                      ? const Color.fromARGB(255, 109, 114, 114)
+                                      ? Theme.of(context)
+                                          .colorScheme
+                                          .secondary
                                           .withAlpha(51)
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(8),
@@ -398,9 +424,13 @@ class WordPageState extends State<WordPage> {
                                   child: Text(
                                     letter,
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize:
+                                          Provider.of<ThemeController>(context)
+                                              .fontSize,
                                       fontWeight: FontWeight.w500,
-                                      color: Colors.teal.shade700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
                                     ),
                                   ),
                                 ),
@@ -422,8 +452,9 @@ class WordPageState extends State<WordPage> {
       children: [
         Expanded(
           child: isLoading
-              ? const Center(
+              ? Center(
                   child: CircularProgressIndicator(
+                    color: Theme.of(context).colorScheme.primary,
                     semanticsLabel: 'Loading',
                   ),
                 )
@@ -439,21 +470,30 @@ class WordPageState extends State<WordPage> {
                     itemBuilder: (context, index) {
                       final word = filteredWords[index];
                       return ListTile(
-                        selectedTileColor: Colors.deepPurple.shade50,
+                        selectedTileColor:
+                            Theme.of(context).listTileTheme.selectedTileColor,
                         selected: index == selectedItemIndex,
-                        title: Row(
-                          children: [
-                            Text(
-                              'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
+                        title: Text(
+                          'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontSize:
+                                Provider.of<ThemeController>(context).fontSize,
+                          ),
                         ),
                         leading: CircleAvatar(
-                          child: Text(word.correct[0]),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondary,
+                          child: Text(
+                            word.correct[0],
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                              fontSize: Provider.of<ThemeController>(context)
+                                      .fontSize -
+                                  2,
+                            ),
+                          ),
                         ),
                         onTap: () {
                           showDialogMessage(context, word);
@@ -468,13 +508,17 @@ class WordPageState extends State<WordPage> {
   }
 
   final List notifications = ['hello'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           appName,
-          style: const TextStyle(fontSize: 16),
+          style: TextStyle(
+            fontSize: Provider.of<ThemeController>(context).fontSize,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         actions: [
           IconButton(
@@ -486,6 +530,7 @@ class WordPageState extends State<WordPage> {
               Provider.of<ThemeController>(context).isDarkMode
                   ? Icons.light_mode
                   : Icons.dark_mode,
+              color: Theme.of(context).appBarTheme.foregroundColor,
             ),
           ),
           IconButton(
@@ -494,11 +539,11 @@ class WordPageState extends State<WordPage> {
                 isSearchBarOpen = !isSearchBarOpen;
               });
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.search,
-              color: Colors.white,
+              color: Theme.of(context).appBarTheme.foregroundColor,
             ),
-          )
+          ),
         ],
       ),
       drawer: Drawer(
@@ -506,22 +551,31 @@ class WordPageState extends State<WordPage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Colors.teal,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
               ),
               child: Text(
                 appName,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
                 ),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('About'),
+              leading: Icon(
+                Icons.info,
+                color: Theme.of(context).listTileTheme.iconColor,
+              ),
+              title: Text(
+                'About',
+                style: TextStyle(
+                  color: Theme.of(context).listTileTheme.textColor,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
+                ),
+              ),
               onTap: () async {
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
                 if (!mounted) return;
                 await Navigator.of(context).push(
                   MaterialPageRoute(
@@ -534,10 +588,19 @@ class WordPageState extends State<WordPage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              leading: Icon(
+                Icons.settings,
+                color: Theme.of(context).listTileTheme.iconColor,
+              ),
+              title: Text(
+                'Settings',
+                style: TextStyle(
+                  color: Theme.of(context).listTileTheme.textColor,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
+                ),
+              ),
               onTap: () async {
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
                 if (!mounted) return;
                 await Navigator.of(context).push(
                   MaterialPageRoute(
@@ -547,10 +610,19 @@ class WordPageState extends State<WordPage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.update),
-              title: const Text('Check for Update'),
+              leading: Icon(
+                Icons.update,
+                color: Theme.of(context).listTileTheme.iconColor,
+              ),
+              title: Text(
+                'Check for Update',
+                style: TextStyle(
+                  color: Theme.of(context).listTileTheme.textColor,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
+                ),
+              ),
               onTap: () async {
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
                 if (!mounted) return;
                 final stats = await fileStats();
                 if (!mounted) return;
@@ -558,12 +630,34 @@ class WordPageState extends State<WordPage> {
                   showDialog(
                     context: context,
                     builder: (BuildContext dialogContext) => AlertDialog(
-                      title: const Text('Last Update'),
-                      content: Text('${stats["UpdatedAt"]}'),
+                      title: Text(
+                        'Last Update',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onBackground,
+                          fontSize:
+                              Provider.of<ThemeController>(context).fontSize,
+                        ),
+                      ),
+                      content: Text(
+                        '${stats["UpdatedAt"]}',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onBackground,
+                          fontSize:
+                              Provider.of<ThemeController>(context).fontSize -
+                                  2,
+                        ),
+                      ),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(dialogContext),
-                          child: const Text('Close'),
+                          child: Text(
+                            'Close',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: Provider.of<ThemeController>(context)
+                                  .fontSize,
+                            ),
+                          ),
                         ),
                       ],
                     ),
