@@ -220,14 +220,16 @@ class WordPageState extends State<WordPage> {
             autofocus: true,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.search,
-                  color: Theme.of(context).colorScheme.secondary),
+                  color:
+                      Theme.of(context).inputDecorationTheme.prefixIconColor),
               suffixIcon: IconButton(
                 onPressed: () {
                   searchController.clear();
                   searchWords('');
                 },
                 icon: Icon(Icons.clear,
-                    color: Theme.of(context).colorScheme.secondary),
+                    color:
+                        Theme.of(context).inputDecorationTheme.prefixIconColor),
               ),
               labelText: 'শব্দ খুঁজুন',
               border: Theme.of(context).inputDecorationTheme.border,
@@ -317,8 +319,14 @@ class WordPageState extends State<WordPage> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Theme.of(context).colorScheme.primary,
-                            Theme.of(context).colorScheme.secondary,
+                            Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withValues(alpha: 100),
+                            Theme.of(context)
+                                .colorScheme
+                                .secondary
+                                .withValues(alpha: 10)
                           ],
                         ),
                         borderRadius: BorderRadius.circular(12),
