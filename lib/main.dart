@@ -286,14 +286,6 @@ class WordPageState extends State<WordPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                // const Text(' - '),
-                                // Text(
-                                //   word.incorrect,
-                                //   style: const TextStyle(
-                                //     fontWeight: FontWeight.normal,
-                                //     color: Colors.red,
-                                //   ),
-                                // ),
                               ],
                             ),
                             leading: CircleAvatar(
@@ -452,25 +444,16 @@ class WordPageState extends State<WordPage> {
                         title: Row(
                           children: [
                             Text(
-                              word.correct,
+                              'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
                               style: const TextStyle(
                                 fontWeight: FontWeight.normal,
-                                color: Colors.green,
-                              ),
-                            ),
-                            const Text(' - '),
-                            Text(
-                              word.incorrect,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red,
+                                color: Colors.black,
                               ),
                             ),
                           ],
                         ),
                         leading: CircleAvatar(
-                          child: Text(
-                              word.correct.isNotEmpty ? word.correct[0] : '?'),
+                          child: Text(word.correct[0]),
                         ),
                         onTap: () {
                           showDialogMessage(context, word);
