@@ -319,14 +319,8 @@ class WordPageState extends State<WordPage> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Theme.of(context)
-                                .colorScheme
-                                .secondary
-                                .withValues(alpha: 100),
-                            Theme.of(context)
-                                .colorScheme
-                                .secondary
-                                .withValues(alpha: 10)
+                            Colors.white.withAlpha(100),
+                            Colors.white.withAlpha(10)
                           ],
                         ),
                         borderRadius: BorderRadius.circular(12),
@@ -334,7 +328,7 @@ class WordPageState extends State<WordPage> {
                           BoxShadow(
                             color: Theme.of(context)
                                 .colorScheme
-                                .onSurface
+                                .secondary
                                 .withAlpha(25),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
