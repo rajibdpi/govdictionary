@@ -544,18 +544,18 @@ class WordPageState extends State<WordPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            // DrawerHeader(
-            //   decoration: BoxDecoration(
-            //     color: Theme.of(context).colorScheme.primary,
-            //   ),
-            //   child: Text(
-            //     appName,
-            //     style: TextStyle(
-            //       color: Theme.of(context).colorScheme.onPrimary,
-            //       fontSize: Provider.of<ThemeController>(context).fontSize,
-            //     ),
-            //   ),
-            // ),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              child: Text(
+                appName,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
+                ),
+              ),
+            ),
             ListTile(
               leading: Icon(
                 Icons.info,
