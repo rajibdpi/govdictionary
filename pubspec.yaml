@@ -1,11 +1,11 @@
 name: govdictionary
-description: "সরকারি কাজে ব্যবহৃত বাংলা | এই অ্যাপটি সরকারি কাজের জন্য ব্যবহৃত বিভিন্ন শব্দ ও তাদের অর্থ প্রদান করে।"
+description: "সরকারি কাজে ব্যবহৃত বাংলা | সরকারি দপ্তরের চিঠি-পত্রে শুদ্ধ বাংলা শব্দ ও বানানের নির্ভরযোগ্য অ্যাপ।"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # version
-version: 1.0.0+1
+version: 1.0.0+2
 
 # environment
 environment:
