@@ -5,7 +5,7 @@ description: "সরকারি কাজে ব্যবহৃত বাংল
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # version
-version: 1.0.0+2
+version: 1.0.0+3
 
 # environment
 environment:
