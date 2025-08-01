@@ -50,6 +50,7 @@ GovDictionary is a comprehensive Bengali dictionary application designed specifi
 
 4. Run the application:
    ```bash
+   dart run flutter_launcher_icons:generate
    flutter run
    ```
 
