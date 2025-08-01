@@ -282,8 +282,7 @@ class WordPageState extends State<WordPage> {
                               'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
                               style: TextStyle(
                                 fontWeight: FontWeight.normal,
-                                color:
-                                    Theme.of(context).colorScheme.onBackground,
+                                color: Theme.of(context).colorScheme.onSurface,
                                 fontSize: Provider.of<ThemeController>(context)
                                     .fontSize,
                               ),
@@ -471,7 +470,7 @@ class WordPageState extends State<WordPage> {
                           'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize:
                                 Provider.of<ThemeController>(context).fontSize,
                           ),
@@ -627,7 +626,7 @@ class WordPageState extends State<WordPage> {
                       title: Text(
                         'Last Update',
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
+                          color: Theme.of(context).colorScheme.onSurface,
                           fontSize:
                               Provider.of<ThemeController>(context).fontSize,
                         ),
@@ -635,7 +634,7 @@ class WordPageState extends State<WordPage> {
                       content: Text(
                         '${stats["UpdatedAt"]}',
                         style: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
+                          color: Theme.of(context).colorScheme.onSurface,
                           fontSize:
                               Provider.of<ThemeController>(context).fontSize -
                                   2,

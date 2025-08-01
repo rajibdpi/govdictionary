@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:govdictionary/components/theme_controller.dart';
-import 'package:govdictionary/components/utils.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -28,14 +27,14 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'থিম',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: themeController.fontSize,
               ),
             ),
             subtitle: Text(
               themeController.isDarkMode ? 'ডার্ক মোড' : 'লাইট মোড',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             trailing: Switch(
@@ -50,14 +49,14 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'ফন্ট সাইজ',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: themeController.fontSize,
               ),
             ),
             subtitle: Text(
               '${themeController.fontSize.toInt()}',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -76,14 +75,14 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'ভাষা',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: themeController.fontSize,
               ),
             ),
             subtitle: Text(
               themeController.language,
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -91,7 +90,7 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'বাংলা',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             onTap: () {
@@ -102,7 +101,7 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'English',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             onTap: () {
