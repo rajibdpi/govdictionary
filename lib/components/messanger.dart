@@ -75,7 +75,7 @@ showDialogMessage(BuildContext context, Word word) {
                       onPressed: () {
                         Clipboard.setData(ClipboardData(
                             text:
-                                'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary'));
+                                'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.tryplusit.govdictionary'));
                         showSnackBarMessage(context, 'সফলভাবে কপি হয়েছে',
                             'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}');
                       },
@@ -86,7 +86,7 @@ showDialogMessage(BuildContext context, Word word) {
                         SharePlus.instance.share(
                           ShareParams(
                             text:
-                                'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.govdictionary',
+                                'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.tryplusit.govdictionary',
                             subject: 'সঠিক ও ভুল বানান',
                             sharePositionOrigin: Rect.fromLTWH(100, 0, 0, 100),
                           ),
