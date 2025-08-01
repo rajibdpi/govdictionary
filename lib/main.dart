@@ -319,7 +319,7 @@ class WordPageState extends State<WordPage> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Colors.white.withAlpha(100),
+                            Colors.white.withAlpha(10),
                             Colors.white.withAlpha(10)
                           ],
                         ),

@@ -6,7 +6,8 @@ class AppColors {
   static const Color primaryDark = Color(0xFF4B4AEF); // Deeper Indigo
   static const Color accentLight =
       Color.fromARGB(255, 69, 123, 232); // Soft Sky Blue
-  static const Color accentDark = Color(0xFF4DD0E1); // Aqua Blue
+  static const Color accentDark =
+      Color.fromARGB(255, 117, 117, 128); // Aqua Blue
 
   // 🎨 Background Colors
   static const Color backgroundLight =
