@@ -1,4 +1,4 @@
-package com.example.govdictionary
+package com.tryplusit.govdictionary
 
 import io.flutter.embedding.android.FlutterActivity
 

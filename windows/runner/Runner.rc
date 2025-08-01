@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.tryplusit" "\0"
             VALUE "FileDescription", "govdictionary" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "govdictionary" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.tryplusit. All rights reserved." "\0"
             VALUE "OriginalFilename", "govdictionary.exe" "\0"
             VALUE "ProductName", "govdictionary" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
