@@ -1,6 +1,8 @@
 import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
+import 'package:govdictionary/components/theme_controller.dart';
 
 class AboutPage extends StatefulWidget {
   final String networkConnectionStatus;
@@ -15,11 +17,13 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.teal,
-        title: const Text(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
           "About",
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: TextStyle(
+            fontSize: Provider.of<ThemeController>(context).fontSize,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
       ),
       body: Padding(
