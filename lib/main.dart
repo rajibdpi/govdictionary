@@ -18,13 +18,13 @@ Future<void> main() async {
   runApp(
     ChangeNotifierProvider<ThemeController>(
       create: (_) => ThemeController(),
-      child: const MyApp(),
+      child: const DictionaryApp(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DictionaryApp extends StatelessWidget {
+  const DictionaryApp({super.key});
 
   @override
   Widget build(BuildContext context) {
