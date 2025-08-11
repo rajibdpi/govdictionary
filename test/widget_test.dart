@@ -17,7 +17,7 @@ void main() {
     await tester.pumpWidget(
       ChangeNotifierProvider<ThemeController>(
         create: (_) => ThemeController(),
-        child: const MyApp(),
+        child: const DictionaryApp(),
       ),
     );
 
