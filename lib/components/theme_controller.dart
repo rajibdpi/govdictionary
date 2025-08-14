@@ -71,10 +71,11 @@ class ThemeController extends ChangeNotifier {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.primaryLight,
-      foregroundColor: Colors.white,
+      foregroundColor: AppColors.textPrimaryLight,
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: AppColors.backgroundLight,
+      scrimColor: AppColors.textPrimaryLight,
     ),
     listTileTheme: const ListTileThemeData(
       selectedTileColor: AppColors.accentLight,
@@ -95,9 +96,9 @@ class ThemeController extends ChangeNotifier {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(25.0),
-        borderSide: const BorderSide(color: AppColors.primaryLight),
+        borderSide: const BorderSide(color: AppColors.textPrimaryLight),
       ),
-      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
+      labelStyle: const TextStyle(color: AppColors.textPrimaryLight),
     ),
     useMaterial3: true,
   );
@@ -110,8 +111,8 @@ class ThemeController extends ChangeNotifier {
       secondary: AppColors.accentDark,
       surface: AppColors.backgroundDark,
       error: AppColors.error,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
+      onPrimary: AppColors.textPrimaryLight,
+      onSecondary: AppColors.textPrimaryLight,
       onSurface: AppColors.textPrimaryDark,
     ),
     textTheme: TextTheme(

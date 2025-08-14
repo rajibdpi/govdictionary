@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:govdictionary/components/colors.dart';
 import 'package:govdictionary/components/messanger.dart';
 import 'package:govdictionary/components/theme_controller.dart';
 import 'package:govdictionary/components/utils.dart';
@@ -512,7 +513,7 @@ class WordPageState extends State<WordPage> {
           appName,
           style: TextStyle(
             fontSize: Provider.of<ThemeController>(context).fontSize,
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: AppColors.textPrimaryLight,
           ),
         ),
         actions: [
@@ -552,7 +553,7 @@ class WordPageState extends State<WordPage> {
               child: Text(
                 appName,
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: AppColors.textPrimaryLight,
                   fontSize: Provider.of<ThemeController>(context).fontSize,
                 ),
               ),
