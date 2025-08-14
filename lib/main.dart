@@ -513,7 +513,7 @@ class WordPageState extends State<WordPage> {
           appName,
           style: TextStyle(
             fontSize: Provider.of<ThemeController>(context).fontSize,
-            color: AppColors.textPrimaryLight,
+            color: AppColors.textSecondaryLight,
           ),
         ),
         actions: [
@@ -553,7 +553,7 @@ class WordPageState extends State<WordPage> {
               child: Text(
                 appName,
                 style: TextStyle(
-                  color: AppColors.textPrimaryLight,
+                  color: AppColors.textSecondaryLight,
                   fontSize: Provider.of<ThemeController>(context).fontSize,
                 ),
               ),

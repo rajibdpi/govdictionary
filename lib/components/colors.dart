@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // 🌈 Primary Colors (Kept original or adjust as you want)
   static const Color primaryLight = Color(0xFFE6EDFF); // Soft Indigo
-  static const Color primaryDark = Color(0xFFD1DBF3); // Deeper Indigo
+  static const Color primaryDark = Color(0xFF1F2937); // Deeper Indigo
   static const Color accentLight =
       Color.fromARGB(255, 69, 123, 232); // Soft Sky Blue
   static const Color accentDark =

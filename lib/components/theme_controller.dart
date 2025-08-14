@@ -111,8 +111,8 @@ class ThemeController extends ChangeNotifier {
       secondary: AppColors.accentDark,
       surface: AppColors.backgroundDark,
       error: AppColors.error,
-      onPrimary: AppColors.textPrimaryLight,
-      onSecondary: AppColors.textPrimaryLight,
+      onPrimary: AppColors.textPrimaryDark,
+      onSecondary: AppColors.textPrimaryDark,
       onSurface: AppColors.textPrimaryDark,
     ),
     textTheme: TextTheme(
