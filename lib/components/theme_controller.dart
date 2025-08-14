@@ -147,7 +147,7 @@ class ThemeController extends ChangeNotifier {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(25.0),
-        borderSide: const BorderSide(color: AppColors.primaryDark),
+        borderSide: const BorderSide(color: AppColors.primaryLight),
       ),
       labelStyle: const TextStyle(color: AppColors.textSecondaryDark),
     ),
