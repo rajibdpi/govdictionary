@@ -1,3 +1,4 @@
+import 'package:govdictionary/components/colors.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,7 +23,7 @@ class _AboutPageState extends State<AboutPage> {
           "About",
           style: TextStyle(
             fontSize: Provider.of<ThemeController>(context).fontSize,
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: AppColors.accentDark,
           ),
         ),
       ),

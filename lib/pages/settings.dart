@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:govdictionary/components/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:govdictionary/components/theme_controller.dart';
 
@@ -12,9 +13,9 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'সেটিংস',
+          'Settings',
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: AppColors.accentDark,
             fontSize: themeController.fontSize,
           ),
         ),

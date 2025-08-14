@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // 🌈 Primary Colors (Kept original or adjust as you want)
   static const Color primaryLight = Color(0xFFE6EDFF); // Soft Indigo
-  static const Color primaryDark = Color(0xFF1F2937); // Deeper Indigo
+  static const Color primaryDark = Color(0xFF2E2E41); // Deeper Indigo
   static const Color accentLight =
       Color.fromARGB(255, 69, 123, 232); // Soft Sky Blue
   static const Color accentDark =
@@ -11,14 +11,16 @@ class AppColors {
 
   // 🎨 Background Colors (from image)
   static const Color backgroundLight = Color(0xFFE6EDFF); // Light bluish
-  static const Color backgroundDark = Color(0xFF1E1E2E); // Soft dark
+  static const Color backgroundDark = Color(0xFF2E2E41); // Soft dark
 
   // ✍️ Text Colors (from image & adjusted for contrast)
+  static const Color textColor = Color(0xFF778899); // Muted gray
   static const Color textPrimaryLight = Color(0xFF1F2937); // Dark gray
   static const Color textSecondaryLight = Color(0xFF6B7280); // Muted gray
   static const Color textPrimaryDark = Color(0xFFFFFFFF); // White
   static const Color textSecondaryDark = Color(0xFFE7ECFF); // Soft light blue
 
+  static const Color textLink = Color(0xFF778899); // Soft blue
   // ⚡ Status Colors (Kept original)
   static const Color error = Color(0xFFEF4444); // Soft red
   static const Color success = Color(0xFF10B981); // Soft green
