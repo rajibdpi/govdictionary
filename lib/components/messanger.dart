@@ -34,7 +34,8 @@ showDialogMessage(BuildContext context, Word word) {
                         showSnackBarMessage(context,
                             'সঠিক বানানটি সফলভাবে কপি হয়েছে', word.correct);
                       },
-                      label: Text(word.correct),
+                      label: Text(word.correct,
+                          style: const TextStyle(color: Colors.green)),
                       icon: const Icon(
                         Icons.check_circle_outlined,
                         color: Colors.green,
@@ -50,7 +51,8 @@ showDialogMessage(BuildContext context, Word word) {
                         showSnackBarMessage(context,
                             'ভুল বানানটি সফলভাবে কপি হয়েছে', word.incorrect);
                       },
-                      label: Text(word.incorrect),
+                      label: Text(word.incorrect,
+                          style: const TextStyle(color: Colors.red)),
                       icon: const Icon(
                         Icons.highlight_off,
                         color: Colors.red,
