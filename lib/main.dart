@@ -291,8 +291,7 @@ class WordPageState extends State<WordPage> {
                               ),
                             ),
                             leading: CircleAvatar(
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.secondary,
+                              backgroundColor: AppColors.textColor,
                               child: Text(
                                 word.correct[0],
                                 style: TextStyle(
