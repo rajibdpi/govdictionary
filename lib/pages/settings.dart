@@ -28,7 +28,7 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'থিম',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
+                color: AppColors.primaryDark,
                 fontSize: themeController.fontSize,
               ),
             ),
@@ -61,15 +61,26 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
           ),
-          Slider(
-            value: themeController.fontSize,
-            min: 12.0,
-            max: 24.0,
-            divisions: 12,
-            label: themeController.fontSize.toInt().toString(),
-            onChanged: (value) {
-              themeController.setFontSize(value);
-            },
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: AppColors.textColor,
+              inactiveTrackColor: AppColors.textSecondaryLight,
+              thumbColor: AppColors.accentDark,
+              // overlayColor: AppColors.accentLight,
+              // pointerColor is not a valid property in SliderThemeData.
+              // If you meant 'thumbColor', it's already set above.
+              // If you want to customize the value indicator, use 'valueIndicatorColor'.
+            ),
+            child: Slider(
+              value: themeController.fontSize,
+              min: 12.0,
+              max: 24.0,
+              divisions: 12,
+              label: themeController.fontSize.toInt().toString(),
+              onChanged: (value) {
+                themeController.setFontSize(value);
+              },
+            ),
           ),
           // Language Selection
           ListTile(
