@@ -66,6 +66,9 @@ class SettingsPage extends StatelessWidget {
               activeTrackColor: AppColors.textColor,
               inactiveTrackColor: AppColors.textSecondaryLight,
               thumbColor: AppColors.accentDark,
+              valueIndicatorColor: themeController.isDarkMode
+                  ? AppColors.accentLight
+                  : AppColors.accentDark,
               // overlayColor: AppColors.accentLight,
               // pointerColor is not a valid property in SliderThemeData.
               // If you meant 'thumbColor', it's already set above.
