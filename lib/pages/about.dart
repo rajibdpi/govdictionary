@@ -23,7 +23,7 @@ class _AboutPageState extends State<AboutPage> {
           "About",
           style: TextStyle(
             fontSize: Provider.of<ThemeController>(context).fontSize,
-            color: AppColors.accentDark,
+            color: Theme.of(context).appBarTheme.foregroundColor,
           ),
         ),
       ),

@@ -15,7 +15,7 @@ class SettingsPage extends StatelessWidget {
         title: Text(
           'Settings',
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: Theme.of(context).appBarTheme.foregroundColor,
             fontSize: themeController.fontSize,
           ),
         ),
