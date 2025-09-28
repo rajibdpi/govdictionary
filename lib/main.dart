@@ -578,7 +578,7 @@ class WordPageState extends State<WordPage> {
           appName,
           style: TextStyle(
             fontSize: Provider.of<ThemeController>(context).fontSize,
-            color: AppColors.textSecondaryLight,
+            color: Theme.of(context).appBarTheme.foregroundColor,
           ),
         ),
         actions: [
