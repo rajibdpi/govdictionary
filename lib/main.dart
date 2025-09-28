@@ -302,7 +302,7 @@ class WordPageState extends State<WordPage> {
           child: TextField(
             onChanged: searchWords,
             controller: searchController,
-            autofocus: true,
+            // autofocus: true,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.search,
                   color:
