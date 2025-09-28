@@ -15,7 +15,7 @@ class SettingsPage extends StatelessWidget {
         title: Text(
           'Settings',
           style: TextStyle(
-            color: AppColors.accentDark,
+            color: Theme.of(context).colorScheme.onSurface,
             fontSize: themeController.fontSize,
           ),
         ),
@@ -28,7 +28,7 @@ class SettingsPage extends StatelessWidget {
             title: Text(
               'থিম',
               style: TextStyle(
-                color: AppColors.primaryDark,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: themeController.fontSize,
               ),
             ),
@@ -39,6 +39,7 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
             trailing: Switch(
+              activeTrackColor: AppColors.textColor,
               value: themeController.isDarkMode,
               onChanged: (value) {
                 themeController.toggleTheme();
@@ -67,7 +68,7 @@ class SettingsPage extends StatelessWidget {
               inactiveTrackColor: AppColors.textSecondaryLight,
               thumbColor: AppColors.accentDark,
               valueIndicatorColor: themeController.isDarkMode
-                  ? AppColors.accentLight
+                  ? AppColors.textColor
                   : AppColors.accentDark,
               // overlayColor: AppColors.accentLight,
               // pointerColor is not a valid property in SliderThemeData.
