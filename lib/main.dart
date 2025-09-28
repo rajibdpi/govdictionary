@@ -17,8 +17,15 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    ChangeNotifierProvider<ThemeController>(
-      create: (_) => ThemeController(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeController>(
+            create: (_) => ThemeController()),
+        ChangeNotifierProvider<HomePageStateProvider>(
+            create: (_) => HomePageStateProvider()),
+        ChangeNotifierProvider<WordPageStateProvider>(
+            create: (_) => WordPageStateProvider()),
+      ],
       child: const DictionaryApp(),
     ),
   );
@@ -33,10 +40,101 @@ class DictionaryApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appName,
-      theme: themeController
-          .updatedTheme, // Use updatedTheme for dynamic font size
-      home: const WordPage(),
+      theme: themeController.updatedTheme,
+      home: const HomePage(),
     );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    final homePageStateProvider = Provider.of<HomePageStateProvider>(context);
+    final wordPageStateProvider = Provider.of<WordPageStateProvider>(context);
+
+    // List of pages to display based on bottom navigation
+    final List<Widget> pages = [
+      const WordPage(),
+      AboutPage(
+          networkConnectionStatus:
+              wordPageStateProvider.checkConnectionStatus()),
+      const SettingsPage(),
+      const UpdatePage(),
+    ];
+
+    return Scaffold(
+      body: pages[homePageStateProvider.selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: 'About',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.update),
+            label: 'Update',
+          ),
+        ],
+        currentIndex: homePageStateProvider.selectedIndex,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor:
+            Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+        onTap: (index) => homePageStateProvider.setSelectedIndex(index),
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyle(
+          fontSize: Provider.of<ThemeController>(context).fontSize - 2,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: Provider.of<ThemeController>(context).fontSize - 4,
+        ),
+      ),
+    );
+  }
+}
+
+// Provider to manage HomePage state
+class HomePageStateProvider extends ChangeNotifier {
+  int _selectedIndex = 0;
+
+  int get selectedIndex => _selectedIndex;
+
+  void setSelectedIndex(int index) {
+    _selectedIndex = index;
+    notifyListeners();
+  }
+}
+
+// Provider to share WordPageState's connectivity status
+class WordPageStateProvider extends ChangeNotifier {
+  List<ConnectivityResult> _connectionStatus = [ConnectivityResult.none];
+
+  List<ConnectivityResult> get connectionStatus => _connectionStatus;
+
+  void updateConnectionStatus(List<ConnectivityResult> status) {
+    _connectionStatus = status;
+    notifyListeners();
+  }
+
+  String checkConnectionStatus() {
+    return _connectionStatus
+        .map((connection) =>
+            connection == ConnectivityResult.none ? 'false' : 'true')
+        .join(',');
   }
 }
 
@@ -50,7 +148,6 @@ class WordPage extends StatefulWidget {
 class WordPageState extends State<WordPage> {
   late List<Word> allWords;
   late List<Word> filteredWords = [];
-  late String updateAtDateTime;
   bool isLoading = true;
   bool isLoadingMore = false;
   bool isSearchBarOpen = true;
@@ -60,7 +157,6 @@ class WordPageState extends State<WordPage> {
   int _currentPage = 0;
   static const int _itemsPerPage = 50;
 
-  List<ConnectivityResult> connectionStatus = [ConnectivityResult.none];
   final Connectivity connectivity = Connectivity();
   late StreamSubscription<List<ConnectivityResult>> connectivitySubscription;
 
@@ -69,8 +165,10 @@ class WordPageState extends State<WordPage> {
     super.initState();
     loadWords();
     initConnectivity();
-    connectivitySubscription =
-        connectivity.onConnectivityChanged.listen(updateConnectionStatus);
+    connectivitySubscription = connectivity.onConnectivityChanged.listen(
+      (status) => Provider.of<WordPageStateProvider>(context, listen: false)
+          .updateConnectionStatus(status),
+    );
     _scrollController.addListener(_onScroll);
   }
 
@@ -91,21 +189,8 @@ class WordPageState extends State<WordPage> {
       return;
     }
     if (!mounted) return;
-    updateConnectionStatus(result);
-  }
-
-  Future<void> updateConnectionStatus(List<ConnectivityResult> result) async {
-    setState(() {
-      connectionStatus = result;
-    });
-  }
-
-  String checkConnectionStatus(List<dynamic> connectionStatusList) {
-    return connectionStatusList
-        .map((connection) => connection.toString() == 'ConnectivityResult.none'
-            ? 'false'
-            : 'true')
-        .join(',');
+    Provider.of<WordPageStateProvider>(context, listen: false)
+        .updateConnectionStatus(result);
   }
 
   Future<void> loadWords() async {
@@ -243,200 +328,183 @@ class WordPageState extends State<WordPage> {
           ),
         ),
         Expanded(
-          child: isLoading
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).colorScheme.primary,
-                    semanticsLabel: 'Loading',
-                  ),
-                )
-              : Row(
-                  children: [
-                    Expanded(
-                      flex: 5,
-                      child: ListView.builder(
-                        controller: _scrollController,
-                        itemCount:
-                            filteredWords.length + (isLoadingMore ? 1 : 0),
-                        itemBuilder: (context, index) {
-                          if (index == filteredWords.length && isLoadingMore) {
-                            return Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Center(
-                                child: SizedBox(
-                                  height: 24,
-                                  width: 24,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                          final word = filteredWords[index];
-                          return ListTile(
-                            selectedTileColor: Theme.of(context)
-                                .listTileTheme
-                                .selectedTileColor,
-                            selected: index == selectedItemIndex,
-                            title: Text(
-                              'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                fontSize: Provider.of<ThemeController>(context)
-                                    .fontSize,
-                              ),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 5,
+                child: ListView.builder(
+                  controller: _scrollController,
+                  itemCount: filteredWords.length + (isLoadingMore ? 1 : 0),
+                  itemBuilder: (context, index) {
+                    if (index == filteredWords.length && isLoadingMore) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Center(
+                          child: SizedBox(
+                            height: 24,
+                            width: 24,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
-                            leading: CircleAvatar(
-                              backgroundColor: AppColors.textColor,
-                              child: Text(
-                                word.correct[0],
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.onSecondary,
-                                  fontSize:
-                                      Provider.of<ThemeController>(context)
-                                              .fontSize -
-                                          2,
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              showDialogMessage(context, word);
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                    Container(
-                      width: 45,
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white.withAlpha(10),
-                            Colors.white.withAlpha(10)
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondary
-                                .withAlpha(25),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
                           ),
-                        ],
+                        ),
+                      );
+                    }
+                    final word = filteredWords[index];
+                    return ListTile(
+                      selectedTileColor:
+                          Theme.of(context).listTileTheme.selectedTileColor,
+                      selected: index == selectedItemIndex,
+                      title: Text(
+                        'সঠিক - ${word.correct}\nভুল - ${word.incorrect}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontSize:
+                              Provider.of<ThemeController>(context).fontSize,
+                        ),
                       ),
-                      child: ListView.builder(
-                        itemCount: 50,
-                        itemBuilder: (context, index) {
-                          final letter = index < 11
-                              ? [
-                                  'অ',
-                                  'আ',
-                                  'ই',
-                                  'ঈ',
-                                  'উ',
-                                  'ঊ',
-                                  'ঋ',
-                                  'এ',
-                                  'ঐ',
-                                  'ও',
-                                  'ঔ',
-                                ][index]
-                              : [
-                                  'ক',
-                                  'খ',
-                                  'গ',
-                                  'ঘ',
-                                  'ঙ',
-                                  'চ',
-                                  'ছ',
-                                  'জ',
-                                  'ঝ',
-                                  'ঞ',
-                                  'ট',
-                                  'ঠ',
-                                  'ড',
-                                  'ঢ',
-                                  'ণ',
-                                  'ত',
-                                  'থ',
-                                  'দ',
-                                  'ধ',
-                                  'ন',
-                                  'প',
-                                  'ফ',
-                                  'ব',
-                                  'ভ',
-                                  'ম',
-                                  'য',
-                                  'র',
-                                  'ল',
-                                  'শ',
-                                  'ষ',
-                                  'স',
-                                  'হ',
-                                  'ড়',
-                                  'ঢ়',
-                                  'য়',
-                                  'ৎ',
-                                  'ং',
-                                  'ঃ',
-                                  'ঁ'
-                                ][index - 11];
-                          return Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {
-                                final query = letter;
-                                searchController.text = query;
-                                searchWords(query);
-                              },
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                height: 32,
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 2, horizontal: 4),
-                                decoration: BoxDecoration(
-                                  color: searchController.text == letter
-                                      ? Theme.of(context)
-                                          .colorScheme
-                                          .secondary
-                                          .withAlpha(51)
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    letter,
-                                    style: TextStyle(
-                                      fontSize:
-                                          Provider.of<ThemeController>(context)
-                                              .fontSize,
-                                      fontWeight: FontWeight.w500,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
+                      leading: CircleAvatar(
+                        backgroundColor: AppColors.textColor,
+                        child: Text(
+                          word.correct[0],
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSecondary,
+                            fontSize:
+                                Provider.of<ThemeController>(context).fontSize -
+                                    2,
+                          ),
+                        ),
                       ),
+                      onTap: () {
+                        showDialogMessage(context, word);
+                      },
+                    );
+                  },
+                ),
+              ),
+              Container(
+                width: 45,
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.white.withAlpha(10),
+                      Colors.white.withAlpha(10)
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          Theme.of(context).colorScheme.secondary.withAlpha(25),
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
                     ),
                   ],
                 ),
+                child: ListView.builder(
+                  itemCount: 50,
+                  itemBuilder: (context, index) {
+                    final letter = index < 11
+                        ? [
+                            'অ',
+                            'আ',
+                            'ই',
+                            'ঈ',
+                            'উ',
+                            'ঊ',
+                            'ঋ',
+                            'এ',
+                            'ঐ',
+                            'ও',
+                            'ঔ',
+                          ][index]
+                        : [
+                            'ক',
+                            'খ',
+                            'গ',
+                            'ঘ',
+                            'ঙ',
+                            'চ',
+                            'ছ',
+                            'জ',
+                            'ঝ',
+                            'ঞ',
+                            'ট',
+                            'ঠ',
+                            'ড',
+                            'ঢ',
+                            'ণ',
+                            'ত',
+                            'থ',
+                            'দ',
+                            'ধ',
+                            'ন',
+                            'প',
+                            'ফ',
+                            'ব',
+                            'ভ',
+                            'ম',
+                            'য',
+                            'র',
+                            'ল',
+                            'শ',
+                            'ষ',
+                            'স',
+                            'হ',
+                            'ড়',
+                            'ঢ়',
+                            'য়',
+                            'ৎ',
+                            'ং',
+                            'ঃ',
+                            'ঁ'
+                          ][index - 11];
+                    return Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          final query = letter;
+                          searchController.text = query;
+                          searchWords(query);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          height: 32,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 2, horizontal: 4),
+                          decoration: BoxDecoration(
+                            color: searchController.text == letter
+                                ? Theme.of(context)
+                                    .colorScheme
+                                    .secondary
+                                    .withAlpha(51)
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              letter,
+                              style: TextStyle(
+                                fontSize: Provider.of<ThemeController>(context)
+                                    .fontSize,
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -541,128 +609,6 @@ class WordPageState extends State<WordPage> {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              child: Text(
-                appName,
-                style: TextStyle(
-                  color: AppColors.textSecondaryLight,
-                  fontSize: Provider.of<ThemeController>(context).fontSize,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.info,
-                color: Theme.of(context).listTileTheme.iconColor,
-              ),
-              title: Text(
-                'About',
-                style: TextStyle(
-                  color: Theme.of(context).listTileTheme.textColor,
-                  fontSize: Provider.of<ThemeController>(context).fontSize,
-                ),
-              ),
-              onTap: () async {
-                Navigator.pop(context);
-                if (!mounted) return;
-                await Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => AboutPage(
-                      networkConnectionStatus:
-                          checkConnectionStatus(connectionStatus),
-                    ),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.settings,
-                color: Theme.of(context).listTileTheme.iconColor,
-              ),
-              title: Text(
-                'Settings',
-                style: TextStyle(
-                  color: Theme.of(context).listTileTheme.textColor,
-                  fontSize: Provider.of<ThemeController>(context).fontSize,
-                ),
-              ),
-              onTap: () async {
-                Navigator.pop(context);
-                if (!mounted) return;
-                await Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsPage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.update,
-                color: Theme.of(context).listTileTheme.iconColor,
-              ),
-              title: Text(
-                'Check for Update',
-                style: TextStyle(
-                  color: Theme.of(context).listTileTheme.textColor,
-                  fontSize: Provider.of<ThemeController>(context).fontSize,
-                ),
-              ),
-              onTap: () async {
-                Navigator.pop(context);
-                if (!mounted) return;
-                final stats = await fileStats();
-                if (!mounted) return;
-                if (context.mounted) {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext dialogContext) => AlertDialog(
-                      title: Text(
-                        'Last Update',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fontSize:
-                              Provider.of<ThemeController>(context).fontSize,
-                        ),
-                      ),
-                      content: Text(
-                        '${stats["UpdatedAt"]}',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fontSize:
-                              Provider.of<ThemeController>(context).fontSize -
-                                  2,
-                        ),
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(dialogContext),
-                          child: Text(
-                            'Close',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontSize: Provider.of<ThemeController>(context)
-                                  .fontSize,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              },
-            ),
-          ],
-        ),
-      ),
       body: isSearchBarOpen
           ? Padding(
               padding: const EdgeInsets.all(8.0),
@@ -672,6 +618,67 @@ class WordPageState extends State<WordPage> {
               padding: const EdgeInsets.all(8.0),
               child: withOutSearchBar(),
             ),
+    );
+  }
+}
+
+class UpdatePage extends StatelessWidget {
+  const UpdatePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Check for Update',
+          style: TextStyle(
+            fontSize: Provider.of<ThemeController>(context).fontSize,
+            color: AppColors.textSecondaryLight,
+          ),
+        ),
+      ),
+      body: Center(
+        child: FutureBuilder<Map>(
+          future: fileStats(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator(
+                color: Theme.of(context).colorScheme.primary,
+              );
+            } else if (snapshot.hasError) {
+              return Text(
+                'Error loading update info',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontSize: Provider.of<ThemeController>(context).fontSize,
+                ),
+              );
+            } else {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Last Update',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontSize: Provider.of<ThemeController>(context).fontSize,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${snapshot.data?["UpdatedAt"] ?? "Unknown"}',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontSize:
+                          Provider.of<ThemeController>(context).fontSize - 2,
+                    ),
+                  ),
+                ],
+              );
+            }
+          },
+        ),
+      ),
     );
   }
 }

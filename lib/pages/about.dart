@@ -66,7 +66,7 @@ class _AboutPageState extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Author Information',
+                          'App Developer',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
@@ -76,10 +76,10 @@ class _AboutPageState extends State<AboutPage> {
                             'Rajib Ahmed',
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
-                          subtitle: Text(
-                            'Software Developer',
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          // subtitle: Text(
+                          //   'App Developer',
+                          //   style: Theme.of(context).textTheme.bodyMedium,
+                          // ),
                         ),
                         const SizedBox(height: 16),
                         Row(
