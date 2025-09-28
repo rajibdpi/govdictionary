@@ -74,26 +74,25 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: AppColors.textColor),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.info, color: AppColors.textColor),
             label: 'About',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings, color: AppColors.textColor),
             label: 'Settings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.update),
+            icon: Icon(Icons.update, color: AppColors.textColor),
             label: 'Update',
           ),
         ],
         currentIndex: homePageStateProvider.selectedIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor:
-            Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+        selectedItemColor: AppColors.textColor,
+        unselectedItemColor: AppColors.textSecondaryLight,
         onTap: (index) => homePageStateProvider.setSelectedIndex(index),
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
