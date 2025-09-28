@@ -26,15 +26,31 @@ Future<Map> fileStats() async {
   DateTime localUpdatedDateTime = localFileStat.modified;
   String updatedAt = localUpdatedDateTime.toString();
   return {
-    'UpdatedAt': updatedAt,
-    'LocalFileSize': localFileSize,
-    'RemotefileSize': remotefileSize
+    'Last Updated': updatedAt,
+    'Local File Size': _formatSize(localFileSize),
+    'Remote File Size': _formatSize(remotefileSize)
   };
 }
 
 // checkUpdate
 bool updateAvailable() {
   return localFileSize != remotefileSize;
+}
+
+// Helper function to format file sizes
+String _formatSize(int bytes) {
+  switch (bytes) {
+    case < 1024:
+      return '$bytes B';
+    case < 1024 * 1024:
+      return '${(bytes / 1024).toStringAsFixed(2)} KB';
+    case < 1024 * 1024 * 1024:
+      return '${(bytes / (1024 * 1024)).toStringAsFixed(2)} MB';
+    case < 1024 * 1024 * 1024 * 1024:
+      return '${(bytes / (1024 * 1024 * 1024)).toStringAsFixed(2)} GB';
+    default:
+      return '${(bytes / (1024 * 1024 * 1024 * 1024)).toStringAsFixed(2)} TB';
+  }
 }
 
 // saveUpdate
