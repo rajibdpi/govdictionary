@@ -71,7 +71,14 @@ class ThemeController extends ChangeNotifier {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.primaryLight,
-      foregroundColor: AppColors.textPrimaryLight,
+      foregroundColor: Color(0xFF224075),
+      // backgroundColor: AppColors.primaryLight,
+      // foregroundColor: AppColors.textPrimaryLight,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: AppColors.primaryLight,
+      selectedItemColor: Color(0xFF224075),
+      unselectedItemColor: AppColors.primaryLight,
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: AppColors.backgroundLight,

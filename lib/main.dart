@@ -74,46 +74,71 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: Color.fromARGB(0, 173, 154, 154),
             icon: homePageStateProvider.selectedIndex == 0
-                ? Icon(Icons.home, color: Colors.blueAccent)
-                : Icon(Icons.home_outlined, color: Colors.blueAccent),
+                ? Icon(Icons.home,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor)
+                : Icon(Icons.home_outlined,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor),
             // icon: Icon(Icons.home, color: AppColors.textColor),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: homePageStateProvider.selectedIndex == 1
-                ? Icon(Icons.info, color: Colors.blueAccent)
-                : Icon(Icons.info_outline, color: Colors.blueAccent),
+                ? Icon(Icons.info,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor)
+                : Icon(Icons.info_outline,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor),
             // icon: Icon(Icons.info, color: AppColors.textColor),
             label: 'About',
           ),
           BottomNavigationBarItem(
             icon: homePageStateProvider.selectedIndex == 2
-                ? Icon(Icons.settings, color: Colors.blueAccent)
-                : Icon(Icons.settings_outlined, color: Colors.blueAccent),
+                ? Icon(Icons.settings,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor)
+                : Icon(Icons.settings_outlined,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor),
             // icon: Icon(Icons.settings, color: AppColors.textColor),
             label: 'Settings',
           ),
           BottomNavigationBarItem(
             icon: homePageStateProvider.selectedIndex == 3
-                ? Icon(Icons.update, color: Colors.blueAccent)
-                : Icon(Icons.update_outlined, color: Colors.blueAccent),
+                ? Icon(Icons.update,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor)
+                : Icon(Icons.update_outlined,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor),
             // icon: Icon(Icons.update, color: AppColors.textColor),
             label: 'Update',
           ),
         ],
         currentIndex: homePageStateProvider.selectedIndex,
-        selectedItemColor: Colors.blueAccent,
-        unselectedItemColor: AppColors.textSecondaryLight,
+        selectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+        unselectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
         onTap: (index) => homePageStateProvider.setSelectedIndex(index),
         type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: TextStyle(
-          fontSize: Provider.of<ThemeController>(context).fontSize - 2,
-        ),
-        unselectedLabelStyle: TextStyle(
-          fontSize: Provider.of<ThemeController>(context).fontSize - 4,
-        ),
+        // selectedLabelStyle: TextStyle(
+        //   fontSize: Provider.of<ThemeController>(context).fontSize - 2,
+        // ),
+        // unselectedLabelStyle: TextStyle(
+        //   fontSize: Provider.of<ThemeController>(context).fontSize - 4,
+        // ),
       ),
     );
   }
@@ -381,7 +406,7 @@ class WordPageState extends State<WordPage> {
                         ),
                       ),
                       leading: CircleAvatar(
-                        backgroundColor: AppColors.textColor,
+                        backgroundColor: const Color(0xFF224075),
                         child: Text(
                           word.correct[0],
                           style: TextStyle(
@@ -561,7 +586,7 @@ class WordPageState extends State<WordPage> {
                           ),
                         ),
                         leading: CircleAvatar(
-                          backgroundColor: AppColors.textColor,
+                          backgroundColor: const Color(0xFF224075),
                           child: Text(
                             word.correct[0],
                             style: TextStyle(
