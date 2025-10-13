@@ -47,7 +47,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-
+    ndkVersion "27.0.12077973"
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.tryplusit.govdictionary"
@@ -58,15 +58,28 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    def keystoreProperties = new Properties()
+    def keystorePropertiesFile = rootProject.file("key.properties")
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
 
     signingConfigs {
         release {
-            keyAlias keyProperties['keyAlias']
-            keyPassword keyProperties['keyPassword']
-            storeFile keyProperties['storeFile'] ? file(keyProperties['storeFile']) : null
-            storePassword keyProperties['storePassword']
+            storeFile file(keystoreProperties["storeFile"])
+            storePassword keystoreProperties["storePassword"]
+            keyAlias keystoreProperties["keyAlias"]
+            keyPassword keystoreProperties["keyPassword"]
         }
     }
+    // signingConfigs {
+    //     release {
+    //         keyAlias keyProperties['keyAlias']
+    //         keyPassword keyProperties['keyPassword']
+    //         storeFile keyProperties['storeFile'] ? file(keyProperties['storeFile']) : null
+    //         storePassword keyProperties['storePassword']
+    //     }
+    // }
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -75,10 +88,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    // ndk {
-    //     debugSymbolLevel 'FULL'
-    // }
 }
 
 flutter {
