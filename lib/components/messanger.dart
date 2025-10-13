@@ -4,7 +4,7 @@ import 'package:govdictionary/models/word.dart';
 import 'package:share_plus/share_plus.dart';
 
 // showDialogMessage()
-showDialogMessage(BuildContext context, Word word) {
+void showDialogMessage(BuildContext context, Word word) {
   if (!context.mounted) return;
   Future.delayed(
     Duration.zero,
@@ -113,7 +113,7 @@ showDialogMessage(BuildContext context, Word word) {
 }
 
 // showSnackBarMessage()
-showSnackBarMessage(BuildContext context, String title, String content) {
+void showSnackBarMessage(BuildContext context, String title, String content) {
   if (!context.mounted) return;
   Future.delayed(
     Duration.zero,
