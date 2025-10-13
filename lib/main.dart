@@ -72,26 +72,39 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[homePageStateProvider.selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: AppColors.textColor),
+            backgroundColor: Color.fromARGB(0, 173, 154, 154),
+            icon: homePageStateProvider.selectedIndex == 0
+                ? Icon(Icons.home, color: Colors.blueAccent)
+                : Icon(Icons.home_outlined, color: Colors.blueAccent),
+            // icon: Icon(Icons.home, color: AppColors.textColor),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info, color: AppColors.textColor),
+            icon: homePageStateProvider.selectedIndex == 1
+                ? Icon(Icons.info, color: Colors.blueAccent)
+                : Icon(Icons.info_outline, color: Colors.blueAccent),
+            // icon: Icon(Icons.info, color: AppColors.textColor),
             label: 'About',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings, color: AppColors.textColor),
+            icon: homePageStateProvider.selectedIndex == 2
+                ? Icon(Icons.settings, color: Colors.blueAccent)
+                : Icon(Icons.settings_outlined, color: Colors.blueAccent),
+            // icon: Icon(Icons.settings, color: AppColors.textColor),
             label: 'Settings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.update, color: AppColors.textColor),
+            icon: homePageStateProvider.selectedIndex == 3
+                ? Icon(Icons.update, color: Colors.blueAccent)
+                : Icon(Icons.update_outlined, color: Colors.blueAccent),
+            // icon: Icon(Icons.update, color: AppColors.textColor),
             label: 'Update',
           ),
         ],
         currentIndex: homePageStateProvider.selectedIndex,
-        selectedItemColor: AppColors.textColor,
+        selectedItemColor: Colors.blueAccent,
         unselectedItemColor: AppColors.textSecondaryLight,
         onTap: (index) => homePageStateProvider.setSelectedIndex(index),
         type: BottomNavigationBarType.fixed,
@@ -165,8 +178,11 @@ class WordPageState extends State<WordPage> {
     loadWords();
     initConnectivity();
     connectivitySubscription = connectivity.onConnectivityChanged.listen(
-      (status) => Provider.of<WordPageStateProvider>(context, listen: false)
-          .updateConnectionStatus(status),
+      (status) {
+        if (!mounted) return;
+        Provider.of<WordPageStateProvider>(context, listen: false)
+            .updateConnectionStatus(status);
+      },
     );
     _scrollController.addListener(_onScroll);
   }
