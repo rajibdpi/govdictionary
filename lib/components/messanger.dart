@@ -128,27 +128,28 @@ void showSnackBarMessage(BuildContext context, String title, String content) {
           // duration: const Duration(seconds: 3),
           action: SnackBarAction(
             label: 'X',
-            textColor: AppColors.textLink,
+            // textColor: AppColors.textLink,
             onPressed: () {
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
             },
           ),
           content: ListTile(
+            textColor: Colors.white,
             title: Text(
               title,
-              style: const TextStyle(color: AppColors.textColor, fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
             subtitle: Text(
               content,
-              style: const TextStyle(color: AppColors.textColor, fontSize: 14),
+              style: const TextStyle(fontSize: 14),
             ),
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
           backgroundColor:
-              const Color(0xFFE6EDFF), // Changed to teal for better visibility
+              const Color(0xFF224075), // Changed to teal for better visibility
         ),
       );
     },
