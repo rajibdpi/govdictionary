@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:govdictionary/components/colors.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -121,23 +122,34 @@ void showSnackBarMessage(BuildContext context, String title, String content) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          behavior: SnackBarBehavior.floating,
+          // duration: const Duration(seconds: 3),
+          action: SnackBarAction(
+            label: 'X',
+            textColor: AppColors.textLink,
+            onPressed: () {
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
           content: ListTile(
             title: Text(
               title,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: AppColors.textColor, fontSize: 16),
             ),
             subtitle: Text(
               content,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: AppColors.textColor, fontSize: 14),
             ),
           ),
-          showCloseIcon: true,
-          closeIconColor: Colors.white,
+          // showCloseIcon: true,
+          // closeIconColor: AppColors.textPrimaryLight,
           shape: RoundedRectangleBorder(
-            side: const BorderSide(color: Colors.teal, width: 1.5),
-            borderRadius: BorderRadius.circular(2),
+            // side: const BorderSide(color: Colors.teal, width: 1.5),
+            borderRadius: BorderRadius.circular(5),
           ),
-          backgroundColor: Colors.teal, // Changed to teal for better visibility
+          backgroundColor:
+              const Color(0xFFE6EDFF), // Changed to teal for better visibility
         ),
       );
     },
