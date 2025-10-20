@@ -81,6 +81,7 @@ void showDialogMessage(BuildContext context, Word word) {
                                 'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}\n\nসঠিক ও ভুল বানান পেতে অ্যাপটি ডাউনলোড করুন-> https://play.google.com/store/apps/details?id=com.tryplusit.govdictionary'));
                         showSnackBarMessage(context, 'সফলভাবে কপি হয়েছে',
                             'সঠিক বানান - ${word.correct}\nভুল বানান - ${word.incorrect}');
+                        Navigator.of(context).pop();
                       },
                     ),
                     IconButton(
@@ -94,6 +95,7 @@ void showDialogMessage(BuildContext context, Word word) {
                             sharePositionOrigin: Rect.fromLTWH(100, 0, 0, 100),
                           ),
                         );
+                        Navigator.of(context).pop();
                       },
                     ),
                     IconButton(
@@ -142,10 +144,7 @@ void showSnackBarMessage(BuildContext context, String title, String content) {
               style: const TextStyle(color: AppColors.textColor, fontSize: 14),
             ),
           ),
-          // showCloseIcon: true,
-          // closeIconColor: AppColors.textPrimaryLight,
           shape: RoundedRectangleBorder(
-            // side: const BorderSide(color: Colors.teal, width: 1.5),
             borderRadius: BorderRadius.circular(5),
           ),
           backgroundColor:
