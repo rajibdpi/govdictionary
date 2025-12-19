@@ -71,6 +71,11 @@ class _AboutPageState extends State<AboutPage> {
                         const SizedBox(height: 16),
                         ListTile(
                           contentPadding: EdgeInsets.zero,
+                          leading: const CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/images/author.jpg'),
+                          ),
                           title: Text(
                             'Rajib Ahmed',
                             style: Theme.of(context).textTheme.titleMedium,
@@ -89,7 +94,7 @@ class _AboutPageState extends State<AboutPage> {
                               onPressed: () {
                                 final Uri emailLaunchUri = Uri(
                                   scheme: 'mailto',
-                                  path: 'rajibahmed.cse@gmail.com',
+                                  path: 'rajibdpi@gmail.com',
                                 );
                                 try {
                                   launchUrl(emailLaunchUri,
@@ -198,7 +203,7 @@ class _AboutPageState extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'App Information',
+                          'Words Stats',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
@@ -232,7 +237,7 @@ class _AboutPageState extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Updates',
+                          'Update',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
@@ -250,8 +255,8 @@ class _AboutPageState extends State<AboutPage> {
                             ),
                             label: Text(
                               updateAvailable() == true
-                                  ? 'Update Available'
-                                  : 'Already Updated',
+                                  ? 'Update available'
+                                  : 'Already updated',
                             ),
                           ),
                         ),
