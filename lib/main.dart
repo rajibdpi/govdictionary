@@ -8,6 +8,7 @@ import 'package:govdictionary/components/theme_controller.dart';
 import 'package:govdictionary/components/utils.dart';
 import 'package:govdictionary/models/word.dart';
 import 'package:govdictionary/pages/about.dart';
+import 'package:govdictionary/pages/profile.dart';
 import 'package:govdictionary/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -66,7 +67,8 @@ class _HomePageState extends State<HomePage> {
           networkConnectionStatus:
               wordPageStateProvider.checkConnectionStatus()),
       const SettingsPage(),
-      const UpdatePage(),
+      const ProfilePage(),
+      // const UpdatePage(),
     ];
 
     return Scaffold(
@@ -87,19 +89,6 @@ class _HomePageState extends State<HomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: homePageStateProvider.selectedIndex == 1
-                ? Icon(Icons.info,
-                    color: Theme.of(context)
-                        .bottomNavigationBarTheme
-                        .selectedItemColor)
-                : Icon(Icons.info_outline,
-                    color: Theme.of(context)
-                        .bottomNavigationBarTheme
-                        .selectedItemColor),
-            // icon: Icon(Icons.info, color: AppColors.textColor),
-            label: 'About',
-          ),
-          BottomNavigationBarItem(
             icon: homePageStateProvider.selectedIndex == 2
                 ? Icon(Icons.settings,
                     color: Theme.of(context)
@@ -113,17 +102,30 @@ class _HomePageState extends State<HomePage> {
             label: 'Settings',
           ),
           BottomNavigationBarItem(
-            icon: homePageStateProvider.selectedIndex == 3
-                ? Icon(Icons.update,
+            icon: homePageStateProvider.selectedIndex == 1
+                ? Icon(Icons.info,
                     color: Theme.of(context)
                         .bottomNavigationBarTheme
                         .selectedItemColor)
-                : Icon(Icons.update_outlined,
+                : Icon(Icons.info_outline,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor),
+            // icon: Icon(Icons.info, color: AppColors.textColor),
+            label: 'About',
+          ),
+          BottomNavigationBarItem(
+            icon: homePageStateProvider.selectedIndex == 3
+                ? Icon(Icons.person,
+                    color: Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor)
+                : Icon(Icons.person_outlined,
                     color: Theme.of(context)
                         .bottomNavigationBarTheme
                         .selectedItemColor),
             // icon: Icon(Icons.update, color: AppColors.textColor),
-            label: 'Update',
+            label: 'Profile',
           ),
         ],
         currentIndex: homePageStateProvider.selectedIndex,
