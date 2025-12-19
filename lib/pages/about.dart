@@ -75,6 +75,8 @@ class _AboutPageState extends State<AboutPage> {
                             radius: 30,
                             backgroundImage:
                                 AssetImage('assets/images/author.jpg'),
+                            // NetworkImage(
+                            //     'https://avatars.githubusercontent.com/u/16264930'),
                           ),
                           title: Text(
                             'Rajib Ahmed',
